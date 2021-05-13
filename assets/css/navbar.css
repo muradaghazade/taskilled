@@ -1,0 +1,82 @@
+.nav {
+  padding: 20px;
+
+  box-shadow: 0px 6px 8px 1px rgba(34, 60, 80, 0.14);
+}
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+.title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.title ul {
+  display: flex;
+  justify-content: space-around;
+}
+.title ul li {
+  margin: 0 30px 0 30px;
+}
+.title ul li a {
+  font-family: "Signika", sans-serif;
+  color: #000;
+}
+.nav__input input {
+  width: 100%;
+  padding: 15px 70px 15px 2rem;
+  border: 1px solid grey;
+  outline: none;
+}
+.nav__input i {
+  position: absolute;
+  left: 79rem;
+  top: 37px;
+  color: grey;
+}
+.logo a {
+  color: grey;
+  font-size: 48px;
+  font-weight: 500;
+  font-family: "Signika", sans-serif;
+}
+.logo span {
+  background-color: #fff700;
+}
+.basket i {
+  margin-left: 70px;
+  color: grey;
+  font-size: 22px;
+}
+.buttons :nth-child(1) {
+  color: blue;
+  background-color: transparent;
+  border: 1px solid blue;
+  opacity: 0.8;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.5s;
+}
+
+.buttons :nth-child(1):hover {
+  background-color: blue;
+  opacity: 0.5;
+  color: #fff;
+  transition: 0.5s;
+}
+.buttons :nth-child(2) {
+  color: #fff;
+  background-color: grey;
+  border: 1px solid grey;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.buttons :nth-child(2):hover {
+  transition: 0.5s;
+  background-color: transparent;
+  color: grey;
+  border: 1px solid grey;
+}
