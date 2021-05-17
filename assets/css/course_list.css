@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .section__learn_english{
-background-color: rgb(226, 221, 221);
+background-color: rgb(245, 243, 243);
 }
 
 .section__learn_english_container{
@@ -14,7 +14,7 @@ background-color: rgb(226, 221, 221);
 }
 .sort_by_btn{
     color: darkturquoise;
-    background-color:  rgb(226, 221, 221);
+    background-color: rgb(245, 243, 243);
     border: none;
     padding: 10px;
 }
@@ -24,7 +24,7 @@ background-color: rgb(226, 221, 221);
 }
 .sort_by_btn__child{
     color: darkturquoise;
-    background-color:  rgb(226, 221, 221);
+    background-color: rgb(245, 243, 243);
     border: none;
     
 }
