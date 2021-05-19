@@ -37,7 +37,7 @@ class Question(models.Model):
     description = models.TextField('Description')
     correct_answer = models.CharField('Correct answer',max_length=125)
     
-    type = models.CharField('Tipler',max_length=50, choices=type_choise)
+    question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
     is_auto = models.BooleanField('Is aouto', default=1)
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='question')
