@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <title>{% block title %} Home {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <a href="https://icons8.com/icon/1500/plus"></a>
+    <a href="https://icons8.com/icon/82889/info"></a>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    
+    {% comment %} <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"> {% endcomment %}
+    
+    
+    
+    
+    
+    {% block css %}
+
+    {% endblock %}
+</head>
+
+<body>
+ {% comment %} {% include 'includes/navbar.html' %}  {% endcomment %}
+    
+    {% block content %}
+
+    {% endblock %}
+
+    
+    {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
+
+
+
+
+    
+
+
+
+    {% block js %}
+    {% endblock %}
+
+</body>
+
+</html>
