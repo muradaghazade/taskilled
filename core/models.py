@@ -18,8 +18,8 @@ class Course(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta():
-        verbose_name = 'Kurs'
-        verbose_name_plural = 'Kurslar'
+        verbose_name = 'Course'
+        verbose_name_plural = 'Courses'
         # ordering = ('-created_at', '-title')
 
     def __str__(self):
