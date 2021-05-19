@@ -8,7 +8,7 @@ class Course(models.Model):
     techer = models.ForeignKey(User,on_delete=models.CASCADE, db_index=True, related_name='course_teacher')
     price = models.DecimalField('Price',max_digits=6, decimal_places=2)
     image = models.ImageField('Image',upload_to='images/')
-    description = models.TextField('Ddescription')
+    description = models.TextField('Description')
     course_deadline = models.IntegerField('Deadline',blank=True)
     minimum_age = models.IntegerField('Minimum age',blank=True,null=False)
     is_shared = models.BooleanField('is shared',default=0)
@@ -20,6 +20,36 @@ class Course(models.Model):
     class Meta():
         verbose_name = 'Course'
         verbose_name_plural = 'Courses'
+        # ordering = ('-created_at', '-title')
+
+    def __str__(self):
+        return f"{self.title}" 
+
+
+class Option(models.Model):
+    content = models.CharField('Title',max_length=255)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta():
+        verbose_name = 'Option'
+        verbose_name_plural = 'Options'
+        # ordering = ('-created_at', '-title')
+
+    def __str__(self):
+        return f"{self.content}" 
+
+class Subject(models.Model):
+    title = models.CharField('Title',max_length=50)
+    deadline = models.DateTimeField(null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta():
+        verbose_name = 'Subject'
+        verbose_name_plural = 'Subjects'
         # ordering = ('-created_at', '-title')
 
     def __str__(self):
