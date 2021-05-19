@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import User
 from datetime import datetime
+from accounts.models import User
 
 # Create your models here.
 class Course(models.Model):
@@ -17,7 +18,7 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta():
+    class Meta:
         verbose_name = 'Course'
         verbose_name_plural = 'Courses'
         # ordering = ('-created_at', '-title')
@@ -26,16 +27,31 @@ class Course(models.Model):
         return f"{self.title}" 
 
 
+class UserAnswer(models.Model):
+    feedback = models.TextField('Feedback')
+    answer = models.CharField('Answer',max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order')
+    course = models.ForeignKey("Course", on_delete=models.CASCADE, db_index=True, related_name='the_order')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
+
 class Option(models.Model):
     content = models.CharField('Title',max_length=255)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta():
+    class Meta:
         verbose_name = 'Option'
         verbose_name_plural = 'Options'
-        # ordering = ('-created_at', '-title')
 
     def __str__(self):
         return f"{self.content}" 
@@ -47,10 +63,9 @@ class Subject(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta():
+    class Meta:
         verbose_name = 'Subject'
         verbose_name_plural = 'Subjects'
-        # ordering = ('-created_at', '-title')
 
     def __str__(self):
         return f"{self.title}" 
