@@ -21,13 +21,11 @@ class Course(models.Model):
     class Meta:
         verbose_name = 'Course'
         verbose_name_plural = 'Courses'
-        # ordering = ('-created_at', '-title')
 
     def __str__(self):
         return f"{self.title}" 
 
 
-<<<<<<< HEAD
 class Question(models.Model):
     type_choise =  [
         ('1', 'Test'),
@@ -42,16 +40,18 @@ class Question(models.Model):
     type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
     is_auto = models.BooleanField('Is aouto', default=1)
-    # subject = models.ForeignKey()
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='question')
 
     class Meta():
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
-        # ordering = ('-created_at', '-title')
-=======
+
+    def __str__(self):
+        return f"{self.title}" 
+
 class UserAnswer(models.Model):
     feedback = models.TextField('Feedback')
-    answer = models.CharField('Answer',max_length=50)
+    question = models.ForeignKey('Question', on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
 
 class Order(models.Model):
@@ -67,6 +67,7 @@ class Order(models.Model):
 
 class Option(models.Model):
     content = models.CharField('Title',max_length=255)
+    question = models.ForeignKey('Question', on_delete=models.CASCADE, db_index=True, related_name='option')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -92,8 +93,3 @@ class Subject(models.Model):
     def __str__(self):
         return f"{self.title}" 
 
-
->>>>>>> f1be68744ad492efd468914411c5909a78362d39
-
-    def __str__(self):
-        return f"{self.title}" 
