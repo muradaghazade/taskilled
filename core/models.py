@@ -26,4 +26,26 @@ class Course(models.Model):
         return f"{self.title}" 
 
 
+class Question(models.Model):
+    type_choise =  [
+        ('1', 'Test'),
+        ('2', 'Video'),
+        ('3', ' Voice Record'),
+        ('4', ' Text'),
+    ]
+    title = models.CharField('Title',max_length=50)
+    description = models.TextField('Description')
+    correct_answer = models.CharField('Correct answer',max_length=125)
+    
+    type = models.CharField('Tipler',max_length=50, choices=type_choise)
+    
+    is_auto = models.BooleanField('Is aouto', default=1)
+    # subject = models.ForeignKey()
 
+    class Meta():
+        verbose_name = 'Question'
+        verbose_name_plural = 'Questions'
+        # ordering = ('-created_at', '-title')
+
+    def __str__(self):
+        return f"{self.title}" 
