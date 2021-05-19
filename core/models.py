@@ -27,7 +27,6 @@ class Course(models.Model):
         return f"{self.title}" 
 
 
-<<<<<<< HEAD
 class Question(models.Model):
     type_choise =  [
         ('1', 'Test'),
@@ -48,7 +47,9 @@ class Question(models.Model):
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
         # ordering = ('-created_at', '-title')
-=======
+
+    def __str__(self):
+        return f"{self.title}"
 class UserAnswer(models.Model):
     feedback = models.TextField('Feedback')
     answer = models.CharField('Answer',max_length=50)
@@ -93,7 +94,5 @@ class Subject(models.Model):
         return f"{self.title}" 
 
 
->>>>>>> f1be68744ad492efd468914411c5909a78362d39
 
-    def __str__(self):
-        return f"{self.title}" 
+     
