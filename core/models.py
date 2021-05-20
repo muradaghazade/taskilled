@@ -37,9 +37,10 @@ class Question(models.Model):
     description = models.TextField('Description')
     correct_answer = models.CharField('Correct answer',max_length=125)
     
-    type = models.CharField('Tipler',max_length=50, choices=type_choise)
+    question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
     is_auto = models.BooleanField('Is aouto', default=1)
+    is_success = models.BooleanField('Is aouto', default=0)
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='question')
 
     class Meta():
@@ -82,6 +83,7 @@ class Option(models.Model):
 class Subject(models.Model):
     title = models.CharField('Title',max_length=50)
     deadline = models.DateTimeField(null=True)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, db_index=True, related_name='subject')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
