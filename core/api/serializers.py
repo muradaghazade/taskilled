@@ -1,7 +1,6 @@
 from django.db import models
-from core.models import Course
+from core.models import Course, Subject
 from rest_framework import serializers
-from core.models import Course
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,3 +23,20 @@ class CourseSerializer(serializers.ModelSerializer):
         course.save()
 
         return course
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
+        fields = ('id', 'title', 'deadline', 'course')
+
+
+    def create(self, validated_data):
+        subject = Subject.objects.create(
+            title=validated_data['title'],
+            deadline=validated_data['deadline'],
+            course=validated_data['course']
+        )
+
+        subject.save()
+
+        return subject
