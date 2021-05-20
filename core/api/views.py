@@ -1,8 +1,8 @@
 from django.db.models import query
 from rest_framework.generics import CreateAPIView, ListAPIView
-from core.models import Course
+from core.models import Course, Question, Subject
 from rest_framework.views import APIView
-from .serializers import CourseSerializer
+from .serializers import CourseSerializer, QuestionSerializer, SubjectSerializer
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -36,3 +36,37 @@ class CourseDetailAPIView(APIView):
         course = get_object_or_404(Course, pk=kwargs['id'])
         course.delete()
         return Response("Course deleted", status=status.HTTP_204_NO_CONTENT)
+
+class CreateSubjectAPIView(CreateAPIView):
+    model = Subject
+    serializer_class = SubjectSerializer
+
+class SubjectListAPIView(ListAPIView):
+    serializer_class = SubjectSerializer
+    def get_queryset(self):
+        queryset = Subject.objects.order_by('id')
+        return queryset
+
+class SubjectDetailAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        subject = get_object_or_404(Subject, pk=kwargs['id'])
+        serializer = SubjectSerializer(subject)
+        return Response(serializer.data)
+
+    def patch(self, request, *args, **kwargs):
+        subject = get_object_or_404(Subject, pk=kwargs['id'])
+        serializer = SubjectSerializer(subject, data=request.data, partial=True)
+        if serializer.is_valid():
+            subject = serializer.save()
+            return Response(SubjectSerializer(subject).data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        subject = get_object_or_404(Subject, pk=kwargs['id'])
+        subject.delete()
+        return Response("Subject deleted", status=status.HTTP_204_NO_CONTENT)
+
+
+class QuestionCreateAPIView(CreateAPIView):
+    model = Question
+    serializer_class = QuestionSerializer
