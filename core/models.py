@@ -6,14 +6,14 @@ from accounts.models import User
 # Create your models here.
 class Course(models.Model):
     title = models.CharField('Title',max_length=50)
-    techer = models.ForeignKey(User,on_delete=models.CASCADE, db_index=True, related_name='course_teacher')
+    teacher = models.ForeignKey(User,on_delete=models.CASCADE, db_index=True, related_name='course_teacher')
     price = models.DecimalField('Price',max_digits=6, decimal_places=2)
     image = models.ImageField('Image',upload_to='images/')
     description = models.TextField('Description')
     course_deadline = models.IntegerField('Deadline',blank=True)
     minimum_age = models.IntegerField('Minimum age',blank=True,null=False)
     is_shared = models.BooleanField('is shared',default=0)
-    shared_at = models.DateTimeField('shared_at')
+    # shared_at = models.DateTimeField('shared_at')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -40,6 +40,7 @@ class Question(models.Model):
     question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
     is_auto = models.BooleanField('Is aouto', default=1)
+    is_success = models.BooleanField('Is aouto', default=0)
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='question')
 
     class Meta():
@@ -82,6 +83,7 @@ class Option(models.Model):
 class Subject(models.Model):
     title = models.CharField('Title',max_length=50)
     deadline = models.DateTimeField(null=True)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, db_index=True, related_name='subject')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
