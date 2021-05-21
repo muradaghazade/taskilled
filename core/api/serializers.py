@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import Course, Subject, Question
+from core.models import Course, Option, Subject, Question
 from rest_framework import serializers
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -58,3 +58,18 @@ class QuestionSerializer(serializers.ModelSerializer):
         )
         question.save()
         return question
+
+
+class OptionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Option
+        fields = ('id', 'content', 'question')
+
+    def create(self, validated_data):
+        option = Option.objects.create(
+            content=validated_data['content'],
+            question=validated_data['question']
+        )
+        option.save()
+        return option
