@@ -39,9 +39,9 @@ class Question(models.Model):
     
     question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
-    is_auto = models.BooleanField('Is aouto', default=1)
-    is_success = models.BooleanField('Is aouto', default=0)
-    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='question')
+    is_auto = models.BooleanField('Is auto', default=1)
+    is_success = models.BooleanField('Is auto', default=0)
+    subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='questionn', null=True)
 
     class Meta():
         verbose_name = 'Question'
