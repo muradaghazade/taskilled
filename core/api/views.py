@@ -1,8 +1,8 @@
 from django.db.models import query
 from rest_framework.generics import CreateAPIView, ListAPIView
-from core.models import Course, Subject
+from core.models import Course, Subject, Question
 from rest_framework.views import APIView
-from .serializers import CourseSerializer, SubjectSerializer
+from .serializers import CourseSerializer, SubjectSerializer, QuestionSerializer
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -65,3 +65,7 @@ class SubjectDetailAPIView(APIView):
         subject = get_object_or_404(Subject, pk=kwargs['id'])
         subject.delete()
         return Response("Subject deleted", status=status.HTTP_204_NO_CONTENT)
+
+class QuestionCreateAPIView(CreateAPIView):
+    model = Question
+    serializer_class = QuestionSerializer
