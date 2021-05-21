@@ -11,5 +11,10 @@ urlpatterns = [
     path('course/<int:id>/', CourseDetailAPIView.as_view(), name='course-detail'),
     path('subject/<int:id>/', SubjectDetailAPIView.as_view(), name='subject-detail'),
     path('question/', QuestionCreateAPIView.as_view(), name='question'),
+    path('all-questions/', QuestionListAPIView.as_view(), name='all-question'),
+    path('question/<int:id>/', QuestionDetailAPIView.as_view(), name='question-detail'),
+    path('option/', OptionCreateAPIView.as_view(), name='option'),
+    path('all-options/', OptionListAPIView.as_view(), name='all-options'),
+    path('option/<int:id>/', OptionDetailAPIView.as_view(), name='option-detail')
     
 ]

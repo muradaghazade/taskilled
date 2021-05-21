@@ -1,8 +1,8 @@
 from django.db.models import query
 from rest_framework.generics import CreateAPIView, ListAPIView
-from core.models import Course, Subject, Question
+from core.models import Course, Subject, Question , Option
 from rest_framework.views import APIView
-from .serializers import CourseSerializer, SubjectSerializer, QuestionSerializer
+from .serializers import CourseSerializer, SubjectSerializer, QuestionSerializer,OptionSerializer
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -69,3 +69,64 @@ class SubjectDetailAPIView(APIView):
 class QuestionCreateAPIView(CreateAPIView):
     model = Question
     serializer_class = QuestionSerializer
+
+
+class QuestionListAPIView(ListAPIView):
+    serializer_class = QuestionSerializer
+    def get_queryset(self):
+        queryset = Question.objects.order_by('id')
+        return queryset
+
+
+class QuestionDetailAPIView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        question = get_object_or_404(Question, pk=kwargs['id'])
+        serializer = QuestionSerializer(question)
+        return Response(serializer.data)
+
+    def patch(self, request, *args, **kwargs):
+        question = get_object_or_404(Question, pk=kwargs['id'])
+        serializer = QuestionSerializer(question, data=request.data, partial=True)
+        if serializer.is_valid():
+            question = serializer.save()
+            return Response(QuestionSerializer(question).data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        question = get_object_or_404(Question, pk=kwargs['id'])
+        question.delete()
+        return Response("Question deleted", status=status.HTTP_204_NO_CONTENT)
+
+
+class OptionCreateAPIView(CreateAPIView):
+    model = Option
+    serializer_class = OptionSerializer
+
+
+class OptionListAPIView(ListAPIView):
+    serializer_class = OptionSerializer
+    def get_queryset(self):
+        queryset = Option.objects.order_by('id')
+        return queryset
+
+
+class OptionDetailAPIView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        option = get_object_or_404(Option, pk=kwargs['id'])
+        serializer = OptionSerializer(option)
+        return Response(serializer.data)
+
+    def patch(self, request, *args, **kwargs):
+        option = get_object_or_404(Option, pk=kwargs['id'])
+        serializer = OptionSerializer(option, data=request.data, partial=True)
+        if serializer.is_valid():
+            option = serializer.save()
+            return Response(OptionSerializer(option).data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        option = get_object_or_404(Option, pk=kwargs['id'])
+        option.delete()
+        return Response("Option deleted", status=status.HTTP_204_NO_CONTENT)

@@ -46,7 +46,6 @@ class Question(models.Model):
     class Meta():
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
-
     def __str__(self):
         return f"{self.title}" 
 
@@ -95,3 +94,6 @@ class Subject(models.Model):
     def __str__(self):
         return f"{self.title}" 
 
+
+
+     

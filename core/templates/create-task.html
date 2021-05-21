@@ -1,33 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Meta -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Title -->
-    <title>TaskKilled</title>
-    <!-- Links -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./assets/css/create-task.css">
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/create-task.css' %}">
+<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
       href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
       rel="stylesheet"
     />
+    <
+{% endblock %}
+
+{% block content %}
+    
+    {% comment %} <link rel="stylesheet" href="./assets/css/create-task.css">
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" /> {% endcomment %}
+    
+    
     <!-- End Links -->
-  </head>
-  <body>
+
     <!-- Navbar section -->
-    <nav class="nav">
+    {% comment %} <nav class="nav">
       <div class="cont">
         <div class="title">
           <div class="logo">
@@ -56,7 +52,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> {% endcomment %}
     <!-- End Navbar section -->
 
     <div class="content mt-5">
@@ -100,6 +96,8 @@
             </div>
         </div>
     </div>
+
+    {% endblock %}
     <!-- <script>
       let shouldStop = false;
       let stopped = false;
@@ -140,6 +138,8 @@
           .then(handleSuccess);
     
     </script> -->
+  {% block js %}
+
 
     <script>
       document.getElementById('record-btn').addEventListener('click', () => {
@@ -150,15 +150,8 @@
         document.getElementById('rec-icon').style.color = "red"
         document.getElementById('stop').style.display = 'none'
       })
+      </script>
 
       
-
-      console.log(document.querySelectorAll('#checkboxx'))
-    </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="./assets/js/navbar.js"></script>
-  </body>
-</html>
+      {% endblock %}
+    
