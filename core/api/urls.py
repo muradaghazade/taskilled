@@ -10,5 +10,6 @@ urlpatterns = [
     path('all-subjects/', SubjectListAPIView.as_view(), name='all-subjects'),
     path('course/<int:id>/', CourseDetailAPIView.as_view(), name='course-detail'),
     path('subject/<int:id>/', SubjectDetailAPIView.as_view(), name='subject-detail'),
+    path('question/', QuestionCreateAPIView.as_view(), name='question'),
     
 ]
