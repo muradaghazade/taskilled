@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import Course, Option, Subject, Question
+from core.models import Course, Option, Subject, Question, Order,UserAnswer
 from rest_framework import serializers
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -73,3 +73,32 @@ class OptionSerializer(serializers.ModelSerializer):
         )
         option.save()
         return option
+
+
+class OrderSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Order
+        fields = ('id', 'user', 'course')
+
+    def create(self, validated_data):
+        order = Order.objects.create(
+            user=validated_data['user'],
+            course=validated_data['course']
+            
+        )
+        order.save()
+        return order
+
+class UserAnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserAnswer
+        fields = ('id', 'user', 'feedback', 'question')
+    # def create(self, validated_data):
+    #     useranswer = UserAnswer.objects.create(
+    #         user=validated_data['user'],
+    #         feedback=validated_data['feedback'],
+    #         question=validated_data['question']
+    #     )
+    #     useranswer.save()
+    #     return useranswer

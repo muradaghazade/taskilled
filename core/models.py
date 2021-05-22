@@ -51,7 +51,7 @@ class Question(models.Model):
 
 class UserAnswer(models.Model):
     feedback = models.TextField('Feedback')
-    question = models.ForeignKey('Question', on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
 
 class Order(models.Model):

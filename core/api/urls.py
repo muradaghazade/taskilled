@@ -15,6 +15,13 @@ urlpatterns = [
     path('question/<int:id>/', QuestionDetailAPIView.as_view(), name='question-detail'),
     path('option/', OptionCreateAPIView.as_view(), name='option'),
     path('all-options/', OptionListAPIView.as_view(), name='all-options'),
-    path('option/<int:id>/', OptionDetailAPIView.as_view(), name='option-detail')
+    path('option/<int:id>/', OptionDetailAPIView.as_view(), name='option-detail'),
+    path('order/', OrderCreateAPIView.as_view(), name='order'),
+    path('all-order/', OrderListAPIView.as_view(), name='all-order'),
+    path('order/<int:id>/', OrderDetailAPIView.as_view(), name='order-detail'),
+    path('user-answer/', UserAnswerCreateAPIView.as_view(), name='user-answer'),
+    path('all-user-answers/', UserAnswerListAPIView.as_view(), name='all-user-answers'),
+    path('user-answer/<int:id>/', UserAnswerDetailAPIView.as_view(), name='user-answer-detail')
     
 ]
+    
