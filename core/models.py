@@ -36,7 +36,7 @@ class Question(models.Model):
     title = models.CharField('Title',max_length=50)
     description = models.TextField('Description')
     correct_answer = models.CharField('Correct answer',max_length=125)
-    
+    # body = 
     question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
     is_auto = models.BooleanField('Is auto', default=1)

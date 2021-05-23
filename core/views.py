@@ -15,15 +15,28 @@ class CourseListView(ListView):
     template_name = 'course_list.html'
 
 
-class CourseDetailView(DetailView):
+class CourseDetailView(TemplateView):
     model = Course
     template_name = 'course_detail.html'
 
 
 class ProfileView(TemplateView):
-        template_name = 'profile.html'
+    model = Course
+    template_name = 'profile.html'
 
+
+class QuestionView(TemplateView):
+    model = Course
+    template_name = 'question.html'
 
 class CreateTaskView(TemplateView):
     model = Course
     template_name = 'create-task.html'
+
+
+class RegisterView(TemplateView):
+    template_name = 'register.html'
+
+
+class LoginView(TemplateView):
+    template_name = 'login.html'
