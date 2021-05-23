@@ -93,7 +93,7 @@ class OrderSerializer(serializers.ModelSerializer):
 class UserAnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserAnswer
-        fields = ('id', 'user', 'feedback', 'question')
+        fields = ('id', 'user', 'feedback', 'question', 'answer')
     # def create(self, validated_data):
     #     useranswer = UserAnswer.objects.create(
     #         user=validated_data['user'],

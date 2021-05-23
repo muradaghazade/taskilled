@@ -51,8 +51,19 @@ class Question(models.Model):
 
 class UserAnswer(models.Model):
     feedback = models.TextField('Feedback')
+    answer = models.TextField('Answer')
     question = models.ForeignKey(Question, on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
+
+    def save(self, *args, **kwargs):
+        super(UserAnswer, self).save(*args, **kwargs)
+        if self.question.is_auto == True:
+            if self.answer == self.question.correct_answer:
+                self.question.is_success = True
+                print('done', self.question.is_success)
+            else:
+                print('wrong', self.question.is_success)
+
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order')
