@@ -8,36 +8,9 @@
 
 {% block content %}
 
-        <div class="container">
-          <div class="title">
-            <div class="logo">
-              <a href="#"
-                >Ta
-                <span>sk</span>
-                illed</a
-              >
-            </div>
-            <ul>
-              <li><a href="#">Catalog</a>
-                  <i class="fas fa-chevron-down"></i></li>
-              <li><a href="#">Intemship</a>
-                  <i class="fas fa-chevron-down"></i></li>
-            </ul>
-            <div class="nav__input">
-            <input type="text" placeholder="Search our catalog" />
-            <i class="fas fa-search"></i>
-          </div>
-              <div class="basket">
-            <i class="fas fa-shopping-cart"></i>
-          </div>
-            <div class="buttons">
-              <button>Sign in</button>
-              <button>Register</button>
-            </div>
-          </div>
-        </div>
-      </nav>
-    <section class="section__learn_english">
+        
+      
+    <section class="section__learn_english container-fluid">
         <div class="section__learn_english_container">
             <div class="row">
                 <div class="col-3">
@@ -112,7 +85,7 @@
                 <div class="col-9">
                     <div class="ml-3">
                         <h2><b>Learn English in London, United Kingdom</b> </h2>
-                        <div class="d-flex justify-content-between">
+                        {% comment %} <div class="d-flex justify-content-between">
                             <div class="d-flex">
                                 <p class="mt-3">sort by</p>
                                 <div class="sort_by_btn sort_by_btn-flex"><input class="sort_by_btn__child"
@@ -124,9 +97,52 @@
                             <div class="mt-3">
                                 <h5 style="color: gray;">we've found 21 school</h5>
                             </div>
+                        </div> {% endcomment %}
+                        <div class="d-flex">
+                            <div class='col-9' style="width: 84%;">
+                                <div class="card mb-3" style="max-width: 100%;">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-4">
+                                            <img src="{% static './img/69856-oxfordjpg-1537349802-400x230.jpg' %}" class="card-img"
+                                                alt="...">
+                                        </div>
+                                        <div class="card__flex__column ml-3 my-3">
+                                            <div class="">
+                                                <h3 class="card-title"><b>Oxford International Greenwich</b> </h3>
+                                                <p class="card-text" style="color: rgb(175, 169, 169);">London, United
+                                                    Kingdom</p>
+
+                                            </div>
+                                            <div>
+                                                <i style="color: gray;" class="far fa-user"></i><small style="padding-left: 5px;padding-right: 50px; color: gray;">from 16 years</small>
+                                                <i style="color: gray;" class="fas fa-coins"></i><small style="color: gray;padding-left: 5px;">value for money</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-3' style="height: 210px">
+                                <div class="ml-1">
+                                    <div class="card" style="max-width: 100%; background-color:white; height:100%;  ">
+                                        <div class="text-success ml-2 mt-2">retund in case of visa rejection <span class="border border-success" style="padding: 2px 4px; border-radius:50%;">?</span></div>
+                                        <br>
+                                        
+                                        <div class="ml-2" style="line-height: 15px;">
+                                            <h5 class="">From 1409 $</h5>
+                                            <small class="">for 2 weeks</small>
+                                            <br> 
+                                            <br>
+                                            <br> 
+                                        </div>
+                                        <button type="button" style="padding: 8px 27px; border: none;color: white;background-color: mediumturquoise;"><h4>Choose a course</h4> </button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
                         </div>
                         <div class="d-flex">
-                            <div style="width: 84%;">
+                           <div class='col-9' style="width: 84%;">
                                 <div class="card mb-3" style="max-width: 100%;">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
@@ -148,9 +164,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div  style="height: 210px">
+                            <div class='col-3' style="height: 210px">
                                 <div class="ml-1">
-                                    <div class="card" style="max-width: 100%; background-color:white;">
+                                    <div class="card" style="max-width: 100%; background-color:white; height:100%;  ">
                                         <div class="text-success ml-2 mt-2">retund in case of visa rejection <span class="border border-success" style="padding: 2px 4px; border-radius:50%;">?</span></div>
                                         <br>
                                         
@@ -161,51 +177,10 @@
                                             <br>
                                             <br> 
                                         </div>
+                                        <button type="button" style="padding: 8px 27px; border: none;color: white;background-color: mediumturquoise;"><h4>Choose a course</h4> </button>
                                     </div>
                                 </div>
-                                <button type="button" style="padding: 8px 27px; border: none;color: white;background-color: mediumturquoise;"><h4>Choose a course</h4> </button>
-                            </div>
-
-                        </div>
-                        <div class="d-flex">
-                            <div style="width: 84%;">
-                                <div class="card mb-3" style="max-width: 100%;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img src="./assets/img/69856-oxfordjpg-1537349802-400x230.jpg" width="100%" class="card-img"
-                                                alt="...">
-                                        </div>
-                                        <div class="card__flex__column ml-3 my-3">
-                                            <div class="">
-                                                <h3 class="card-title"><b>Kaplan International English - London <br> Covent Garden</b> </h3>
-                                                <p class="card-text" style="color: rgb(175, 169, 169);">London, United
-                                                    Kingdom</p>
-
-                                            </div>
-                                            <div>
-                                                <i style="color: gray;" class="far fa-user"></i><small style="padding-left: 5px;color: gray;">from 16 years</small>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div  style="height: 210px">
-                                <div class="ml-1">
-                                    <div class="card" style="max-width: 100%; background-color:white;">
-                                        <div class="text-success ml-2 mt-2">retund in case of visa rejection <span class="border border-success" style="padding: 2px 4px; border-radius:50%;">?</span></div>
-                                        <br>
-                                        
-                                        <div class="ml-2" style="line-height: 15px;">
-                                            <h5 class="">From 1409 $</h5>
-                                            <small class="">for 2 weeks</small>
-                                            <br> 
-                                            <br>
-                                            <br> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="button" style="padding: 8px 27px; border: none;color: white;background-color: mediumturquoise;"><h4>Choose a course</h4> </button>
+                                
                             </div>
 
                         </div>

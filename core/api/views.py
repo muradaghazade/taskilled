@@ -1,8 +1,15 @@
 from django.db.models import query
 from rest_framework.generics import CreateAPIView, ListAPIView
-from core.models import Course, Subject, Question , Option
+from core.models import Course, Subject, Question , Option, Order, UserAnswer
 from rest_framework.views import APIView
-from .serializers import CourseSerializer, SubjectSerializer, QuestionSerializer,OptionSerializer
+from .serializers import (
+    CourseSerializer, 
+    SubjectSerializer, 
+    QuestionSerializer, 
+    OptionSerializer, 
+    OrderSerializer,
+    UserAnswerSerializer
+)
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -17,7 +24,6 @@ class CourseListAPIView(ListAPIView):
         queryset = Course.objects.order_by('id')
         return queryset
     
-
 class CourseDetailAPIView(APIView):
     def get(self, request, *args, **kwargs):
         course = get_object_or_404(Course, pk=kwargs['id'])
@@ -65,6 +71,7 @@ class SubjectDetailAPIView(APIView):
         subject = get_object_or_404(Subject, pk=kwargs['id'])
         subject.delete()
         return Response("Subject deleted", status=status.HTTP_204_NO_CONTENT)
+
 
 class QuestionCreateAPIView(CreateAPIView):
     model = Question
@@ -130,3 +137,64 @@ class OptionDetailAPIView(APIView):
         option = get_object_or_404(Option, pk=kwargs['id'])
         option.delete()
         return Response("Option deleted", status=status.HTTP_204_NO_CONTENT)
+
+
+class OrderCreateAPIView(CreateAPIView):
+    model = Order
+    serializer_class = OrderSerializer
+
+
+class OrderListAPIView(ListAPIView):
+    serializer_class = OrderSerializer
+    def get_queryset(self):
+        queryset = Order.objects.order_by('id')
+        return queryset
+
+class OrderDetailAPIView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        order = get_object_or_404(Order, pk=kwargs['id'])
+        serializer = OrderSerializer(order)
+        return Response(serializer.data)
+
+    def patch(self, request, *args, **kwargs):
+        order = get_object_or_404(Order, pk=kwargs['id'])
+        serializer = OrderSerializer(order, data=request.data, partial=True)
+        if serializer.is_valid():
+            order = serializer.save()
+            return Response(OrderSerializer(order).data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, *args, **kwargs):
+        order = get_object_or_404(Order, pk=kwargs['id'])
+        order.delete()
+        return Response("Order deleted", status=status.HTTP_204_NO_CONTENT)
+
+
+class UserAnswerCreateAPIView(CreateAPIView):
+    model = UserAnswer
+    serializer_class = UserAnswerSerializer
+
+
+class UserAnswerListAPIView(ListAPIView):
+    serializer_class = UserAnswerSerializer
+    def get_queryset(self):
+        queryset = UserAnswer.objects.order_by('id')
+        return queryset
+
+class UserAnswerDetailAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        user_answer = get_object_or_404(UserAnswer, pk=kwargs['id'])
+        serializer = UserAnswerSerializer(user_answer)
+        return Response(serializer.data)
+    def patch(self, request, *args, **kwargs):
+        user_answer = get_object_or_404(UserAnswer, pk=kwargs['id'])
+        serializer = UserAnswerSerializer(user_answer, data=request.data, partial=True)
+        if serializer.is_valid():
+            user_answer = serializer.save()
+            return Response(UserAnswerSerializer(user_answer).data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def delete(self, request, *args, **kwargs):
+        user_answer = get_object_or_404(UserAnswer, pk=kwargs['id'])
+        user_answer.delete()
+        return Response("User Answer deleted", status=status.HTTP_204_NO_CONTENT)

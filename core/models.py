@@ -36,7 +36,7 @@ class Question(models.Model):
     title = models.CharField('Title',max_length=50)
     description = models.TextField('Description')
     correct_answer = models.CharField('Correct answer',max_length=125)
-    
+    # body = 
     question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
     
     is_auto = models.BooleanField('Is auto', default=1)
@@ -51,7 +51,7 @@ class Question(models.Model):
 
 class UserAnswer(models.Model):
     feedback = models.TextField('Feedback')
-    question = models.ForeignKey('Question', on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
 
 class Order(models.Model):

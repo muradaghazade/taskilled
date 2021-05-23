@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/course_detail.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<style>
+    .created {
+        width: 100%;
+        height: 100px;
+    }
+    
+    .save{
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #cc7a00;
+        font-size: 16px;
+        color: #fff;
+       
+    }
+    .next{
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #cc7a00;
+        font-size: 16px;
+        color: #fff;
+        display: none;
+    }
+   
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-5">Create Subject</h1>
+<div class="created text-center">
+
+    <div class="for-image">
+        <i class="far fa-plus-square" style="font-size: 90px; color: grey;"></i>
+    </div>
+
+</div>
+
+<form style="display: none;" class='from_subject text-center' action="/">
+
+
+
+    <div class="item mt-3">
+        <label for="name">Subject name<span>*</span></label>
+        <div class="name-item">
+            <input class="input" id="name" type="text" name="name" placeholder="Name" />
+
+        </div>
+    </div>
+    <div class="item mt-3">
+        <label for="name">Subject Deadline<span>*</span></label>
+        <div class="name-item">
+            <input class="input" id="name" type="number" name="deadline" placeholder="Deadline" />
+
+        </div>
+    </div>
+
+
+    <button class='save mt-3' type="submit">Save</button>
+
+
+</form>
+<div class="next-div d-flex justify-content-center mt-5">
+    <button class="next">Next</button>
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'js/create-subject.js' %}"></script>
+{% endblock %}
