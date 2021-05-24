@@ -35,7 +35,7 @@
       padding: 20px;
       }
       form {
-      width: 100%;
+      width: 40%;
       padding: 20px;
       border-radius: 6px;
       background: #fff;
@@ -192,8 +192,21 @@
   </head>
   <body>
     <div class="testbox">
-      <form action="/" id="regForm">
-        <div class="banner">
+      <form style="height: 300px; padding-top: 50px; margin-top: 50px;">
+          <div style="text-align: center; width: 53%; margin: 0 auto;">
+
+          
+          <h3>Register as</h3>
+            
+              <div class="mb-3" style="background-color: #ff9800;  padding: 5px; border-radius: 2px;">
+                  <a href="{% url 'core:register' %}" style="text-decoration: none; color: #666;"><h6 class="pt-2">Teacher</h6></a>
+                  
+              </div>
+              <div style="background-color: #ff9800;  padding: 5px; border-radius: 2px;">
+                 <a href="{% url 'core:register-student' %}" style="text-decoration: none; color: #666;"><h6 class="pt-2">Student</h6> </a>
+              </div>
+        </div>
+        <!-- <div class="banner">
           <h1>Udemy</h1>
         </div>
         <div class="item">
@@ -225,11 +238,11 @@
         </div>
 
 
-        <button type="submit">Register</button>
+        <button type="submit">Register</button> -->
 
         
       </form>
     </div>
 
-    <script src="{% static 'js/register.js' %}"></script>
+    <!-- <script src="{% static 'js/reg-student.js' %}"></script> -->
         {% endblock %}

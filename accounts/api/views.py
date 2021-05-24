@@ -54,3 +54,11 @@ class LogoutAPIView(APIView):
             return Response("Token deleted", status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+class GetUserDataByTokenView(APIView):
+    permission_classes = (permissions.IsAuthenticated, )
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        print(user)
+        serializer = UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)

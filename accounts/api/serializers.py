@@ -10,7 +10,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'image', 'password', 'password2','is_student', 'is_teacher')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'password', 'password2','is_student', 'is_teacher')
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
@@ -24,7 +24,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-            image=validated_data['image'],
             is_student=validated_data['is_student'],
             is_teacher=validated_data['is_teacher']
         )
@@ -39,7 +38,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'image')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email',)
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):

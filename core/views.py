@@ -15,8 +15,9 @@ class CourseListView(ListView):
     template_name = 'course_list.html'
 
 
-class CourseDetailView(TemplateView):
+class CourseDetailView(DetailView):
     model = Course
+    context_object_name = "course"
     template_name = 'course_detail.html'
 
 
@@ -37,6 +38,11 @@ class CreateTaskView(TemplateView):
 class RegisterView(TemplateView):
     template_name = 'register.html'
 
+class RegChooseView(TemplateView):
+    template_name = 'reg-choose.html'
+
+class RegStudentView(TemplateView):
+    template_name = 'reg-student.html'
 
 class LoginView(TemplateView):
     template_name = 'login.html'
