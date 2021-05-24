@@ -46,3 +46,19 @@ class RegStudentView(TemplateView):
 
 class LoginView(TemplateView):
     template_name = 'login.html'
+
+
+class CreateCourseView(TemplateView):
+    template_name = 'create-course.html'
+
+
+class CreateSubjectView(TemplateView):
+    template_name = 'create-subject.html'
+
+
+class CreateQuestionView(TemplateView):
+    template_name = 'create-question.html'
+
+
+class CreateOptionView(TemplateView):
+    template_name = 'create-option.html'
