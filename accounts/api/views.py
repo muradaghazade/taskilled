@@ -57,7 +57,7 @@ class LogoutAPIView(APIView):
 
 class GetUserDataByTokenView(APIView):
     permission_classes = (permissions.IsAuthenticated, )
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         user = request.user
         print(user)
         serializer = UserSerializer(user)
