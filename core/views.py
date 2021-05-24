@@ -52,3 +52,7 @@ class CreateSubjectView(TemplateView):
 
 class CreateQuestionView(TemplateView):
     template_name = 'create-question.html'
+
+
+class CreateOptionView(TemplateView):
+    template_name = 'create-option.html'

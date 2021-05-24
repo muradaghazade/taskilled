@@ -11,8 +11,8 @@
         width: 100%;
         height: 100px;
     }
-
-    .save {
+    
+    .save{
         width: 150px;
         padding: 10px;
         border: none;
@@ -20,10 +20,9 @@
         background: #cc7a00;
         font-size: 16px;
         color: #fff;
-
+       
     }
-
-    .next {
+    .next{
         width: 150px;
         padding: 10px;
         border: none;
@@ -33,8 +32,7 @@
         color: #fff;
         display: none;
     }
-
-    .auto {
+    .auto{
         width: 50px;
         height: 50px;
         background-color: #cc7a00;
@@ -43,8 +41,7 @@
         color: white;
         cursor: pointer;
     }
-
-    .next {
+    .next{
         width: 150px;
         padding: 10px;
         border: none;
@@ -54,6 +51,8 @@
         color: #fff;
         display: none;
     }
+   
+    
 </style>
 {% endblock %}
 
@@ -68,67 +67,48 @@
 </div>  -->
 
 
-<form class='form_subject text-center' action="/">
+<form  class='form_subject text-center' action="/">
 
 
-    <div id="is_auto" class="item mt-3 ">
-        <label for="name">Make automated<span></span></label>
-        <div class="name-item">
-            <span class="yes auto">Yes</span>
-            <span class="no auto">No</span>
 
-        </div>
-
-    </div>
     <div class="item mt-3">
-        <label for="name">Question Title<span>*</span></label>
+        <label for="name">Option1<span>*</span></label>
         <div class="name-item">
             <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
-
     <div class="item mt-3">
-        <label for="name">Question<span>*</span></label>
+        <label for="name">Option2<span>*</span></label>
         <div class="name-item">
-            <textarea style="width: 450px;;" name="question" cols="30" rows="10"></textarea>
+            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
-
     </div>
-
-    <div style="display: none;" class="item mt-3 correct_answer">
-        <label for="name">Correct answer<span></span></label>
+    <div class="item mt-3">
+        <label for="name">Option3<span>*</span></label>
         <div class="name-item">
-            <input class="correct_answer" type="text" name="correct_answer">
-        </div>
-
-    </div>
-    <div style="display: none;" class="other">
-        <div style="display: block;" class="item mt-3 correct_answer">
-            <label for="name">Upload Video <span></span></label>
-            <div class="name-item">
-                <input class="file" type="file" name="video">
-            </div>
-
-        </div>
-        <div style="display: block;" class="item mt-3 correct_answer">
-            <label for="name">Upload Image <span></span></label>
-            <div class="name-item">
-                <input class="file" type="file" name="image">
-            </div>
-
-        </div>
-        <div style="display: block;" class="item mt-3 correct_answer">
-            <label for="name">Upload link <span></span></label>
-            <div class="name-item">
-                <input class="file" type="text" name="link">
-            </div>
+            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
+    <div class="item mt-3">
+        <label for="name">Option4<span>*</span></label>
+        <div class="name-item">
+            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
 
+        </div>
+    </div>
+    <div class="item mt-3">
+        <label for="name">Option5<span>*</span></label>
+        <div class="name-item">
+            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
 
+        </div>
+    </div>
+    
+
+    
 
 
     <button class='save mt-5' type="submit">Save</button>
@@ -136,16 +116,10 @@
 
 </form>
 
-<div class="next-div d-flex justify-content-center mt-5">
-    <button class="next">Next</button>
-</div>
-
-
-
 {% endblock %}
 
 
 {% block js %}
-<script src="{% static 'js/create-question.js' %}"></script>
+    
 
 {% endblock %}
