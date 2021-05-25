@@ -27,17 +27,14 @@ class Course(models.Model):
 
 
 class Question(models.Model):
-    type_choise =  [
-        ('1', 'Test'),
-        ('2', 'Video'),
-        ('3', ' Voice Record'),
-        ('4', ' Text'),
-    ]
+    
     title = models.CharField('Title',max_length=50)
     description = models.TextField('Description')
-    correct_answer = models.CharField('Correct answer',max_length=125)
-    # body = 
-    question_type = models.CharField('Tipler',max_length=50, choices=type_choise)
+    correct_answer = models.CharField('Correct answer',max_length=125,null=True)
+    image = models.ImageField('Image',upload_to='images/')
+    video = models.FileField('Video',upload_to='videos/')
+    edu_url = models.CharField('Url',max_length=200,null=True,default=False)
+    
     
     is_auto = models.BooleanField('Is auto', default=1)
     is_success = models.BooleanField('Is auto', default=0)
@@ -92,7 +89,7 @@ class Option(models.Model):
 
 class Subject(models.Model):
     title = models.CharField('Title',max_length=50)
-    deadline = models.DateTimeField(null=True)
+    deadline = models.IntegerField(null=True)
     course = models.ForeignKey('Course', on_delete=models.CASCADE, db_index=True, related_name='subject')
 
     created_at = models.DateTimeField(auto_now_add=True)

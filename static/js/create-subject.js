@@ -7,35 +7,20 @@ plus_btn.addEventListener('click', event => {
     form.style='display:block'
     next.style='display:block'
 });
-registerURL = 'http://127.0.0.1:8000/api/v1/register/';
+
+subjectURL = 'http://127.0.0.1:8000/api/v1/core/create-subject/';
 
 
 
-subject = (username, firstname, lastname, email, password1, password2, age) => {
-    // formdata = new FormData();
-    // formdata.append("firstname", firstname);
-    // formdata.append("lastname", lastname);
-    // formdata.append("email", email);
-    // formdata.append("password1", password1);
-    // formdata.append("password2", password2);
-    // formdata.append("age", age);
-    // formdata.append("is_teacher", true);
-    // formdata.append("is_student", false);
-    // for (const [k, v] of formdata) {
-    //     console.log(k, v);
-    //   }
+subject = (subject_name, deadline) => {
+    
     data = {
-        username: username,
-        first_name: firstname,
-        last_name: lastname,
-        email: email,
-        password: password1,
-        password2: password2,
-        age: age,
-        is_teacher: false,
-        is_student: true
+        title: subject_name,
+        deadline: deadline,
+        course:1
+        
     }
-    fetch(registerURL, {
+    fetch(subjectURL, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -48,15 +33,14 @@ subject = (username, firstname, lastname, email, password1, password2, age) => {
         })
 }
 
-document.getElementById("regForm").addEventListener('submit', (e) => {
+document.querySelector(".from_subject").addEventListener('submit', (e) => {
     e.preventDefault()
-    let username = document.getElementById('username').value;
-    let firstname = document.getElementById('firstname').value;
-    let lastname = document.getElementById('lastname').value;
-    let email = document.getElementById('email').value;
-    let password1 = document.getElementById('password1').value;
-    let password2 = document.getElementById('password2').value;
-    let age = document.getElementById('age').value;
-    console.log(firstname);
-    register(username, firstname, lastname, email, password1, password2, age)
-})
+    let subject_name = document.getElementById('name').value;
+    let deadline = document.getElementById('deadline').value;
+    subject_name.innerHTML = ''
+    deadline.innerHTML = ''
+    
+    console.log(subject_name);
+    subject(subject_name,deadline)
+
+});
