@@ -10,6 +10,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import authentication, permissions
 from django.shortcuts import get_object_or_404
 from rest_framework import status
+from django.http import JsonResponse
 
 class RegisterUserAPI(CreateAPIView):
     model = User
@@ -59,6 +60,14 @@ class GetUserDataByTokenView(APIView):
     permission_classes = (permissions.IsAuthenticated, )
     def post(self, request, *args, **kwargs):
         user = request.user
-        print(user)
+        print(user.id)
         serializer = UserSerializer(user)
-        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+        print(serializer.data)
+        # new_dict = {
+        #     'id': user.id,
+        #     'username': user.username,
+        #     'first_name': user.first_name,
+        #     'last_name': user.last_name,
+        #     'email': user.email
+        # }
+        return JsonResponse(serializer.data)

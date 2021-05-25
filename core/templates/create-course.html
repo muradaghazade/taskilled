@@ -249,20 +249,18 @@
 
 <body>
     <div class="testbox">
-        <form action="/">
+        <form action="" id="courseForm">
             <div class="banner">
                 <h1>Udemy</h1>
             </div>
             <div class="item">
                 <label for="name">Course Name<span>*</span></label>
-                <div class="name-item">
-                    <input id="name" type="text" name="name" placeholder="First" />
+                    <input id="title" type="text" name="name" placeholder="" />
 
-                </div>
             </div>
             <div class="item">
                 <label for="description">Description<span>*</span></label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
             </div>
             <div class="item">
                 <label for="price">Price<span>*</span></label>
@@ -287,6 +285,8 @@
 
         </form>
     </div>
+
+    <script src="{% static 'js/create-course.js' %}"></script>
     {% endblock %}
 
 

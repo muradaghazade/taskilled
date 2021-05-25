@@ -8,7 +8,8 @@ from .serializers import (
     QuestionSerializer, 
     OptionSerializer, 
     OrderSerializer,
-    UserAnswerSerializer
+    UserAnswerSerializer,
+    CreateCourseSerializer
 )
 from rest_framework import status
 from django.shortcuts import get_object_or_404
@@ -16,7 +17,7 @@ from rest_framework.response import Response
 
 class CourseAPIView(CreateAPIView):
     model = Course
-    serializer_class = CourseSerializer
+    serializer_class = CreateCourseSerializer
 
 class CourseListAPIView(ListAPIView):
     serializer_class = CourseSerializer

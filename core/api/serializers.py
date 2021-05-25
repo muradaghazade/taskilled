@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import Course, Option, Subject, Question, Order,UserAnswer
 from rest_framework import serializers
+from drf_extra_fields.fields import Base64ImageField
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,6 +24,14 @@ class CourseSerializer(serializers.ModelSerializer):
         course.save()
 
         return course
+
+class CreateCourseSerializer(serializers.ModelSerializer):
+    image = Base64ImageField(required=False)
+
+    class Meta:
+        model = Course
+        fields = ('id', 'title', 'teacher', 'price', 'image', 'description', 'course_deadline', 'minimum_age', 'is_shared')
+
 
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:

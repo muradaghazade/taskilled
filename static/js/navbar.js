@@ -20,12 +20,15 @@ getTokenData = () => {
         method: "POST",
         headers: {
             "Content-type": "application/json",
-            "Authorization": jwt,
+            "Authorization": jwt
         },
-    }).then((resp) => resp.json()
-    ).then(data =>
-        console.log(data)
-
-    )
+        // body: JSON.stringify(data),
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+          document.querySelector(".user-data-here").innerHTML = `<button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">${data.username}</button>` 
+        })
 }
+
 getTokenData()
