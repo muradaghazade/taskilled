@@ -68,7 +68,7 @@
 </div>  -->
 
 
-<form class='form_subject text-center' action="/">
+<form class='form_subject text-center question_form' action="/">
 
 
     <div id="is_auto" class="item mt-3 ">
@@ -83,7 +83,7 @@
     <div class="item mt-3">
         <label for="name">Question Title<span>*</span></label>
         <div class="name-item">
-            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
+            <input class="input p-2" id="title" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
@@ -91,16 +91,16 @@
     <div class="item mt-3">
         <label for="name">Question<span>*</span></label>
         <div class="name-item">
-            <textarea style="width: 450px;;" name="question" cols="30" rows="10"></textarea>
+            <textarea id="question" style="width: 450px;;" name="question" cols="30" rows="10"></textarea>
 
         </div>
 
     </div>
 
-    <div style="display: none;" class="item mt-3 correct_answer">
+    <div style="display: none;" class="item mt-3 correct_answer_div">
         <label for="name">Correct answer<span></span></label>
         <div class="name-item">
-            <input class="correct_answer" type="text" name="correct_answer">
+            <input id="correct_answer" class="correct_answer" type="text" name="correct_answer">
         </div>
 
     </div>
@@ -108,21 +108,21 @@
         <div style="display: block;" class="item mt-3 correct_answer">
             <label for="name">Upload Video <span></span></label>
             <div class="name-item">
-                <input class="file" type="file" name="video">
+                <input id="video" class="file" type="file" name="video">
             </div>
 
         </div>
         <div style="display: block;" class="item mt-3 correct_answer">
             <label for="name">Upload Image <span></span></label>
             <div class="name-item">
-                <input class="file" type="file" name="image">
+                <input id="image" class="file" type="file" name="image">
             </div>
 
         </div>
         <div style="display: block;" class="item mt-3 correct_answer">
             <label for="name">Upload link <span></span></label>
             <div class="name-item">
-                <input class="file" type="text" name="link">
+                <input id="link" class="file" type="text" name="link">
             </div>
 
         </div>
