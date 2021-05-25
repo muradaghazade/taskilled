@@ -26,8 +26,9 @@ class ProfileView(TemplateView):
     template_name = 'profile.html'
 
 
-class QuestionView(TemplateView):
+class QuestionView(DetailView):
     model = Course
+    context_object_name = "question"
     template_name = 'question.html'
 
 class CreateTaskView(TemplateView):
