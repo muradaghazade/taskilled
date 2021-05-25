@@ -27,7 +27,7 @@ class ProfileView(TemplateView):
 
 
 class QuestionView(DetailView):
-    model = Course
+    model = Question
     context_object_name = "question"
     template_name = 'question.html'
 

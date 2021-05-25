@@ -47,7 +47,7 @@ class Question(models.Model):
         return f"{self.title}" 
 
 class UserAnswer(models.Model):
-    feedback = models.TextField('Feedback')
+    feedback = models.TextField('Feedback', null=True, blank=True)
     answer = models.TextField('Answer')
     question = models.ForeignKey(Question, on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
@@ -55,6 +55,9 @@ class UserAnswer(models.Model):
     def save(self, *args, **kwargs):
         super(UserAnswer, self).save(*args, **kwargs)
         if self.question.is_auto == True:
+            print(self.answer)
+            print(self.question.id)
+            print(self.question.correct_answer)
             if self.answer == self.question.correct_answer:
                 self.question.is_success = True
                 print('done', self.question.is_success)

@@ -6,46 +6,23 @@
     </style>
 {% endblock %}
 {% block content %}
+<h1 id="success-here"></h1>
+<div id="pk" class="d-none">{{question.pk}}</div>
 
 <div class="heading pl-5">
-    <h1 style="font-size: 57px;">The Subject title that will be shown</h1>
+    <h1 style="font-size: 57px;" id="subject-title">   </h1>
     <br>
-    <h1 class="ml-3">The Question title that will be shown</h1>
+    <h1 class="ml-3" id="question-title"></h1>
 </div>
 
 <div class="description p-5">
-    <p style="font-size: 20px;">Lorem Ipsum is simply but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-        Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
-        Lorem Ipsum. dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-        specimen book. It has survived not only five centuries,</p>
+    <p style="font-size: 20px;" id="question-desc"></p>
 </div>
 
 <div class="options">
 
     <div class="radio-butto-container d-flex">
-        <div class="rad-small">
-
-            <input type="radio" name="q" id="">
-            <span class="option">The option</span>
-        </div>
-        <div class="rad-small">
-            <input type="radio" name="q" id="">
-            <span class="option">The option</span>
-        </div>
-        <div class="rad-small">
-            <input type="radio" name="q" id="">
-            <span class="option">The option</span>
-        </div>
-        <div class="rad-small">
-            <input type="radio" name="q" id="">
-            <span class="option">The option</span>
-        </div>
-        <div class="rad-small">
-            <input type="radio" name="" id="">
-            <span class="option">The option</span>
-        </div>
+        
 
     </div>
 
@@ -54,8 +31,11 @@
 <div id="editor">
 
 </div>
+<div>
 
-<script src="{% static 'js/question.js' %}"></script>
+    <button id="next" style="border: none; padding: 10px; border-radius: 5px; margin-top: 10px; margin-left: 1000px;">Next</button  >
+</div>
+<script src="{% static 'js/question-answer.js' %}"></script>
 
 
 {% endblock %}
