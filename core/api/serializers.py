@@ -51,22 +51,26 @@ class SubjectSerializer(serializers.ModelSerializer):
         return subject
 
 class QuestionSerializer(serializers.ModelSerializer):
+
+    image = Base64ImageField(required=False)
+    video = Base64ImageField(required=False)
+
     class Meta:
         model = Question
-        fields = ('id', 'title', 'description', 'correct_answer','is_auto','is_success','subject')
+        fields = ('id', 'title', 'description', 'image', 'correct_answer','video','is_auto','is_success','subject' )
 
-    def create(self, validated_data):
-        question = Question.objects.create(
-            title=validated_data['title'],
-            description=validated_data['description'],
-            correct_answer=validated_data['correct_answer'],
-            # question_type=validated_data['question_type'],
-            is_auto=validated_data['is_auto'],
-            is_success=validated_data['is_success'],
-            subject=validated_data['subject']
-        )
-        question.save()
-        return question
+    # def create(self, validated_data):
+    #     question = Question.objects.create(
+    #         title=validated_data['title'],
+    #         description=validated_data['description'],
+    #         correct_answer=validated_data['correct_answer'],
+    #         # question_type=validated_data['question_type'],
+    #         is_auto=validated_data['is_auto'],
+    #         is_success=validated_data['is_success'],
+    #         subject=validated_data['subject']
+    #     )
+    #     question.save()
+    #     return question
 
 
 class OptionSerializer(serializers.ModelSerializer):

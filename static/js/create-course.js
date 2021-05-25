@@ -38,17 +38,38 @@ async function createCourse (title, teacher, price, image, description, course_d
       })
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data);
+          
+          localStorage.setItem('course_id',data.id)
         })
 }
 
 document.getElementById("courseForm").addEventListener('submit', (e) => {
   e.preventDefault()
-  title = document.getElementById('title').value;
+
+
+  let jwt = `Bearer ${localStorage.getItem("token")}`
+  console.log(jwt);
+  fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+      method: "POST",
+      headers: {
+          "Content-type": "application/json",
+          "Authorization": jwt
+      },
+      // body: JSON.stringify(data),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        title = document.getElementById('title').value;
   description = document.getElementById("description").value;
   price = document.getElementById("price").value;
   minimum_age = document.getElementById("age").value;
   course_deadline = document.getElementById("time").value;
   image = document.getElementById("image").files[0];
-  createCourse(title,1, price,image, description,course_deadline,minimum_age)
+  createCourse(title,data.id, price,image, description,course_deadline,minimum_age)
+      })
+
+  
+  // localStorage.setItem()
 })
+
