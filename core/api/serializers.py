@@ -39,16 +39,16 @@ class SubjectSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'deadline', 'course')
 
 
-    def create(self, validated_data):
-        subject = Subject.objects.create(
-            title=validated_data['title'],
-            deadline=validated_data['deadline'],
-            course=validated_data['course']
-        )
+    # def create(self, validated_data):
+    #     subject = Subject.objects.create(
+    #         title=validated_data['title'],
+    #         deadline=validated_data['deadline'],
+    #         course=validated_data['course']
+    #     )
 
-        subject.save()
+    #     subject.save()
 
-        return subject
+    #     return subject
 
 class QuestionSerializer(serializers.ModelSerializer):
 

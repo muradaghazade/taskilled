@@ -44,8 +44,10 @@ getCourseList = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <a href="/core/course/${element.id}">
                                 <button type="button" style="padding: 8px 27px; border: none;color: white;background-color: mediumturquoise;"><h4>Choose a course</h4> </button>
-                            </div>
+                                </a>
+                                </div>
 
                         </div>
           `

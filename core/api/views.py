@@ -50,8 +50,9 @@ class CreateSubjectAPIView(CreateAPIView):
 
 class SubjectListAPIView(ListAPIView):
     serializer_class = SubjectSerializer
+
     def get_queryset(self):
-        queryset = Subject.objects.order_by('id')
+        queryset = Subject.objects.order_by('-id')
         return queryset
 
 class SubjectDetailAPIView(APIView):
