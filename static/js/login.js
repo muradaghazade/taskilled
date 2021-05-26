@@ -28,6 +28,7 @@ login = (username,password) => {
         .then((data) => {
           console.log(data.access);
           localStorage.setItem("token", data.access);
+          document.location.href = '/core'
         })
 }
 

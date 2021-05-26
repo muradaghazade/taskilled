@@ -16,7 +16,7 @@ getTokenData = () => {
     //   }
     let jwt = `Bearer ${localStorage.getItem("token")}`
     console.log(jwt);
-    fetch(`userTokenUrl`, {
+    fetch(userTokenUrl, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -27,7 +27,17 @@ getTokenData = () => {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          document.querySelector(".user-data-here").innerHTML = `<button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">${data.username}</button>` 
+          if (data.username != undefined) {
+            document.querySelector(".user-data-here").innerHTML = `<button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">${data.username}</button>`
+          }
+          else {
+            document.querySelector(".user-data-here").innerHTML = `<a href="/core/login">
+            <button class="btn auth my-2 my-sm-0 ml-4" type="submit">Login</button>
+          </a>
+          <a href="/core/register-type">
+            <button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">Register</button>
+          </a>`
+          }
         })
 }
 

@@ -36,6 +36,7 @@ register = (username, firstname, lastname, email, password1, password2, age) => 
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
+          document.location.href = '/core/login'
         })
 }
 
