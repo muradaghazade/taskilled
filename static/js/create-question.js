@@ -31,8 +31,14 @@ no_btn.addEventListener('click', event => {
 });
 
 video_spn.addEventListener('click', event => {
-    document.getElementById('video').style = 'display:flex'
-    document.getElementById('video').style = 'justify-content:center'
+    if(document.getElementById('video').style = 'display:none'){
+        document.getElementById('video').style = 'display:flex'
+        document.getElementById('video').style = 'justify-content:center'
+    }
+    else if(document.getElementById('video').style = 'display:block'){
+        document.getElementById('video').style = 'display:none'
+    }
+    
 });
 
 image_spn.addEventListener('click', event => {

@@ -31,6 +31,7 @@
         font-size: 16px;
         color: #fff;
         display: none;
+        text-decoration: none;
     }
    
     
@@ -72,7 +73,7 @@
 
 </form>
 <div class="next-div d-flex justify-content-center mt-5">
-    <button class="next">Next</button>
+    <a href="{% url 'core:create-question' %}" class="next">Next</a>
 </div>
 
 

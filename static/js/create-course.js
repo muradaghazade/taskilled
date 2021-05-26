@@ -67,6 +67,7 @@ document.getElementById("courseForm").addEventListener('submit', (e) => {
   course_deadline = document.getElementById("time").value;
   image = document.getElementById("image").files[0];
   createCourse(title,data.id, price,image, description,course_deadline,minimum_age)
+  document.location.href = 'create-subject'
       })
 
   

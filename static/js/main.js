@@ -11,7 +11,7 @@ getCourseList = () => {
           
           <div>
             <h3>Price ${element.price}$</h3>
-            <span>21 school</span>
+            <span>${element.title}</span>
             <img
               src="${element.image}"
               alt=""
