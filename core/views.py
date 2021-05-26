@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect ,get_object_or_404
 from django.http import HttpResponse
+from django.template.response import TemplateResponse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView , DetailView , View, CreateView
 from core.models import *
@@ -62,3 +63,11 @@ class CreateQuestionView(TemplateView):
 
 class CreateOptionView(TemplateView):
     template_name = 'create-option.html'
+
+
+class StudentProfileView(TemplateView):
+    template_name = 'student_profile.html'
+
+
+class QuizView(TemplateView):
+    template_name = 'quiz.html'

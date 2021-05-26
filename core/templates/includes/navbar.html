@@ -1,43 +1,12 @@
 {% load static %}
 
-<!-- Navbar section -->
-{% comment %}
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-<nav class="nav">
-  <div class="container-fluid">
-    <div class="title">
-      <div class="logo">
-        <a href="#">Ta
-          <span>sk</span>
-          illed</a>
-      </div>
-      <ul>
-        <li><a href="#">Catalog</a>
-          <i class="fas fa-chevron-down"></i></li>
-        <li><a href="#">Intemship</a>
-          <i class="fas fa-chevron-down"></i></li>
-      </ul>
-      <div class="nav__input">
-        <input type="text" placeholder="Search our catalog" />
-        <i class="fas fa-search"></i>
-      </div>
-      <div class="basket">
-        <i class="fas fa-shopping-cart"></i>
-      </div>
-      <div class="buttons">
-        <button>Sign in</button>
-        <button>Register</button>
-      </div>
-    </div>
-  </div>
-</nav> {% endcomment %}
-<!-- Navbar end -->
+
 <div class="container-fluid m-auto d-flex justify-content-center">
   <nav class="navbar navbar-expand-lg navbar-light bg-white ">
-  <div class="logo">
+  <a href="{% url 'core:main' %}"class="logo">
     <img class="head-image" src="{% static 'img/LOGO TASKILLED seri 4.png' %}" style="width: 100%;">
 
-  </div>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,7 +15,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-5 mt-2 mt-lg-0 ml-5">
       <li class="nav-item active ml-5">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'core:main' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>

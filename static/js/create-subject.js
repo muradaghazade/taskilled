@@ -43,6 +43,7 @@ document.querySelector(".from_subject").addEventListener('submit', (e) => {
     let deadline = document.getElementById('deadline').value;
     course_id = localStorage.getItem('course_id')
     console.log(course_id,'dsadsasdasda');
+    form.style='display:none'
     
     
     

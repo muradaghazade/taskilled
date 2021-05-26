@@ -47,7 +47,7 @@ class Question(models.Model):
         return f"{self.title}" 
 
 class UserAnswer(models.Model):
-    feedback = models.TextField('Feedback')
+    feedback = models.TextField('Feedback',null=True)
     answer = models.TextField('Answer')
     question = models.ForeignKey(Question, on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')

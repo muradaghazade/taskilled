@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<section class="main" style="width: 90%; margin:auto">
+    <div class="row">
+        <!-- <div class="ulclass mt-5 col-3">
+            <ul class="lef-ul">
+                <li class="mt-4">
+                    <a href="" class="sidebar-items">
+                        Created
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="" class="sidebar-items">
+                        Shared
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="" class="sidebar-items">
+                        Enrolled
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="" class="sidebar-items">
+                        Completed
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="" class="sidebar-items">
+                        Report(Finance)
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="" class="sidebar-items">
+                        Trush
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+        <!-- <div class="col-1">
+
+        </div> -->
+        <div class="col-12 mt-5">
+            <h2>Your Courses</h2>
+            <div class="row created-section" id="created-section">
+                <!-- <div class="col-3 created">
+                    <div class="card">
+                        <div class="for-image">
+                            <img src="https://cdn.mos.cms.futurecdn.net/wtqqnkYDYi2ifsWZVW2MT4-1200-80.jpg"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body p-0">
+                            <h5 class="card-title text-center mt-2">Some course</h5>
+                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div>  -->
+                <!-- <div class="col-3 created"> -->
+                    <!-- <div class="card" style="border: none;"> -->
+                        <!-- <div class="for-image" style="margin-top: 27%; margin-left: 8px;"> -->
+                            <!-- <img src="download.png" style="background-color: white;" class="card-img-top" alt="..."> -->
+
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            </div>
+            <div class="mt-2 mb-2" style="width: 100%; height:1px; border-radius:5px; background:#808080">
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{%  block js %}
+<script src="{% static 'js/student_profile.js' %}"></script>
+
+{% endblock %}
