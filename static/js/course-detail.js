@@ -41,12 +41,12 @@ renderSubjects = () => {
           data.forEach(e => {
             if(e.course == pk) {
               document.querySelector(".subjects-here").innerHTML += 
-              `<div style="border: 1px solid lightgray; border-radius: 5px;" class="px-3 pt-3">
+              `<div style="border: 1px solid lightgray; border-radius: 5px;" class="px-3 pt-3 mb-3">
   <h5>${e.title}</h5>
   <div style="color: gray;" class="d-flex">
       <div class="d-flex">
           <i class="fas fa-birthday-cake"></i>
-          <p class="ml-1">${e.deadline}</p>
+          <p class="ml-1">${e.deadline} weeks</p>
       </div>
       <div class="d-flex ml-3">
   
@@ -64,5 +64,54 @@ renderSubjects = () => {
 }
 
 renderSubjects()
+
+
+createOrder = (user,course) => {
+ 
+
+
+
+let jwt = `Bearer ${localStorage.getItem("token")}`
+    console.log(jwt);
+    fetch(userTokenUrl, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Authorization": jwt
+        },
+        // body: JSON.stringify(data),
+      })
+        .then((resp) => resp.json())
+        .then((user_data) => {
+          console.log(user_data);
+
+          data = {
+            user: user_data.id,
+            course: pk
+        }
+
+        fetch(`http://127.0.0.1:8000/api/v1/core/order/`, {
+    method: "POST",
+    headers: {
+        "Content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log(data, 'yeaaaa');
+      // document.location.href = '/core/login'
+    })
+
+        })
+
+
+
+
+}
+
+document.getElementById("order-button").addEventListener('click', () => {
+  createOrder()
+})
 
 

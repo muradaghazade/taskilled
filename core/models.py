@@ -92,7 +92,7 @@ class Option(models.Model):
 
 class Subject(models.Model):
     title = models.CharField('Title',max_length=50)
-    deadline = models.IntegerField('Deadline',blank=True,null=False)
+    deadline = models.IntegerField('Deadline',blank=True,null=True)
     course = models.ForeignKey('Course', on_delete=models.CASCADE, db_index=True, related_name='subject')
 
     created_at = models.DateTimeField(auto_now_add=True)
