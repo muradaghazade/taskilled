@@ -16,7 +16,7 @@ getTokenData = () => {
     //   }
     let jwt = `Bearer ${localStorage.getItem("token")}`
     console.log(jwt);
-    fetch(userTokenUrl, {
+    fetch(`userTokenUrl`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
