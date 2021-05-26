@@ -67,42 +67,42 @@
 </div>  -->
 
 
-<form  class='form_subject text-center' action="/">
+<form  class='form_option text-center' action="/">
 
 
 
     <div class="item mt-3">
         <label for="name">Option1<span>*</span></label>
         <div class="name-item">
-            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
+            <input id='option1' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
     <div class="item mt-3">
         <label for="name">Option2<span>*</span></label>
         <div class="name-item">
-            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
+            <input id='option2' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
     <div class="item mt-3">
         <label for="name">Option3<span>*</span></label>
         <div class="name-item">
-            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
+            <input id='option3' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
     <div class="item mt-3">
         <label for="name">Option4<span>*</span></label>
         <div class="name-item">
-            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
+            <input id='option4' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
     <div class="item mt-3">
         <label for="name">Option5<span>*</span></label>
         <div class="name-item">
-            <input class="input p-2" id="name" type="text" name="title" placeholder="Title" />
+            <input id='option5' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
 
         </div>
     </div>
@@ -120,6 +120,6 @@
 
 
 {% block js %}
-    
+    <script src="{% static 'js/create-option.js' %}"></script>
 
 {% endblock %}

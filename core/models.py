@@ -10,7 +10,7 @@ class Course(models.Model):
     price = models.DecimalField('Price',max_digits=6, decimal_places=2)
     image = models.ImageField('Image',upload_to='images/')
     description = models.TextField('Description')
-    course_deadline = models.IntegerField('Deadline',blank=True)
+    course_deadline = models.CharField('Deadline',blank=True,max_length=50)
     minimum_age = models.IntegerField('Minimum age',blank=True,null=False)
     is_shared = models.BooleanField('is shared',default=0)
     # shared_at = models.DateTimeField('shared_at')
@@ -31,8 +31,8 @@ class Question(models.Model):
     title = models.CharField('Title',max_length=50)
     description = models.TextField('Description')
     correct_answer = models.CharField('Correct answer',max_length=125,null=True)
-    image = models.ImageField('Image',upload_to='images/')
-    video = models.FileField('Video',upload_to='videos/')
+    image = models.ImageField('Image',upload_to='images/', null=True)
+    video = models.FileField('Video',upload_to='videos/', null=True)
     edu_url = models.CharField('Url',max_length=200,null=True,default=False)
     
     

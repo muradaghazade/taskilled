@@ -12,12 +12,12 @@ subjectURL = 'http://127.0.0.1:8000/api/v1/core/create-subject/';
 
 
 
-subject = (subject_name, deadline) => {
+subject = (subject_name, deadline,course_id) => {
     
     data = {
         title: subject_name,
         deadline: deadline,
-        course:1
+        course:course_id
         
     }
     fetch(subjectURL, {
@@ -30,6 +30,10 @@ subject = (subject_name, deadline) => {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
+          
+          
+          localStorage.setItem('subject_id',data.id)
+
         })
 }
 
@@ -37,10 +41,11 @@ document.querySelector(".from_subject").addEventListener('submit', (e) => {
     e.preventDefault()
     let subject_name = document.getElementById('name').value;
     let deadline = document.getElementById('deadline').value;
-    subject_name.innerHTML = ''
-    deadline.innerHTML = ''
+    course_id = localStorage.getItem('course_id')
+    console.log(course_id,'dsadsasdasda');
     
-    console.log(subject_name);
-    subject(subject_name,deadline)
+    
+    
+    subject(subject_name,deadline,course_id)
 
 });
