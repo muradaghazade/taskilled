@@ -6,6 +6,12 @@ userAnswerDataUrl = `http://127.0.0.1:8000/api/v1/core/question/${pk}/`;
 console.log(userAnswerDataUrl);
 
 
+let usable_ids = localStorage.getItem('id_list').split(',')
+
+let next_id = usable_ids.indexOf(pk)+1
+
+document.getElementById('next-a').href = `/core/question/${usable_ids[next_id]}`
+
 
 getQuestionOptions = () => {
   fetch(`http://127.0.0.1:8000/api/v1/core/all-options/`)
@@ -92,10 +98,14 @@ answerQuestion = (answer) => {
               .then((result) => {
                 console.log(result);
                 document.getElementById("success-here").innerHTML = "Question answered successfully"
+                document.getElementById('next').style.display = 'none'
+                document.getElementById('next-a').style.display = 'block'
               })
                 }
                 else {
                   document.getElementById("success-here").innerHTML = "Question answered unsuccessfully!"
+                  document.getElementById('next').style.display = 'none'
+                  document.getElementById('next-a').style.display = 'block'
                 }
     
               })

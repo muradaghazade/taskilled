@@ -38,8 +38,9 @@ async function createCourse (title, teacher, price, image, description, course_d
       })
         .then((resp) => resp.json())
         .then((data) => {
-          
+          console.log(data);
           localStorage.setItem('course_id',data.id)
+          document.location.href = 'create-subject'
         })
 }
 
@@ -67,7 +68,7 @@ document.getElementById("courseForm").addEventListener('submit', (e) => {
   course_deadline = document.getElementById("time").value;
   image = document.getElementById("image").files[0];
   createCourse(title,data.id, price,image, description,course_deadline,minimum_age)
-  document.location.href = 'create-subject'
+  
       })
 
   

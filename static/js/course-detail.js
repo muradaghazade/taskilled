@@ -35,6 +35,9 @@ getCourseDetail = () => {
 getCourseDetail()
 
 renderSubjects = () => {
+
+  let id_list = []
+
   fetch(`http://127.0.0.1:8000/api/v1/core/all-subjects/`)
         .then((resp) => resp.json())
         .then((data) => {
@@ -54,8 +57,33 @@ renderSubjects = () => {
   </div>
   </div>`
 
-  console.log(data.length);
   document.querySelector(".len").innerHTML = `${data.length} subjects`
+
+
+
+  fetch(`http://127.0.0.1:8000/api/v1/core/all-questions/`)
+        .then((resp) => resp.json())
+        .then((quest) => {
+          console.log(quest);
+          quest.forEach(el => {
+            console.log(el.subject, e.id, "caaa");
+            if(el.subject == e.id) {
+              console.log(el.id);
+              id_list.push(el.id)
+
+            }
+          })
+
+          console.log(id_list);
+       localStorage.setItem('id_list', id_list)
+       let ids = localStorage.getItem('id_list')
+       let usable_ids = ids.split(',');
+       document.getElementById("start-a").href = `/core/question/${usable_ids[0]}`
+        })
+
+
+
+  
             }
             
           })
@@ -66,14 +94,14 @@ renderSubjects = () => {
 renderSubjects()
 
 
-createOrder = (user,course) => {
+createOrder = () => {
  
 
 
 
 let jwt = `Bearer ${localStorage.getItem("token")}`
     console.log(jwt);
-    fetch(userTokenUrl, {
+    fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -100,7 +128,9 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
     .then((resp) => resp.json())
     .then((data) => {
       console.log(data, 'yeaaaa');
+      document.getElementById("congrats-div").innerHTML = `<p style="color: green;">You successfuly bought this course!</p>`
       // document.location.href = '/core/login'
+      document.getElementById("start-course").style.display = 'block'
     })
 
         })
@@ -113,5 +143,39 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
 document.getElementById("order-button").addEventListener('click', () => {
   createOrder()
 })
+
+
+
+let jwt = `Bearer ${localStorage.getItem("token")}`
+    console.log(jwt);
+    fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Authorization": jwt
+        },
+        // body: JSON.stringify(data),
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+          fetch(`http://127.0.0.1:8000/api/v1/core/all-order/`)
+          .then((resp) => resp.json())
+          .then((orders) => {
+            console.log(orders);
+            orders.forEach(e => {
+             if (e.course == pk && e.user == data.id) {
+              document.getElementById("congrats-div").innerHTML = `<p style="color: green;">You successfuly bought this course!</p>`
+              // document.location.href = '/core/login'
+              document.getElementById("start-course").style.display = 'block'
+             }
+            })
+          })
+        })
+
+
+
+
+
 
 

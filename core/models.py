@@ -31,8 +31,8 @@ class Question(models.Model):
     title = models.CharField('Title',max_length=50)
     description = models.TextField('Description')
     correct_answer = models.CharField('Correct answer',max_length=125,null=True)
-    image = models.ImageField('Image',upload_to='images/', null=True)
-    video = models.FileField('Video',upload_to='videos/', null=True)
+    image = models.ImageField('Image',upload_to='images/', null=True, blank=True)
+    video = models.FileField('Video',upload_to='videos/', null=True, blank=True)
     edu_url = models.CharField('Url',max_length=200,null=True,default=False)
     
     
