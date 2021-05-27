@@ -1,3 +1,5 @@
+let is_auto;
+
 var yes_btn = document.querySelector('.yes')
 var no_btn = document.querySelector('.no')
 const correct_ans = document.querySelector('.correct_answer_div')
@@ -22,12 +24,16 @@ yes_btn.addEventListener('click', event => {
     correct_ans.style = 'display:block'
     other.style = 'display:none'
     options_div.style = 'display:block'
+    is_auto = true
+    console.log(is_auto);
 });
 
 no_btn.addEventListener('click', event => {
     correct_ans.style = 'display:none'
     other.style = 'display:block'
     options_div.style = 'display:none'
+    is_auto = false
+    console.log(is_auto);
 });
 
 video_spn.addEventListener('click', event => {
@@ -56,13 +62,13 @@ questionUrl = 'http://127.0.0.1:8000/api/v1/core/question/';
 optionUrl = 'http://127.0.0.1:8000/api/v1/core/option/';
 
 
-questionCreate = (title, question,correct_answer,subject_id,options) => {
+questionCreate = (title, question,correct_answer,subject_id,options, is_auto) => {
     
     data = {
         title: title,
         description: question,
         correct_answer:correct_answer,
-        is_auto:1,
+        is_auto:is_auto,
         is_success:0,
         subject:subject_id
         
@@ -88,14 +94,14 @@ questionCreate = (title, question,correct_answer,subject_id,options) => {
         })
 }
 
-async function manualQuestionCreate(title, question,image = null, video = null, edu_url,subject_id) {
+async function manualQuestionCreate(title, question,image = null, video = null, edu_url,subject_id, is_auto) {
     console.log(image);
     console.log(video);
     data = {
         title: title,
         description: question,
         edu_url:edu_url,
-        is_auto:0,
+        is_auto:is_auto,
         is_success:0,
         subject:subject_id
         
@@ -153,7 +159,7 @@ document.querySelector(".question_form").addEventListener('submit', (e) => {
     
 
     if(document.querySelector('.correct_answer_div').style.display == 'block'){
-        questionCreate(title,question,correct_answer,subject_id, options)
+        questionCreate(title,question,correct_answer,subject_id, options, is_auto)
         console.log('bura girdim');
         // for (let i of options) {
         //     if (i != "") {
@@ -163,7 +169,7 @@ document.querySelector(".question_form").addEventListener('submit', (e) => {
         // }
     }
     else if(other.style.display == 'block'){
-        manualQuestionCreate(title, question, image, video, link,subject_id)
+        manualQuestionCreate(title, question, image, video, link,subject_id, is_auto)
     }
    
     
