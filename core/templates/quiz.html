@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<video controls>
+    <source src="{% static 'img/yt1s.com - Insert Video into a Website Using HTML5.mp4' %}" type="video/mp4">
+</video>
+
+
+
+{% endblock %}
+
+{%  block js %}
+<script src="{% static 'js/feedback.js' %}"></script>
+
+{% endblock %}

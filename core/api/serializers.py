@@ -104,9 +104,11 @@ class OrderSerializer(serializers.ModelSerializer):
         return order
 
 class UserAnswerSerializer(serializers.ModelSerializer):
+    image = Base64ImageField(required=False)
+    video = Base64ImageField(required=False)
     class Meta:
         model = UserAnswer
-        fields = ('id', 'user', 'feedback', 'question', 'answer')
+        fields = ('id', 'user', 'feedback', 'question', 'answer', 'video', 'image')
     # def create(self, validated_data):
     #     useranswer = UserAnswer.objects.create(
     #         user=validated_data['user'],

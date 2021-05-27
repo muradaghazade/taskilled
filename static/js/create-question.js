@@ -36,6 +36,8 @@ no_btn.addEventListener('click', event => {
     console.log(is_auto);
 });
 
+
+
 video_spn.addEventListener('click', event => {
     if(document.getElementById('video').style = 'display:none'){
         document.getElementById('video').style = 'display:flex'

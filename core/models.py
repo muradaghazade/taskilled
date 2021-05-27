@@ -30,14 +30,14 @@ class Question(models.Model):
     
     title = models.CharField('Title',max_length=50)
     description = models.TextField('Description')
-    correct_answer = models.CharField('Correct answer',max_length=125,null=True)
+    correct_answer = models.CharField('Correct answer',max_length=125,null=True,blank=True)
     image = models.ImageField('Image',upload_to='images/', null=True, blank=True)
     video = models.FileField('Video',upload_to='videos/', null=True, blank=True)
     edu_url = models.CharField('Url',max_length=200,null=True,default=False)
     
     
     is_auto = models.BooleanField('Is auto', default=1)
-    is_success = models.BooleanField('Is auto', default=0)
+    is_success = models.BooleanField('Is succes', default=0)
     subject = models.ForeignKey('Subject', on_delete=models.CASCADE, db_index=True, related_name='questionn', null=True)
 
     class Meta():
@@ -49,6 +49,8 @@ class Question(models.Model):
 class UserAnswer(models.Model):
     feedback = models.TextField('Feedback', null=True, blank=True)
     answer = models.TextField('Answer')
+    image = models.ImageField('Image',upload_to='images/', null=True, blank=True)
+    video = models.FileField('Video',upload_to='videos/', null=True, blank=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, db_index=True, related_name='user_answer_q')
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='user_answer')
 

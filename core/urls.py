@@ -19,5 +19,6 @@ urlpatterns = [
     path('create-course',CreateCourseView.as_view(),name = 'create-course'),
     path('create-subject',CreateSubjectView.as_view(),name = 'create-subject'),
     path('create-question',CreateQuestionView.as_view(),name = 'create-question'),
-    path('create-option',CreateOptionView.as_view(),name = 'create-option')
+    path('create-option',CreateOptionView.as_view(),name = 'create-option'),
+    path('feedback',FeedbackView.as_view(),name = 'feedback')
 ]

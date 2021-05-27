@@ -72,3 +72,7 @@ class StudentProfileView(TemplateView):
 
 class QuizView(TemplateView):
     template_name = 'quiz.html'
+
+
+class FeedbackView(TemplateView):
+    template_name = 'feedback.html'
