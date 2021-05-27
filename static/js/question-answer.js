@@ -207,7 +207,7 @@ document.getElementById("next").addEventListener('click', (e) => {
   e.preventDefault()
   optionss = document.querySelectorAll("#optionn")
   
-console.log(video,image);
+// console.log(video,image);
   optionss.forEach(e => {
     if (e.checked) {
       console.log(e.parentElement.getAttribute("val"),'salam'); 
