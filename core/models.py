@@ -66,6 +66,10 @@ class UserAnswer(models.Model):
             else:
                 print('wrong', self.question.is_success)
 
+    class Meta:
+        verbose_name = 'Answer'
+        verbose_name_plural = 'Answers'
+
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order')
