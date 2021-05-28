@@ -1,7 +1,13 @@
 from django.db import models
 from core.models import Course, Option, Subject, Question, Order,UserAnswer
 from rest_framework import serializers
-from drf_extra_fields.fields import Base64ImageField
+from drf_extra_fields.fields import Base64ImageField, Base64FileField
+
+class PDFBase64FileField(Base64FileField):
+    ALLOWED_TYPES = ['mp4']
+
+    def get_file_extension(self, filename, decoded_file):
+        return 'mp4'
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,10 +56,11 @@ class SubjectSerializer(serializers.ModelSerializer):
 
     #     return subject
 
+
 class QuestionSerializer(serializers.ModelSerializer):
 
     image = Base64ImageField(required=False)
-    video = Base64ImageField(required=False)
+    video = PDFBase64FileField(required=False, )
 
     class Meta:
         model = Question
@@ -105,7 +112,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
 class UserAnswerSerializer(serializers.ModelSerializer):
     image = Base64ImageField(required=False)
-    video = Base64ImageField(required=False)
+    video = PDFBase64FileField(required=False)
+
     class Meta:
         model = UserAnswer
         fields = ('id', 'user', 'feedback', 'question', 'answer', 'video', 'image')
