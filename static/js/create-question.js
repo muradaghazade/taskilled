@@ -103,7 +103,7 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
         title: title,
         description: question,
         edu_url:edu_url,
-        is_auto:0,
+        is_auto:is_auto,
         is_success:0,
         subject:subject_id
         
