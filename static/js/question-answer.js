@@ -67,7 +67,8 @@ getQuestionData = () => {
       if (data.is_auto === true){
         document.getElementById("video").style.display = "none";
       }else{
-        document.getElementById("video").innerHTML =`<video width="320" height="240" controls>
+        document.getElementById("open-form").style.display = "block";
+        document.getElementById("video").innerHTML =`<video width="500" height="300" controls>
         <source src="${data.video}" type="video/mp4">
         <source src="${data.video}" type="video/ogg">
         Your browser does not support the video tag.
