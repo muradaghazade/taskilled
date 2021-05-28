@@ -78,7 +78,7 @@ renderSubjects = () => {
        localStorage.setItem('id_list', id_list)
        let ids = localStorage.getItem('id_list')
        let usable_ids = ids.split(',');
-       document.getElementById("start-a").href = `/core/question/${usable_ids[0]}`
+       document.getElementById("start-a").href = `/question/${usable_ids[0]}`
         })
 
 

@@ -17,7 +17,7 @@ let usable_ids = localStorage.getItem('id_list').split(',')
 let next_id = usable_ids.indexOf(pk) + 1
 
 if(next_id != undefined){
-  document.getElementById('next-a').href = `/core/question/${usable_ids[next_id]}`
+  document.getElementById('next-a').href = `/question/${usable_ids[next_id]}`
 }
 
 
@@ -153,49 +153,49 @@ answerQuestion = (answer) => {
 
 
 
-// async function answerOpenQuestion(video=null, image=null) {
+async function answerOpenQuestion(video=null, image=null) {
 
-//   let jwt = `Bearer ${localStorage.getItem("token")}`
-//   console.log(jwt);
-//   fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
-//       method: "POST",
-//       headers: {
-//         "Content-type": "application/json",
-//         "Authorization": jwt
-//       },
-//       // body: JSON.stringify(data),
-//     })
-//     .then((resp) => resp.json())
-//     .then( async (user) => {
-//       console.log(user);
-//       data = {
-//         answer: "BLANK",
-//         question: pk,
-//         user: user.id,
-//         feedback: "",
-//         image: await toBase64(image),
-//         video: await toBase64(video)
+  let jwt = `Bearer ${localStorage.getItem("token")}`
+  console.log(jwt);
+  fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": jwt
+      },
+      // body: JSON.stringify(data),
+    })
+    .then((resp) => resp.json())
+    .then( async (user) => {
+      console.log(user);
+      data = {
+        answer: "BLANK",
+        question: pk,
+        user: user.id,
+        feedback: "",
+        image: await toBase64(image),
+        video: await toBase64(video)
 
-//       }
-//       console.log(data);
-//       fetch(userAnswerUrl, {
-//           method: "POST",
-//           headers: {
-//             "Content-type": "application/json",
-//           },
-//           body: JSON.stringify(data),
-//         })
-//         .then((resp) => resp.json())
-//         .then((data) => {
-//           console.log(data);
+      }
+      console.log(data);
+      fetch(userAnswerUrl, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
 
           
 
-//         })
-//     })
+        })
+    })
 
 
-// }
+}
 
 
 
@@ -222,10 +222,10 @@ getQuestionData()
 
 
 
-// document.getElementById("open-form").addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   let video = document.getElementById("video-input").files[0]
-//   let image = document.getElementById("image-input").files[0]
-//   console.log(video, image);
-//   answerOpenQuestion(video, image)
-// })
+document.getElementById("open-form").addEventListener('submit', (e) => {
+  e.preventDefault();
+  let video = document.getElementById("video-input").files[0]
+  let image = document.getElementById("image-input").files[0]
+  console.log(video, image);
+  answerOpenQuestion(video, image)
+})
