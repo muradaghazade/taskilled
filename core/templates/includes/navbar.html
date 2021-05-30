@@ -1,37 +1,6 @@
 {% load static %}
 
-<!-- Navbar section -->
-{% comment %}
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-<nav class="nav">
-  <div class="container-fluid">
-    <div class="title">
-      <div class="logo">
-        <a href="">Ta
-          <span>sk</span>
-          illed</a>
-      </div>
-      <ul>
-        <li><a href="#">Catalog</a>
-          <i class="fas fa-chevron-down"></i></li>
-        <li><a href="#">Intemship</a>
-          <i class="fas fa-chevron-down"></i></li>
-      </ul>
-      <div class="nav__input">
-        <input type="text" placeholder="Search our catalog" />
-        <i class="fas fa-search"></i>
-      </div>
-      <div class="basket">
-        <i class="fas fa-shopping-cart"></i>
-      </div>
-      <div class="buttons">
-        <button>Sign in</button>
-        <button>Register</button>
-      </div>
-    </div>
-  </div>
-</nav> {% endcomment %}
-<!-- Navbar end -->
+
 <div class="container-fluid m-auto d-flex justify-content-center">
   <nav class="navbar navbar-expand-lg navbar-light bg-white ">
   <div class="logo">
@@ -47,7 +16,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-5 mt-2 mt-lg-0 ml-5">
       <li class="nav-item active ml-5">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'core:course-list' %}">All Courses <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -58,7 +27,10 @@
     </ul>
     <div class="form-inline my-2 my-lg-0 ml-5">
       <input class="form-control mr-sm-2 ml-5" type="search" placeholder="Search">
-      <div class="user-data-here">
+      <a href="{% url 'core:profile' %} ">
+        <div class="user-data-here">
+      </a>
+      
         <a href="">
       <button class="btn auth my-2 my-sm-0 ml-4" type="submit">Login</button>
     </a>
