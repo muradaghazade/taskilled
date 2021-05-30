@@ -20,5 +20,5 @@ services:
         - ./static/:/code/static/
         - ./media/:/code/media/
         depends_on:
-        - "postgres"
+        - "postges"
         env_file: ./.env
