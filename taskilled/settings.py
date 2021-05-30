@@ -131,12 +131,12 @@ SIMPLE_JWT = {
 
 STATIC_URL = '/static/'
 
-if DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-else:
-    STATICFILES_DIRS = [
-        BASE_DIR / 'static',
-    ]
+# if DEBUG:
+#    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# else:
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
