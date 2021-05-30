@@ -4,9 +4,12 @@ db.sqlite
 media/
 __pycache__/
 */__pycache__/
+*/*/__pycache__/
 *.pyc
 */*.pyc
 *.sql
 postgresdb/
 redisdb/
 migrations
+
+postgre_db/
