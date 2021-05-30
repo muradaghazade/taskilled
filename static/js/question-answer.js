@@ -154,7 +154,7 @@ answerQuestion = (answer) => {
 
 
 
-async function answerOpenQuestion(video=null, image=null) {
+async function answerOpenQuestion(video=null, image=null, text=null) {
 
   let jwt = `Bearer ${localStorage.getItem("token")}`
   console.log(jwt);
@@ -170,7 +170,7 @@ async function answerOpenQuestion(video=null, image=null) {
     .then( async (user) => {
       console.log(user);
       data = {
-        answer: "BLANK",
+        answer: text,
         question: pk,
         user: user.id,
         feedback: "",
@@ -225,8 +225,9 @@ getQuestionData()
 
 document.getElementById("open-form").addEventListener('submit', (e) => {
   e.preventDefault();
+  let ans_textt = document.getElementById("answer-textt").value
   let video = document.getElementById("video-input").files[0]
   let image = document.getElementById("image-input").files[0]
   console.log(video, image);
-  answerOpenQuestion(video, image)
+  answerOpenQuestion(video, image, ans_textt)
 })
