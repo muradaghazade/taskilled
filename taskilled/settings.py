@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k9y5!e4y2qll*%7i92_0hxzt1uf3ju9wkc!ek0)0ez1!5qy#81'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if os.getenv('DEBUG') else True
 
 ALLOWED_HOSTS = []
 
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'taskilled.wsgi.application'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'taskilled',
-            'USER': 'taskilled',
-            'PORT': 5432,
-            'PASSWORD': '12345',
-            'HOST': '127.0.0.1',
+            'NAME': os.getenv('POSTGRES_DB', 'taskilled'),
+            'USER': os.getenv('POSTGRES_USER', 'taskilled'),
+            'PORT': os.getenv('POSTGRES_PORT', 5432),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345'),
+            'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
         }
     }
 
@@ -131,9 +131,12 @@ SIMPLE_JWT = {
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static',
+    ]
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
@@ -153,5 +156,3 @@ AUTH_USER_MODEL = 'accounts.User'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

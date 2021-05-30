@@ -3,11 +3,9 @@ services:
     postges:
         container_name: postgres_data
         image: postgres:9.6
-        environment:
-            POSTGRES_DB: 'taskilled'
-            POSTGRES_USER: 'taskilled'
-            POSTGRES_PASSWORD: '12345'
         ports: 
             - 5432:5432
         volumes: 
             - ../postgre_db:/var/lib/postgresql/
+
+        env_file: ../.env
