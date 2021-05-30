@@ -23,7 +23,4 @@ urlpatterns = [
     path('api/v1/', include('accounts.api.urls')),
     path('', include('core.urls',namespace = 'core')),
     path('api/v1/core/', include('core.api.urls')),
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
