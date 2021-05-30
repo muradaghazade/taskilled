@@ -16,8 +16,11 @@ let usable_ids = localStorage.getItem('id_list').split(',')
 
 let next_id = usable_ids.indexOf(pk) + 1
 
-if(next_id != undefined){
+if(next_id != usable_ids[usable_ids.length - 1]){
   document.getElementById('next-a').href = `/question/${usable_ids[next_id]}`
+}
+else {
+  document.getElementById('next-a').href = `/`
 }
 
 
@@ -76,7 +79,13 @@ getQuestionData = () => {
 
       }
 
-      console.log(data.subject);
+      console.log(data, "adadada");
+
+      if (data.is_auto == false) {
+        document.getElementById("next").style.display = "none"
+        document.getElementById("next-a").style.display = "block"
+      }
+
     })
 }
 
