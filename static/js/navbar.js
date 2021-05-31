@@ -27,7 +27,7 @@ getTokenData = () => {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          if (data.is_student != 1) {
+          if (data.is_teacher == 1) {
             document.getElementById('cre-link').innerHTML = `<a class="nav-link" href="/create-course">Create Course</a>`
             
           }
