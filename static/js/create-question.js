@@ -134,7 +134,7 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
            console.log(data);
         //    localStorage.setItem('question_id', data.id)
            console.log('buradaaaaa');
-           document.location.href = '/'
+        //    document.location.href = '/'
         })
 }
 
