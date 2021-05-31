@@ -77,6 +77,10 @@ getQuestionData = () => {
         Your browser does not support the video tag.
       </video>` 
 
+      document.getElementById('q-image').innerHTML = `
+      <img style="width: 200px;" src="${data.image}" />
+      `
+
       }
 
       console.log(data, "adadada");
