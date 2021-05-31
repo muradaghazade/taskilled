@@ -1,6 +1,6 @@
 pk = document.getElementById("page-pk").innerText;
 
-url = `http://127.0.0.1:8000/api/v1/core/course/${pk}`;
+url = `/api/v1/core/course/${pk}`;
 
 console.log(url);
 
@@ -19,7 +19,7 @@ getCourseDetail = () => {
     document.querySelectorAll(".deadline").forEach(element => {
       element.innerHTML = `${data.course_deadline}`
   });
-      fetch(`http://127.0.0.1:8000/api/v1/edit-user/${data.teacher}`)
+      fetch(`/api/v1/edit-user/${data.teacher}`)
         .then((resp) => resp.json())
         .then((user) => {
         console.log(user.last_name);
@@ -38,7 +38,7 @@ renderSubjects = () => {
 
   let id_list = []
 
-  fetch(`http://127.0.0.1:8000/api/v1/core/all-subjects/`)
+  fetch(`/api/v1/core/all-subjects/`)
         .then((resp) => resp.json())
         .then((data) => {
           data.forEach(e => {
@@ -61,7 +61,7 @@ renderSubjects = () => {
 
 
 
-  fetch(`http://127.0.0.1:8000/api/v1/core/all-questions/`)
+  fetch(`/api/v1/core/all-questions/`)
         .then((resp) => resp.json())
         .then((quest) => {
           console.log(quest);
@@ -101,7 +101,7 @@ createOrder = () => {
 
 let jwt = `Bearer ${localStorage.getItem("token")}`
     console.log(jwt);
-    fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+    fetch(`/api/v1/user-data/`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -118,7 +118,7 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
             course: pk
         }
 
-        fetch(`http://127.0.0.1:8000/api/v1/core/order/`, {
+        fetch(`/api/v1/core/order/`, {
     method: "POST",
     headers: {
         "Content-type": "application/json",
@@ -148,7 +148,7 @@ document.getElementById("order-button").addEventListener('click', () => {
 
 let jwt = `Bearer ${localStorage.getItem("token")}`
     console.log(jwt);
-    fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+    fetch(`/api/v1/user-data/`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -159,7 +159,7 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          fetch(`http://127.0.0.1:8000/api/v1/core/all-order/`)
+          fetch(`/api/v1/core/all-order/`)
           .then((resp) => resp.json())
           .then((orders) => {
             console.log(orders);

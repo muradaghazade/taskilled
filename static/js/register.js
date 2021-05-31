@@ -1,4 +1,4 @@
-registerURL = 'http://127.0.0.1:8000/api/v1/register/';
+registerURL = '/api/v1/register/';
 
 
 
@@ -36,7 +36,7 @@ register = (username, firstname, lastname, email, password1, password2, age) => 
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
-          document.location.href = '/core/login'
+          document.location.href = '/login'
         })
 }
 

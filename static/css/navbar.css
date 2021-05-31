@@ -278,7 +278,7 @@
   border-radius: 5px;
 }
 .udemy {
-  background-color: rgb(26, 96, 177);
+  background-color: #cc7a00;
   margin-top: 10rem;
   position: relative;
   padding: 50px;
@@ -316,9 +316,9 @@
 .udemytext button {
   margin-top: 10px;
   padding: 10px 35px;
-  background-color: darkcyan;
+  background-color: whitesmoke;
   opacity: 0.8;
-  color: #fff;
+  color: black;
   border: none;
   cursor: pointer;
   border-radius: 5px;

@@ -8,7 +8,7 @@ plus_btn.addEventListener('click', event => {
     next.style='display:block'
 });
 
-subjectURL = 'http://127.0.0.1:8000/api/v1/core/create-subject/';
+subjectURL = '/api/v1/core/create-subject/';
 
 
 

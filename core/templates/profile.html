@@ -77,7 +77,10 @@
                         <div class="card" style="border: none;">
                             <div class="for-image" style="margin-top: 27%; margin-left: 8px;">
                                 <!-- <img src="download.png" style="background-color: white;" class="card-img-top" alt="..."> -->
-                                <i class="far fa-plus-square" style="font-size: 40px; color: grey;"></i>
+                                <a href="{% url 'core:create-course' %}">
+                                    <i class="far fa-plus-square" style="font-size: 40px; color: grey;"></i>
+
+                                </a>
                             </div>
                           </div>
                     </div>
@@ -86,7 +89,7 @@
         </div>
     </section>
     <div class="p-5">
-        <div id="editor">This is some sample content.</div>
+        <!-- <div id="editor">This is some sample content.</div> -->
 
     </div>
     <script src="{% static 'js/profile.js' %}"></script>

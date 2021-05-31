@@ -1,7 +1,7 @@
 pk = document.getElementById("pk").innerText;
 
-userAnswerUrl = 'http://127.0.0.1:8000/api/v1/core/user-answer/';
-userAnswerDataUrl = `http://127.0.0.1:8000/api/v1/core/question/${pk}/`;
+userAnswerUrl = '/api/v1/core/user-answer/';
+userAnswerDataUrl = `/api/v1/core/question/${pk}/`;
 
 console.log(userAnswerDataUrl);
 
@@ -27,7 +27,7 @@ else {
 
 
 getQuestionOptions = () => {
-  fetch(`http://127.0.0.1:8000/api/v1/core/all-options/`)
+  fetch(`/api/v1/core/all-options/`)
     .then((resp) => resp.json())
     .then((data) => {
       // console.log(data);
@@ -66,7 +66,7 @@ getQuestionData = () => {
       getQuestionOptions()
       document.getElementById("question-title").innerHTML = data.title
       document.getElementById("question-desc").innerHTML = data.description
-      document.getElementById("success-here").innerHTML = data.is_success
+      // document.getElementById("success-here").innerHTML = data.is_success
       if (data.is_auto === true){
         document.getElementById("video").style.display = "none";
       }else{
@@ -93,7 +93,7 @@ answerQuestion = (answer) => {
 
   let jwt = `Bearer ${localStorage.getItem("token")}`
   console.log(jwt);
-  fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+  fetch(`/api/v1/user-data/`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -122,12 +122,12 @@ answerQuestion = (answer) => {
         .then((data) => {
           console.log(data);
 
-          fetch(`http://127.0.0.1:8000/api/v1/core/question/${data.question}`)
+          fetch(`/api/v1/core/question/${data.question}`)
             .then((resp) => resp.json())
             .then((question) => {
               if (question.correct_answer == data.answer) {
 
-                fetch(`http://127.0.0.1:8000/api/v1/core/question/${question.id}/`, {
+                fetch(`/api/v1/core/question/${question.id}/`, {
                     method: "PATCH",
                     headers: {
                       "Content-type": "application/json",
@@ -167,7 +167,7 @@ async function answerOpenQuestion(video=null, image=null, text=null) {
 
   let jwt = `Bearer ${localStorage.getItem("token")}`
   console.log(jwt);
-  fetch(`http://127.0.0.1:8000/api/v1/user-data/`, {
+  fetch(`/api/v1/user-data/`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

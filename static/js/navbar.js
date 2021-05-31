@@ -1,4 +1,4 @@
-userTokenUrl = "http://127.0.0.1:8000/api/v1/user-data/";
+userTokenUrl = "/api/v1/user-data/";
 
 
 getTokenData = () => {
@@ -27,8 +27,11 @@ getTokenData = () => {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data);
+            document.getElementById('cre-link').innerHTML = `<a class="nav-link" href="/create-course">Create Course</a>`
+         
+
           if (data.username != undefined) {
-            document.querySelector(".user-data-here").innerHTML = `<button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">${data.username}</button>`
+            document.querySelector(".user-data-here").innerHTML = `<a href="/profile"><button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">${data.username}</button></a>`
           }
           else {
             document.querySelector(".user-data-here").innerHTML = `<a href="/login">

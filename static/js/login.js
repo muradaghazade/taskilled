@@ -1,4 +1,4 @@
-let loginUrl = 'http://127.0.0.1:8000/api/v1/login/';
+let loginUrl = '/api/v1/login/';
 
 login = (username,password) => {
     // formdata = new FormData();
@@ -28,7 +28,7 @@ login = (username,password) => {
         .then((data) => {
           console.log(data.access);
           localStorage.setItem("token", data.access);
-          document.location.href = '/core'
+          document.location.href = '/'
         })
 }
 

@@ -1,4 +1,4 @@
-questionUrl = 'http://127.0.0.1:8000/api/v1/core/option/';
+questionUrl = '/api/v1/core/option/';
 
 
 

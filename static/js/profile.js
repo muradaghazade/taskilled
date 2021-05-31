@@ -1,11 +1,11 @@
-getUsersUrl = 'http://127.0.0.1:8000/api/v1/core/all-courses/';
+getUsersUrl = '/api/v1/core/all-courses/';
 
 
 getCourseList = () => {
 
   let jwt = `Bearer ${localStorage.getItem("token")}`
   console.log(jwt);
-  fetch("http://127.0.0.1:8000/api/v1/user-data/", {
+  fetch("/api/v1/user-data/", {
       method: "POST",
       headers: {
           "Content-type": "application/json",

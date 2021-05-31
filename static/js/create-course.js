@@ -1,4 +1,4 @@
-createCourseUrl = "http://127.0.0.1:8000/api/v1/core/course/";
+createCourseUrl = "/api/v1/core/course/";
 
 const toBase64 = file => new Promise((resolve, reject) => {
   const reader = new FileReader();

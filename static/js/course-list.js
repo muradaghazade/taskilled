@@ -1,4 +1,4 @@
-url = "http://127.0.0.1:8000/api/v1/core/all-courses/";
+url = "/api/v1/core/all-courses/";
 
 getCourseList = () => {
     fetch(url)

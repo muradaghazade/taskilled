@@ -60,8 +60,8 @@ link_spn.addEventListener('click', event => {
 });
 
 
-questionUrl = 'http://127.0.0.1:8000/api/v1/core/question/';
-optionUrl = 'http://127.0.0.1:8000/api/v1/core/option/';
+questionUrl = '/api/v1/core/question/';
+optionUrl = '/api/v1/core/option/';
 
 
 questionCreate = (title, question,correct_answer,subject_id,options, is_auto) => {
@@ -134,6 +134,7 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
            console.log(data);
         //    localStorage.setItem('question_id', data.id)
            console.log('buradaaaaa');
+           document.location.href = '/'
         })
 }
 
