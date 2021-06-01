@@ -172,7 +172,7 @@ answerQuestion = (answer) => {
 
 
 
-async function answerOpenQuestion(video=null, image=null, text=null) {
+async function answerOpenQuestion(video=null, image=null, text="") {
 
   let jwt = `Bearer ${localStorage.getItem("token")}`
   console.log(jwt);
@@ -188,14 +188,33 @@ async function answerOpenQuestion(video=null, image=null, text=null) {
     .then( async (user) => {
       console.log(user);
       data = {
-        answer: text,
+        // answer: text,
         question: pk,
         user: user.id,
-        feedback: "",
-        image: await toBase64(image),
-        video: await toBase64(video)
+        feedback: ""
 
       }
+      console.log(data, "here");
+console.log(image, video, text, "adaaaaaam");
+      if (image != null) {
+        data.image = await toBase64(image)
+
+    }
+
+    if (video != null) {
+        
+        data.video = await toBase64(video)
+    }
+
+    if (text != "") {
+        
+      data.answer = text
+  }
+  else {
+    data.answer = 'blank'
+  }
+
+
       console.log(data);
       fetch(userAnswerUrl, {
           method: "POST",
