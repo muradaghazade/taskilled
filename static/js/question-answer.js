@@ -16,11 +16,11 @@ let usable_ids = localStorage.getItem('id_list').split(',')
 
 let next_id = usable_ids.indexOf(pk) + 1
 
-console.log(next_id, 'ddddd');
+console.log(usable_ids[next_id-1], 'ddddd');
 
 console.log(usable_ids[usable_ids.length - 1],'aaaa');
 
-if(usable_ids[next_id] == usable_ids[usable_ids.length - 1]){
+if(usable_ids[next_id-1] == usable_ids[usable_ids.length - 1]){
   document.getElementById('next-a').href = `/`
   
 }
