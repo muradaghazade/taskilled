@@ -37,7 +37,7 @@ getCourseList = () => {
                     </div>`
         }
         else {
-          document.getElementById("course-here").innerHTML += "noo"
+          document.getElementById("course-here").innerHTML += ""
         }
           
       });

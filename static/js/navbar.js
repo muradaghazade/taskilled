@@ -1,5 +1,16 @@
 userTokenUrl = "/api/v1/user-data/";
 
+if (localStorage.getItem('token')) {
+  document.getElementById("log-out").style.display = "block"
+}
+else {
+  document.getElementById("log-out").style.display = "none"
+}
+
+document.getElementById("log-out").addEventListener('click', () => {
+  localStorage.removeItem('token')
+  document.location.href = '/login'
+})
 
 getTokenData = () => {
     // formdata = new FormData();
@@ -26,11 +37,11 @@ getTokenData = () => {
       })
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data);
-          if (data.is_teacher == 1) {
-            document.getElementById('cre-link').innerHTML = `<a class="nav-link" href="/create-course">Create Course</a>`
+          // console.log(data);
+          // if (data.is_teacher == 1) {
+          //   document.getElementById('cre-link').innerHTML = `<a class="nav-link" href="/create-course">Create Course</a>`
             
-          }
+          // }
          
 
           if (data.username != undefined) {
