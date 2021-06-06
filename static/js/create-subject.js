@@ -3,10 +3,10 @@ var form = document.querySelector('form');
 var next = document.querySelector('.next');
 // console.log(form);
 // console.log($(".form_subject")); 
-plus_btn.addEventListener('click', event => {
-    form.style='display:block'
-    next.style='display:block'
-});
+// plus_btn.addEventListener('click', event => {
+//     form.style='display:block'
+//     next.style='display:block'
+// });
 
 subjectURL = '/api/v1/core/create-subject/';
 
@@ -43,7 +43,7 @@ document.querySelector(".from_subject").addEventListener('submit', (e) => {
     let deadline = document.getElementById('deadline').value;
     course_id = localStorage.getItem('course_id')
     console.log(course_id,'dsadsasdasda');
-    form.style='display:none'
+    // form.style='display:none'
     
     
     

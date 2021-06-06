@@ -24,7 +24,7 @@ label{
     background: #cc7a00;
     font-size: 16px;
     color: #fff;
-    display: none;
+    /* display: none; */
     text-decoration: none !important;
 }
 .next:hover{
