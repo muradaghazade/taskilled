@@ -55,6 +55,7 @@ async function createCourse (title, teacher, price, image, description, course_d
         .then((data) => {
           console.log(data);
           localStorage.setItem('course_id',data.id)
+          document.location.href = 'create-subject'
         })
 }
 
