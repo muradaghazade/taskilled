@@ -1,5 +1,19 @@
 createCourseUrl = "/api/v1/core/course/";
 
+localStorage.setItem("course-category", 1)
+
+document.getElementById('option1').addEventListener('click', () => {
+  localStorage.setItem("course-category", 1)
+})
+
+document.getElementById('option2').addEventListener('click', () => {
+  localStorage.setItem("course-category", 2)
+})
+
+document.getElementById('option3').addEventListener('click', () => {
+  localStorage.setItem("course-category", 3)
+})
+
 const toBase64 = file => new Promise((resolve, reject) => {
   const reader = new FileReader();
   reader.readAsDataURL(file);
@@ -27,7 +41,8 @@ async function createCourse (title, teacher, price, image, description, course_d
         image: file,
         description: description,
         course_deadline: course_deadline,
-        minimum_age: minimum_age
+        minimum_age: minimum_age,
+        category: localStorage.getItem("course-category")
     }
     fetch(createCourseUrl, {
         method: "POST",

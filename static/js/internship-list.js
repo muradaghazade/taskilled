@@ -7,7 +7,7 @@ getCourseList = () => {
       console.log(data);
       data.forEach(element => {
           console.log(element.category);
-          if (element.category == 1) {
+          if (element.category == 2) {
             document.getElementById("list-here").innerHTML += `
             <div class="d-flex">
                               <div style="width: 84%;">

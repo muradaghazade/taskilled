@@ -13,6 +13,7 @@ class Course(models.Model):
     course_deadline = models.CharField('Deadline',blank=True,max_length=50)
     minimum_age = models.IntegerField('Minimum age',blank=True,null=False)
     is_shared = models.BooleanField('is shared',default=0)
+    category = models.ForeignKey("Category", on_delete=models.CASCADE, db_index=True, related_name='category_course', null=True, blank=True)
     # shared_at = models.DateTimeField('shared_at')
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -25,6 +26,15 @@ class Course(models.Model):
     def __str__(self):
         return f"{self.title}" 
 
+class Category(models.Model):
+    title = models.CharField('Title',max_length=50, null=True)
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return f"{self.title}" 
 
 class Question(models.Model):
     

@@ -15,6 +15,13 @@ class CourseListView(ListView):
     model = Course
     template_name = 'course_list.html'
 
+class InternshipListView(ListView):
+    model = Course
+    template_name = 'internship_list.html'
+
+class BTaskListView(ListView):
+    model = Course
+    template_name = 'b_task.html'
 
 class CourseDetailView(DetailView):
     model = Course
