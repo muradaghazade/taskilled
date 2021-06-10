@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import datetime
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,6 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', # add this
+                'social_django.context_processors.login_redirect', # add this
             ],
         },
     },
@@ -168,10 +171,23 @@ AUTH_USER_MODEL = 'accounts.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '78gcdjmq4by6gt'         #Client ID
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'yuKE7baDqg0QdbD3'  #Client 
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE =  ['r_liteprofile'] 
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
+    ('id', 'id'),
+    ('formattedName', 'name'),
+    ('emailAddress', 'email_address'),
+    ('pictureUrl', 'picture_url'),
+    ('publicProfileUrl', 'profile_url'),
+]
 
 
+# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-LOGIN_URL = 'api/v1/login'
-LOGIN_REDIRECT_URL = ''
-LOGOUT_URL = ''
-LOGOUT_REDIRECT_URL = ''
+LOGIN_URL = reverse_lazy('core:login')
+LOGIN_REDIRECT_URL = reverse_lazy('core:profile')
+LOGOUT_URL = reverse_lazy('core:profile')
+LOGOUT_REDIRECT_URL = reverse_lazy('core:profile')
