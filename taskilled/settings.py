@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     # local apps
     'accounts.apps.AccountsConfig',
     'core.apps.CoreConfig',
@@ -56,6 +57,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'taskilled.urls'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'django.contrib.auth.backends.ModelBackend', 
+)
+
+
+
 
 TEMPLATES = [
     {
@@ -157,3 +166,12 @@ AUTH_USER_MODEL = 'accounts.User'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+LOGIN_URL = 'api/v1/login'
+LOGIN_REDIRECT_URL = ''
+LOGOUT_URL = ''
+LOGOUT_REDIRECT_URL = ''
