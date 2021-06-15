@@ -74,5 +74,5 @@ class QuizView(TemplateView):
     template_name = 'quiz.html'
 
 
-class FeedbackView(TemplateView):
-    template_name = 'feedback.html'
+class EditProfile(TemplateView):
+    template_name = 'edit-profile.html'

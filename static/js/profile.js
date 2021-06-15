@@ -4,25 +4,26 @@ getUsersUrl = '/api/v1/core/all-courses/';
 getCourseList = () => {
 
   let jwt = `Bearer ${localStorage.getItem("token")}`
-  console.log(jwt);
+  // console.log(jwt,'salammmm');
   fetch("/api/v1/user-data/", {
       method: "POST",
       headers: {
           "Content-type": "application/json",
           "Authorization": jwt
       },
-      // body: JSON.stringify(data),
+     
     })
       .then((resp) => resp.json())
       .then((user) => {
         console.log(user);
+        localStorage.setItem('user_id',user.id)
         fetch(getUsersUrl)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data,'jnasjcknascksancksancskancsajkcnsajcsajsnans');
       data.forEach(element => {
-        console.log(user ,"yeaa");
-        console.log(element.teacher, "dfdfdhfd");
+        
+        // console.log(element.teacher, "dfdfdhfd");
         if (user.id == element.teacher) {
           document.getElementById("course-here").innerHTML += `
           <div class="col-3 created">
