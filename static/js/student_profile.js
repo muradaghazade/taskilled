@@ -9,15 +9,17 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
         // body: JSON.stringify(data),
       })
         .then((resp) => resp.json())
-        .then((data) => {
-          // console.log(data);
+        .then((user) => {
+          console.log(user);
+          localStorage.setItem('user_id',user.id)
           url = "/api/v1/core/all-courses/";
 
           getCourseList = () => {
               fetch(url)
               .then((resp) => resp.json())
               .then((data) => {
-                console.log(data);
+                console.log(data,'nedibubele');
+                
                 data.forEach(element => {
                     document.getElementById("created-section").innerHTML += `
                     <div class="col-3 created">

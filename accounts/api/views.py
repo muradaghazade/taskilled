@@ -62,7 +62,7 @@ class GetUserDataByTokenView(APIView):
         user = request.user
         print(user.id)
         serializer = UserSerializer(user)
-        print(serializer.data)
+        print(serializer.data['username'],'salam')
         # new_dict = {
         #     'id': user.id,
         #     'username': user.username,

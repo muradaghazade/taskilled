@@ -24,4 +24,5 @@ urlpatterns = [
     path('create-option',CreateOptionView.as_view(),name = 'create-option'),
     path('feedback',FeedbackView.as_view(),name = 'feedback'),
     path('edit-course/<int:pk>',EditCourseView.as_view(),name = 'edit-course'),
+    path('edit-profile',EditProfile.as_view(),name = 'edit-profile')
 ]
