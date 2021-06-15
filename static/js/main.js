@@ -4,20 +4,28 @@ getCourseList = () => {
     fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data.slice(0,4));
+      let courses = []
+      data.forEach(e => {
+        console.log(e.category);
+        if (e.category == 1) {
+          courses.push(e)
+        }
+      })
+      console.log(courses);
+      console.log(courses.slice(0,4));
       console.log(document.querySelector(".fleximg"));
-      data.slice(0,4).forEach(element => {
+      courses.slice(0,4).forEach(element => {
           document.querySelector(".fleximg").innerHTML += `
           
-          <div>
+          <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; border-radius: 5px;">
             <h3>Price ${element.price}$</h3>
-            <span>${element.title}</span>
+            <span style="color: white;">${element.title}</span>
             <img
-              src="${element.image}"
+              src=""
               alt=""
             />
           </div>
-          
+        
         
           `
       });
