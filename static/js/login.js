@@ -26,9 +26,15 @@ login = (username,password) => {
       })
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data.access);
+          console.log(data.detail);
           localStorage.setItem("token", data.access);
-          document.location.href = '/'
+          if (data.detail != "No active account found with the given credentials") {
+            document.location.href = '/'
+            
+          }
+          else {
+            document.getElementById("callback").innerHTML = data.detail
+          }
         })
 }
 
