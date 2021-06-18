@@ -33,11 +33,25 @@ register = (username, firstname, lastname, email, password1, password2, age) => 
         },
         body: JSON.stringify(data),
       })
-        .then((resp) => resp.json())
-        .then((data) => {
-          console.log(data);
+      .then((resp) => {console.log(resp)
+      localStorage.setItem('last_response_code', resp.status)
+      return resp.json()
+      })
+      .then((data) => {
+        // console.log(data);
+        if (localStorage.getItem('last_response_code') != 201) {
+          for (const [key, value] of Object.entries(data)) {
+            console.log(key, value);
+            document.getElementById("callbacks").innerHTML += `
+            <p>*${value}</p>
+            ` 
+          }
+        }
+        else {
+          // console.log('partdatdin')
           document.location.href = '/login'
-        })
+        }
+      })
 }
 
 document.getElementById("regForm").addEventListener('submit', (e) => {
