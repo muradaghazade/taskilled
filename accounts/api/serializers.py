@@ -1,3 +1,4 @@
+from rest_framework.fields import ReadOnlyField
 from accounts.models import User
 from rest_framework import serializers
 from rest_framework.response import Response
@@ -7,10 +8,11 @@ from django.contrib.auth.password_validation import validate_password
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
+    token = serializers.SerializerMethodField(read_only = True)
     
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'password', 'password2','is_student', 'is_teacher')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'password', 'password2','is_student', 'is_teacher' ,'token')
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
@@ -31,8 +33,18 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         
         user.set_password(validated_data['password'])
         user.save()
-
         return user
+        
+    @classmethod
+    def get_token(cls, user):
+        token = super(cls).get_token(user)
+
+        # Add custom claims
+        print(user.username)
+        token['first_name'] = user.first_name
+        token['last_name']= user.last_name
+        return token
+
 
 class UserSerializer(serializers.ModelSerializer):
 
