@@ -45,8 +45,8 @@
                         </a>
                     </li>
                     <li class="mt-4">
-                        <a href="" class="sidebar-items">
-                            Trush
+                        <a href="{% url 'core:edit-profile' %}" class="sidebar-items">
+                            Edit Profile
                         </a>
                     </li>
                 </ul>
@@ -57,8 +57,14 @@
             <div class="col-8 mt-5">
                 <h2>Created</h2>
                 <div class="row created-section">
+<div class="d-flex">
 
-                    <div id="course-here" class="d-flex"></div>
+    <div id="course-here" class="d-flex"></div>
+    <a href="{% url 'core:create-course' %}">
+        <i class="far fa-plus-square" style="font-size: 40px; color: grey;"></i>
+
+    </a>
+</div>
 
                     <!-- <div class="col-3 created">
                         <div class="card">
@@ -73,17 +79,21 @@
                     <div>
                         
                     </div>
-                    <div class="col-3 created">
+                    <!-- <div class="col-3 created">
                         <div class="card" style="border: none;">
                             <div class="for-image" style="margin-top: 27%; margin-left: 8px;">
-                                <!-- <img src="download.png" style="background-color: white;" class="card-img-top" alt="..."> -->
-                                <a href="{% url 'core:create-course' %}">
-                                    <i class="far fa-plus-square" style="font-size: 40px; color: grey;"></i>
-
-                                </a>
+                                <img src="download.png" style="background-color: white;" class="card-img-top" alt="...">
+                                
                             </div>
                           </div>
-                    </div>
+                    </div> -->
+                    
+                    <div>
+    <h2 class="mt-5" style="padding: 10px;">Shared</h2>
+    <div id="shared-course-here" class="d-flex">
+    </div>
+</div>
+                    
                 </div>
             </div>
         </div>
@@ -95,13 +105,13 @@
     <script src="{% static 'js/profile.js' %}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
     <script>
-        ClassicEditor
-                .create( document.querySelector( '#editor' ) )
-                .then( editor => {
-                        console.log( editor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
+        // ClassicEditor
+        //         .create( document.querySelector( '#editor' ) )
+        //         .then( editor => {
+        //                 console.log( editor );
+        //         } )
+        //         .catch( error => {
+        //                 console.error( error );
+        //         } );
 </script>
     {% endblock %}

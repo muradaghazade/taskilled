@@ -83,3 +83,10 @@ class QuizView(TemplateView):
 
 class FeedbackView(TemplateView):
     template_name = 'feedback.html'
+
+class EditCourseView(DetailView):
+    model = Course
+    context_object_name = "course"
+    template_name = 'edit-course.html'
+class EditProfile(TemplateView):
+    template_name = 'edit-profile.html'

@@ -7,7 +7,7 @@ getCourseList = () => {
       console.log(data);
       data.forEach(element => {
           console.log(element.category);
-          if (element.category == 3) {
+          if (element.category == 3 && element.is_shared == true) {
             document.getElementById("list-here").innerHTML += `
             <div class="d-flex">
                               <div style="width: 84%;">

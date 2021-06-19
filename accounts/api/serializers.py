@@ -27,7 +27,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
             is_student=validated_data['is_student'],
-            is_teacher=validated_data['is_teacher']
+            is_teacher=validated_data['is_teacher'],
+            age = validated_data['age']
         )
 
         
@@ -50,7 +51,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'is_teacher', 'is_student')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'is_teacher', 'is_student','age')
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
