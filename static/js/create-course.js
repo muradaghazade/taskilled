@@ -89,4 +89,3 @@ document.getElementById("courseForm").addEventListener('submit', (e) => {
   
   // localStorage.setItem()
 })
-
