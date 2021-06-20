@@ -46,6 +46,9 @@ async function getCourseList() {
                             <div class="button-here">
                             <button id="publish" style="border:none; background: none;">Publish</button>
                             </div>
+                            <div class="button-here">
+                            <button id="delete" style="border:none; background: none;">del</button>
+                            </div>
                             </div>
                           </div>
                     </div>
@@ -106,6 +109,21 @@ document.addEventListener('click', (e) => {
     .then((resp) => resp.json())
     .then((data) => {
       console.log(data, 'published');
+    })
+ }
+ else if (e.target.getAttribute('id') == 'delete') {
+  pk = e.target.parentElement.parentElement.parentElement.parentElement.getAttribute("id")
+  fetch(`/api/v1/core/course/${pk}/`, {
+    method: "DELETE",
+    headers: {
+        "Content-type": "application/json",
+    }
+  })
+    .then((resp) => resp.text())
+    .then((data) => {
+      console.log(data, 'DELETED');
+      
+      e.target.parentElement.parentElement.parentElement.parentElement.style.display = "none"
     })
  }
 })

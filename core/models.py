@@ -9,6 +9,7 @@ class Course(models.Model):
     teacher = models.ForeignKey(User,on_delete=models.CASCADE, db_index=True, related_name='course_teacher')
     price = models.DecimalField('Price',max_digits=6, decimal_places=2)
     image = models.ImageField('Image',upload_to='images/')
+    video = models.FileField('Video',upload_to='videos/', null=True, blank=True)
     description = models.TextField('Description')
     course_deadline = models.CharField('Deadline',blank=True,max_length=50)
     minimum_age = models.IntegerField('Minimum age',blank=True,null=False)

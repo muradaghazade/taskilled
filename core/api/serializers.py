@@ -12,7 +12,7 @@ class PDFBase64FileField(Base64FileField):
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ('id', 'title', 'teacher', 'price', 'image', 'description', 'course_deadline', 'minimum_age', 'is_shared', 'category')
+        fields = ('id', 'title', 'teacher', 'price', 'image', 'description', 'course_deadline', 'minimum_age', 'is_shared', 'category', 'video')
 
 
     def create(self, validated_data):
@@ -25,7 +25,8 @@ class CourseSerializer(serializers.ModelSerializer):
             course_deadline=validated_data['course_deadline'],
             minimum_age=validated_data['minimum_age'],
             is_shared=validated_data['is_shared'],
-            category=validated_data['category']
+            category=validated_data['category'],
+            video=validated_data['video']
         )
 
         course.save()
@@ -34,10 +35,11 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class CreateCourseSerializer(serializers.ModelSerializer):
     image = Base64ImageField(required=False)
+    video = PDFBase64FileField(required=False, )
 
     class Meta:
         model = Course
-        fields = ('id', 'title', 'teacher', 'price', 'image', 'description', 'course_deadline', 'minimum_age', 'is_shared', 'category')
+        fields = ('id', 'title', 'teacher', 'price', 'image', 'description', 'course_deadline', 'minimum_age', 'is_shared', 'category', 'video')
 
 
 class SubjectSerializer(serializers.ModelSerializer):

@@ -49,7 +49,7 @@ getInternshipList = () => {
     courses.slice(0,4).forEach(element => {
         document.querySelector("#fleximg2").innerHTML += `
         
-        <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; border-radius: 5px;">
+        <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; width: 300px; border-radius: 5px;">
           <h3>Price ${element.price}$</h3>
           <span style="color: white;">${element.title}</span>
           <img
@@ -81,7 +81,7 @@ getBTaskList = () => {
     courses.slice(0,4).forEach(element => {
         document.querySelector("#fleximg3").innerHTML += `
         
-        <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; border-radius: 5px;">
+        <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; width: 300px; border-radius: 5px;">
           <h3>Price ${element.price}$</h3>
           <span style="color: white;">${element.title}</span>
           <img

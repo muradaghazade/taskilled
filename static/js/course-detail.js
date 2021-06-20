@@ -10,6 +10,7 @@ getCourseDetail = () => {
     fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
+      console.log(data);
       document.querySelectorAll(".the-title").forEach(element => {
           element.innerHTML = data.title
       });
@@ -29,6 +30,12 @@ getCourseDetail = () => {
     })
       document.querySelector(".description").innerHTML = data.description
       document.querySelector(".min-age").innerHTML = data.minimum_age
+      if (data.video) {
+        document.getElementById('video-div').innerHTML = `<video controls style="width: 550px;">
+        <source src="${data.video}" type="video/mp4">  
+  </video>`
+        
+      }
     })
 }
 

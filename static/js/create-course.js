@@ -21,7 +21,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
   reader.onerror = error => reject(error);
 });
 
-async function createCourse (title, teacher, price, image, description, course_deadline, minimum_age) {
+async function createCourse (title, teacher, price, image, description, course_deadline, minimum_age, video=null) {
     // formdata = new FormData();
     // formdata.append("title", title);
     // formdata.append("teacher", teacher);
@@ -44,6 +44,10 @@ async function createCourse (title, teacher, price, image, description, course_d
         minimum_age: minimum_age,
         category: localStorage.getItem("course-category")
     }
+    if (video != null) {
+      video_file = await toBase64(video)
+      data.video = video_file
+  }
     fetch(createCourseUrl, {
         method: "POST",
         headers: {
@@ -82,11 +86,12 @@ document.getElementById("courseForm").addEventListener('submit', (e) => {
   minimum_age = document.getElementById("age").value;
   course_deadline = document.getElementById("time").value;
   image = document.getElementById("image").files[0];
-  createCourse(title,data.id, price,image, description,course_deadline,minimum_age)
+  video = document.getElementById("video").files[0];
+  
+  createCourse(title,data.id, price,image, description,course_deadline,minimum_age, video)
   
       })
 
   
   // localStorage.setItem()
 })
-

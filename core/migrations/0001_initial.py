@@ -32,6 +32,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=50, verbose_name='Title')),
                 ('price', models.DecimalField(decimal_places=2, max_digits=6, verbose_name='Price')),
                 ('image', models.ImageField(upload_to='images/', verbose_name='Image')),
+                ('video', models.FileField(blank=True, null=True, upload_to='videos/', verbose_name='Video')),
                 ('description', models.TextField(verbose_name='Description')),
                 ('course_deadline', models.CharField(blank=True, max_length=50, verbose_name='Deadline')),
                 ('minimum_age', models.IntegerField(blank=True, verbose_name='Minimum age')),
