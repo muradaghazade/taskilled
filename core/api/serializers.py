@@ -35,6 +35,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
 class CreateCourseSerializer(serializers.ModelSerializer):
     image = Base64ImageField(required=False)
+    video = PDFBase64FileField(required=False, )
 
     class Meta:
         model = Course
