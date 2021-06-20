@@ -40,7 +40,7 @@ getQuestionOptions = () => {
         console.log(element, 'amill');
         if (element.question == pk) {
           document.querySelector(".radio-butto-container").innerHTML +=
-            `<div class="rad-small" val="${element.content}">
+            `<div class="rad-small col-lg-4 col-sm-4" val="${element.content}">
     
               <input type="radio" name="q" id="optionn">
               <span class="option">${element.content}</span>

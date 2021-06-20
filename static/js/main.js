@@ -17,7 +17,7 @@ getCourseList = () => {
       courses.slice(0,4).forEach(element => {
           document.querySelector(".fleximg").innerHTML += `
           
-          <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; border-radius: 5px;">
+          <div class="col-12 col-md-4 col-sm-6" style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; border-radius: 5px;">
             <h3>Price ${element.price}$</h3>
             <span style="color: white;">${element.title}</span>
             <img

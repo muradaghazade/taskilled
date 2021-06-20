@@ -126,6 +126,16 @@
   padding: 50px 34px;
   border-radius: 10px;
 }
+@media only screen and (max-width: 998px){
+  .input{
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 660px){
+  .input{
+    width: 100%;
+  }
+}
 .input h2 {
   font-size: 30px;
   font-weight: 600;
@@ -263,7 +273,7 @@
   letter-spacing: 0.2px;
 }
 .instext p {
-  width: 50%;
+  width: 100%;
   letter-spacing: 0.5px;
   margin-top: 10px;
 }
