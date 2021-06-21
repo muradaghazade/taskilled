@@ -36,15 +36,15 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         user.save()
         return user
         
-    @classmethod
-    def get_token(cls, user):
-        token = super(cls).get_token(user)
+    # @classmethod
+    # def get_token(cls, user):
+    #     token = super(cls).get_token(user)
 
-        # Add custom claims
-        print(user.username)
-        token['first_name'] = user.first_name
-        token['last_name']= user.last_name
-        return token
+    #     # Add custom claims
+    #     print(user.username)
+    #     token['first_name'] = user.first_name
+    #     token['last_name']= user.last_name
+    #     return token
 
 
 class UserSerializer(serializers.ModelSerializer):
