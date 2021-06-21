@@ -1,6 +1,6 @@
 version: '3'
 services:  
-    postges:
+    postgres:
         container_name: postgres_data
         image: postgres:9.6
         ports: 
@@ -20,5 +20,5 @@ services:
         - ./static/:/code/static/
         - ./media/:/code/media/
         depends_on:
-        - "postges"
+        - "postgres"
         env_file: ./.env
