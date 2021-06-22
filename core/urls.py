@@ -1,5 +1,6 @@
 from django.urls import path
 from core.views import *
+from django.contrib.auth.views import LogoutView
 
 app_name = 'core'
 
@@ -24,5 +25,6 @@ urlpatterns = [
     path('create-option',CreateOptionView.as_view(),name = 'create-option'),
     path('feedback',FeedbackView.as_view(),name = 'feedback'),
     path('edit-course/<int:pk>',EditCourseView.as_view(),name = 'edit-course'),
-    path('edit-profile',EditProfile.as_view(),name = 'edit-profile')
+    path('edit-profile',EditProfile.as_view(),name = 'edit-profile'),
+    path('log-out', LogoutView.as_view(), name='log-out')
 ]

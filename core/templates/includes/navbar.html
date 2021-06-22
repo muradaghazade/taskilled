@@ -29,7 +29,15 @@
       </li> -->
     </ul>
     <div class="form-inline my-2 my-lg-0 ml-5">
+
       <input class="d-none form-control mr-sm-2 ml-5" type="search" placeholder="Search">
+      {% if user.is_authenticated %}
+      <a href="/profile"><button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">{{request.user.username}}</button>
+      </a>
+      <a href="{% url 'core:log-out' %}">
+      <button class="btn my-2 my-sm-0 ml-4" id="log-out2" type="submit">Log out</button>
+    </a>
+      {% else %}
       <a href="{% url 'core:profile' %} ">
         <div class="user-data-here">
           <a href="{% url 'core:login' %}">
@@ -42,7 +50,7 @@
             <button class="btn my-2 my-sm-0 ml-4" id="log-out" type="submit">Log out</button>
           
       </a>
-      
+      {% endif %}
      
     </div>
 
