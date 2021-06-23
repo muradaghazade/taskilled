@@ -211,6 +211,16 @@
       padding-bottom:5px;
       }
       }
+      @media (max-width:998px){
+    .regForm{
+      width:50% ;
+    }
+  }
+  @media(max-width:567px){
+    .regForm{
+      width: 90%;
+    }
+  }
     </style>
 {% endblock %}
 
@@ -219,7 +229,7 @@
   </head>
   <body>
     <div class="testbox">
-      <form action="/" id="loginForm">
+      <form class="regForm" action="/" id="loginForm">
         <div style="width: 100%;">
           <h3 class="create-acc">Sign in</h3>
         </div>
