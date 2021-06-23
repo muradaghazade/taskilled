@@ -1,8 +1,7 @@
 {% load static %}
 
-
-<div class="container-fluid m-auto d-flex justify-content-center">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+<div class="container-fluid m-auto d-flex justify-content-center" style="background-color: #343a40!important;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-white " style="background:#343a40!important;">
   <div class="logo">
     <a href="{% url 'core:main' %}">    <img class="head-image" src="{% static 'img/LOGO TASKILLED seri 4.png' %}" style="width: 100%;">
     </a>
@@ -16,7 +15,7 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-5 mt-2 mt-lg-0 ml-5">
       <li class="nav-item active ml-5">
-        <a class="nav-link" href="{% url 'core:course-list' %}">Courses <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'core:course-list' %}">Study <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active" id="cre-link">
         <a class="nav-link" href="{% url 'core:internship-list' %}">Internships</a>
@@ -24,9 +23,9 @@
       <li class="nav-item active" id="cre-link" style="margin-right: 250px;">
         <a class="nav-link" href="{% url 'core:btask-list' %}">Business Tasks</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li> -->
+      <li class="nav-item">
+        <input type="text" style="background-color: #343a40!important; border: 1px solid white; border-radius: 3px; padding: 7px;" placeholder="Search for anything">
+      </li>
     </ul>
     <div class="form-inline my-2 my-lg-0 ml-5">
 
@@ -40,14 +39,14 @@
       {% else %}
       <a href="{% url 'core:profile' %} ">
         <div class="user-data-here">
-          <a href="{% url 'core:login' %}">
-            <button class="btn auth my-2 my-sm-0 ml-4" type="submit">Login</button>
+          <a href="{% url 'core:login' %}" class="log">
+            <button class="btn auth my-2 my-sm-0 ml-4" type="submit" style="color:white;">Login</button>
           </a>
           <a href="{%url 'core:register-type' %}">
             <button class="btn auth-reg my-2 my-sm-0 ml-4" type="submit">Register</button>
           </a>
           </div>
-            <button class="btn my-2 my-sm-0 ml-4" id="log-out" type="submit">Log out</button>
+            <button class="btn my-2 my-sm-0 ml-4" id="log-out" type="submit" style="color: white;">Log out</button>
           
       </a>
       {% endif %}
