@@ -20,7 +20,7 @@
   opacity: 1;
 }
 
-::placeholder {
+.nav-input::placeholder {
   color: white;
   opacity: 1;
 }
