@@ -30,12 +30,44 @@
     border-radius: 15px;
     outline: none;
 }
+.crt-p{
+  width: 80%;
+    margin-top: 50px;
+}
+.footer-scd{
+  width: 18%;
+}
+@media(max-width:600px){
+   .for-img{
+     height: 70%;
+   }
+   .crt-p{
+     width: 100%;
+   }
+   .footer-fst{
+     display: flex;
+     flex-direction: column;
+   }
+   .footer-scd{
+     width: 100%;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   .footer-thr{
+     text-align: center;
+   }
+ }
  @media(max-width:500px){
    .for-img{
      height: 70%;
    }
    .crt-p{
      width: 100%;
+   }
+   .footer-fst{
+     display: flex;
+     flex-direction: column;
    }
  }
   </style>
@@ -128,12 +160,12 @@
 
     <section class="work" style="padding-top: 50px;">
       <div class="work__container">
-        <div class="work__title">
-          <div class="worktext col-5">
+        <div class="work__title row">
+          <div class="worktext col-md-5 col-12">
             <h3>How we work</h3>
             <p style="margin-top: 40px; width: 80%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit excepturi accusantium totam consequuntur unde corporis suscipit odit distinctio odio soluta, non fugiat quasi! Veniam totam eaque autem, suscipit ullam reiciendis?</p>
           </div>
-          <div class="workvideo col-7" style="width: 100%;">
+          <div class="workvideo col-md-7 col-12" style="width: 100%;">
             <iframe width="100%" height="400" style="border-radius: 5px;" src="https://www.youtube.com/embed/1ex_bNIFR1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
@@ -169,15 +201,15 @@
 
     
 
-    <section style="background-color: rgb(252, 240, 216); padding: 25px; max-height: 600px;">
+    <section style="background-color: rgb(252, 240, 216); padding: 25px; max-height: 800px;">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 col-12" style="text-align: right; margin-top: 50px;">
+          <div class="col-md-6 col-12" style="text-align: right; margin-top: 50px; display: flex; justify-content: center;">
             <img src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" style="width: 370px; border-radius: 5px;">
           </div>
           <div class="col-md-6 col-12" style="padding-left: 40px;">
             <h2>Create Business Tasks</h2>
-            <p class="crt-p" style="width: 400px; margin-top: 50px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+            <p class="crt-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
             <a style="outline: none; border: none;" href=""><button class="crt-btn">Create</button></a>
           </div>
         </div>
@@ -185,7 +217,7 @@
     </section>
     <footer class="bg-dark text-center text-white mt-0 display">
 
-      <div class="d-flex text-center">
+      <div class="d-flex text-center footer-fst">
 
       <!-- Grid container -->
       <div class="container p-4 pb-0">
@@ -297,7 +329,7 @@
       </li>
     </ul>
   </div>
-  <div class="col-lg-3 col-md-6 mb-4 mb-md-0 mt-2" style="text-align: start; max-width: 18%;">
+  <div class="col-lg-3 col-md-6 mb-4 mb-md-0 mt-2 footer-scd " style="text-align: start">
     <h6 class="">About company</h6>
 
     <ul class="list-unstyled mb-5" style="text-align: start;">
@@ -313,7 +345,7 @@
   
 
     <ul class="list-unstyled mb-5" style="text-align: start;">
-      <li class="mb-2">
+      <li class="mb-2 footer-thr">
         <a href="" class="text-white">Create Task</a>
       </li>
     </ul>
