@@ -22,8 +22,22 @@
       width: 90px;
     }
 
+}.crt-btn{
+  border: none;
+    background-color: orange;
+    padding: 15px;
+    width: 200px;
+    border-radius: 15px;
+    outline: none;
 }
-
+ @media(max-width:500px){
+   .for-img{
+     height: 70%;
+   }
+   .crt-p{
+     width: 100%;
+   }
+ }
   </style>
 {% endblock %}
 
@@ -63,80 +77,111 @@
             <a href="{% url 'core:course-list' %}" class="view-all" style="color: black; text-decoration: none;">View All</a>
           </div>
         </div>
-        <div class="container-fluid">
+        <div class="">
           <div class="row flexxx">
             
           </div>
         </div>
       </div>
     </section>
-    <hr />
-    <section class="work">
+    <hr style="margin: 0;" />
+   
+
+    <section style="margin-bottom: 20px;">
+      <h2 style="font-weight: 300;
+      margin-top: 30px;
+      margin-left: 50px;
+      margin-bottom: -20px;
+      color: darkblue;    display: flex;
+      justify-content: space-between;">
+        Internships Places
+        <a style="margin-right: 50px; font-size: 17px; font-weight: normal;" href="{% url 'core:internship-list'%}">View all</a>
+      </h2>
+      
+      <div class="container-fluid">
+        
+        <div class="row flexxx" id="fleximg2">
+          
+        </div>
+      </div>
+    </section>
+    <hr style="margin: 0;" />
+    <section class="exam" style="padding-top: 25px">
+      <div class="exam__container">
+        <div class="exam__title">
+          <h2 class="form" style="margin-bottom: 30px !important;"
+            >Latest Business Tasks
+        </h2>
+          <div class="all" style="border: 1px solid black; padding: 7px 13px; border-radius: 3px; color: black;">
+            <a href="{% url 'core:btask-list' %}" class="view-all" style="color: black; text-decoration: none;">View All</a>
+          </div>
+        </div>
+        <div class="">
+          <div class="row" id="fleximg3">
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr style="margin: 0;" />
+
+
+    <section class="work" style="padding-top: 50px;">
       <div class="work__container">
         <div class="work__title">
-          <div class="worktext">
+          <div class="worktext col-5">
             <h3>How we work</h3>
+            <p style="margin-top: 40px; width: 80%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit excepturi accusantium totam consequuntur unde corporis suscipit odit distinctio odio soluta, non fugiat quasi! Veniam totam eaque autem, suscipit ullam reiciendis?</p>
           </div>
-          <div class="workvideo">
-            <img src="./assets/img/mac.jpg" alt="" />
+          <div class="workvideo col-7" style="width: 100%;">
+            <iframe width="100%" height="400" style="border-radius: 5px;" src="https://www.youtube.com/embed/1ex_bNIFR1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </section>
     <hr />
 
-    <section>
-      <h2>
-        New Internships
-      </h2>
-      <div class="fleximg" id="fleximg2">
-          
-      </div>
-    </section>
-
-    <section class="instructor">
-      <div class="instructor__container">
-        <div class="instructor__title">
-          <div class="insimg">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" />
-          </div>
-          <div class="instext" style="margin-left: 150px;">
-            {% comment %} <h3>Become an instructor</h3> {% endcomment %}
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
-              molestiae nulla veritatis esse quam soluta atque eum vel. A esse
-              alias obcaecati suscipit dolorem maxime consequatur corrupti
-              temporibus voluptatibus qui?
-            </p>
-            {% comment %} <button>Start teaching today</button> {% endcomment %}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>
-        New Business Tasks
-      </h2>
-      <div class="fleximg" id="fleximg3">
-          
-      </div>
-    </section>
-
-    <section class="udemy">
-      <div class="udemy__container">
-        <div class="udemy__title">
-          <div class="udemytext">
-            <h3>Taskilled for Busines</h3>
-            <p>Get unlimited access to 5,500+ of Taskilled's top courser for your team</p>
-            <button>Get Taskilled for Busines</button>
-          </div>
-          <div class="udemyimg">
-            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80" alt="">
-          </div>
-        </div>
-      </div>
+    <section id="for-study">
       
+      <div class="container-fluid" style="padding-top: 25px;">
+        <div class="row" style="padding: 5px 42px;">
+          <h3 style="color: rgb(245,224,73);">For STUDY task creating </h3>
+        </div>
+        <div class="row" style="padding: 30px;">
+          <div class="col-md-6 col-12 " style="padding-top: 15px;">
+            <h3>
+              500 Insights
+            </h3>
+            <p style="line-height: 25px; font-weight: 200;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id repellat veniam autem iusto praesentium voluptatum reiciendis eveniet quos fugit modi eius, eaque ratione dolores inventore quaerat quod possimus sequi laboriosam!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id repellat veniam autem iusto praesentium voluptatum reiciendis eveniet quos fugit modi eius, eaque ratione dolores inventore quaerat quod possimus sequi laboriosam!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id repellat veniam autem iusto praesentium voluptatum reiciendis eveniet quos fugit modi eius, eaque ratione dolores inventore quaerat quod possimus sequi laboriosam!
+
+            </p>
+          </div>
+          <div class="col-md-6 col-12" style="width: 400px; height: 370px;">
+            <img class="for-img" style="width: 100%; height: 100%;" src="https://images.unsplash.com/photo-1558403194-611308249627?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    
+
+    <section style="background-color: rgb(252, 240, 216); padding: 25px; max-height: 600px;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-12" style="text-align: right; margin-top: 50px;">
+            <img src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" style="width: 370px; border-radius: 5px;">
+          </div>
+          <div class="col-md-6 col-12" style="padding-left: 40px;">
+            <h2>Create Business Tasks</h2>
+            <p class="crt-p" style="width: 400px; margin-top: 50px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+            <a style="outline: none; border: none;" href=""><button class="crt-btn">Create</button></a>
+          </div>
+        </div>
+      </div>
     </section>
     <footer class="bg-dark text-center text-white mt-0 display">
 
