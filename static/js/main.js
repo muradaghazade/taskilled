@@ -15,16 +15,28 @@ getCourseList = () => {
       console.log(courses.slice(0,4));
       console.log(document.querySelector(".fleximg"));
       courses.slice(0,4).forEach(element => {
-          document.querySelector(".fleximg").innerHTML += `
+          document.querySelector(".flexxx").innerHTML += `
           
-          <div class="col-12 col-md-4 col-sm-6" style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 200px; border-radius: 5px;">
-            <h3>Price ${element.price}$</h3>
-            <span style="color: white;">${element.title}</span>
-            <img
-              src=""
-              alt=""
-            />
+          <div class="col-md-3 mb-3 col-12">
+          <div class="card" style=" height: 350px;">
+          <a href="/course/${element.id}" style="color: black; text-decoration: none;">
+  <div class="card-img-top" style="background: url(${element.image}); height: 170px; background-size: cover;"></div>
+</a>
+
+  <div class="card-body">
+  <h4 class="mt-3">${element.title}</h4>
+  <p>${element.description}</p>
+  <h6 class="card-text">$${element.price}</h6>
+  </div>
+</div>
           </div>
+
+
+
+
+
+
+         
         
         
           `

@@ -12,6 +12,18 @@
     .text-dark {
       color: white !important;
     }
+   
+
+    @media (max-width: 426px) {
+      .view-all {
+      font-size: 13px !important;
+    }
+    .all {
+      width: 90px;
+    }
+
+}
+
   </style>
 {% endblock %}
 
@@ -30,7 +42,7 @@
           <div class="input">
             <h2>Learner Appreciation Sale</h2>
             <p>
-              Get special thank-you savings now withcourses from $11.99. Ends June 23.
+              Get special thank-you savings now with courses from $11.99. Ends June 23.
             </p>
             <!-- <a href="{% url 'core:course-list' %}">
             <button class="mt-3" style="border: none; border-radius: 5px; background-color: darkcyan; padding: 15px; color: white;">See Courses</button>
@@ -44,15 +56,17 @@
     <section class="exam">
       <div class="exam__container">
         <div class="exam__title">
-          <h2 class="form"
+          <h2 class="form mb-4"
             >Popular Study Tasks
         </h2>
-          <div class="all">
-            <a href="{% url 'core:course-list' %}">All</a>
+          <div class="all" style="border: 1px solid black; padding: 7px 13px; border-radius: 3px; color: black;">
+            <a href="{% url 'core:course-list' %}" class="view-all" style="color: black; text-decoration: none;">View All</a>
           </div>
         </div>
-        <div class="fleximg row">
-          
+        <div class="container-fluid">
+          <div class="row flexxx">
+            
+          </div>
         </div>
       </div>
     </section>
