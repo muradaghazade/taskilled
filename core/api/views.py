@@ -21,9 +21,19 @@ class CourseAPIView(CreateAPIView):
 
 class CourseListAPIView(ListAPIView):
     serializer_class = CourseSerializer
+
     def get_queryset(self):
+        title = self.request.data.get('title')
         queryset = Course.objects.order_by('-id')
+        print(title)
+
+        if title:
+            queryset = queryset.filter(title__icontains=title)
+
         return queryset
+
+    def post(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
     
 class CourseDetailAPIView(APIView):
     def get(self, request, *args, **kwargs):
