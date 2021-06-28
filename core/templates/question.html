@@ -156,15 +156,15 @@
 
 }
 .left-menu{
-    width: 23%;
-    height: 80%;
+    width: 32%;
+    height: 95%;
     position: absolute;
-    background-color: #dfdddb;
+    background-color: #343a40!important;
     overflow: scroll;
     overflow-x: hidden;
-    border-radius: 10px 10px 10px 10px;
-    border-top: black solid 2px;
-    border-bottom: black solid 2px;
+    /* border-radius: 10px 10px 10px 10px; */
+   padding: 30px 0px;
+    color: white;
 }
 
 .li-class{
@@ -175,11 +175,11 @@
 }
 .type-class{
     display: flex; 
-    justify-content: center;
+    justify-content: start;
 }
 
 .li-class:hover{
-    color: #cc7a00;
+    color: wheat;
     cursor: pointer;
 }
 .header-class{
@@ -236,54 +236,62 @@
 </style>
 {% endblock %}
 {% block content %}
-<h1 id="success-here"></h1>
+<h1 id="success-here" style="display: none;"></h1>
 <div>
     <button id="ustegel" onclick="myFunction()">+</button>
 </div>
 <div id="left-menu" class="left-menu">
+    <div class="mb-5" style="background-color: white; color: black; width: 70%; margin: 0 auto; text-align: center; border-radius: 4px; padding: 40px;">
+        <h3 id="question-name" class="mb-4">Question name</h3>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%; background-color: black !important;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="mt-3" style="text-align: start;">
+              <p>25% complete</p>
+          </div>
+    </div>
     <button id="chixma" onclick="myfunction2()">X</button>
-    <h3 class="header-class">Questions</h3>
     <div>
         <ul>
-            <li class="row li-class"><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class">
                 <h4 class="col-10 title-class">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
-            <li class="row li-class" ><i class="col-2 fas fa-question-circle fa-2x"></i>
+            <li class="row li-class" >
                 <h4 class="col-10">Question title</h4>
-                <p class="col-12 type-class">Question type</p>
+                <p class="ml-1 col-12 type-class">Question type</p>
                 </li>
         </ul>
     </div>
@@ -293,7 +301,7 @@
 <div class="heading pl-5 mt-4">
     <h1 style="font-size: 57px;" id="subject-title"> </h1>
     <br>
-    <h1 class="ml-5" id="question-title"></h1>
+    <h1 class="" id="question-title"></h1>
 </div>
 
 <div class="description p-5 container">
@@ -301,7 +309,9 @@
 </div>
 <hr>
 
-<div class="options container  pl-5">
+<div class="option pl-5" style="width: 50%;
+margin: 0 auto;
+text-align: right;">
 
     <div class=" radio-butto-container row d-flex ">
         
