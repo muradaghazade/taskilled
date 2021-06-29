@@ -198,5 +198,5 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_URL = reverse_lazy('core:login')
 LOGIN_REDIRECT_URL = reverse_lazy('core:profile')
-LOGOUT_URL = reverse_lazy('core:profile')
-LOGOUT_REDIRECT_URL = reverse_lazy('core:profile')
+LOGOUT_URL = reverse_lazy('core:login')
+LOGOUT_REDIRECT_URL = reverse_lazy('core:login')

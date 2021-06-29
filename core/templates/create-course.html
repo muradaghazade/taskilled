@@ -20,7 +20,7 @@
     textarea,
     label {
         padding: 0;
-        margin: 0;
+        margin: 0 auto;
         outline: none;
         font-family: Roboto, Arial, sans-serif;
         font-size: 14px;
@@ -39,19 +39,25 @@
     }
 
     .testbox {
-        display: flex;
-        justify-content: center;
+        width: 80%;
         align-items: center;
         height: inherit;
         padding: 20px;
-    }
 
+    }
+    body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
     form {
         width: 100%;
         padding: 20px;
         border-radius: 6px;
         background: #fff;
-        box-shadow: 0 0 8px #cc7a00;
+
+    }
+    .main{
+        height: 100VH;
     }
 
     .banner {
@@ -82,17 +88,20 @@
     }
 
     input {
-        width: calc(100% - 10px);
+        width: 50%;
         padding: 5px;
+        margin: 0 auto;
     }
 
     input[type="date"] {
         padding: 4px 5px;
+        margin: 0 auto;
     }
 
     textarea {
-        width: calc(100% - 12px);
+        width: 50%;
         padding: 5px;
+        margin: 0 auto;
     }
 
     .item:hover p,
@@ -114,6 +123,8 @@
     .item {
         position: relative;
         margin: 10px 0;
+        display: flex;
+        justify-content: center;
     }
 
     .item span {
@@ -122,6 +133,7 @@
 
     input[type="date"]::-webkit-inner-spin-button {
         display: none;
+        margin: 0 auto;
     }
 
     .item i,
@@ -147,6 +159,35 @@
     input[type=radio],
     input[type=checkbox] {
         display: none;
+    }
+
+    .left-list {
+        height: inherit;
+        margin-top: 30px;
+    }
+
+    .left-ul {
+        width: 100%;
+        color: white;
+        font-size: 25px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .left-li {
+        color: white;
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: left;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .left-li:hover{
+        color: wheat;
+        border: none;
+        outline: none;
+        text-decoration: none;
     }
 
     label.radio {
@@ -211,10 +252,34 @@
         font-size: 19px;
         color: #fff;
         cursor: pointer;
+
+    }
+
+    .username-name {
+        width: 50%;
+        height: 100% !important;
+        background-color: transparent;
+        color: white;
+        font-size: 40px;
+        margin: 0 auto;
+        margin-top: 40px;
     }
 
     button:hover {
         background: #ff9800;
+    }
+
+    .left-side {
+        width: 100%;
+        background-color: #343a40 !important;
+        height: 100%;
+        padding: 0px;
+    }
+
+    .form-it {
+        display: flex;
+        flex-direction: column;
+
     }
 
     @media (min-width: 568px) {
@@ -248,65 +313,104 @@
 </head>
 
 <body>
-    <div class="testbox">
-        <form action="" id="courseForm">
-            <div class="banner">
-                <h1>TASKILLED</h1>
-            </div>
-            <div class="item">
-                <label style="font-size: 16px;" for="">What you want to create?</label>
-                <br>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary active">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Course
-                    </label>
-                    <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> Intertnship
-                    </label>
-                    <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option3" autocomplete="off"> Buisness task
-                    </label>
-                  </div>
+    <div class="main row">
+        <div class="col-3 left-side">
+            <div>
+                <p class="username-name">Username</p>
 
             </div>
-            <div class="item">
-                <label for="name">Course Name<span>*</span></label>
-                    <input id="title" type="text" name="name" placeholder="" />
+            <div class="left-list">
+                <ul class="left-ul">
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="" class="sidebar-items left-li">
+                            Created
+                        </a>
+                    </li>
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="" class="sidebar-items left-li">
+                            Shared
+                        </a>
+                    </li>
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="" class="sidebar-items left-li">
+                            Create Course
+                        </a>
+                    </li>
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="{% url 'core:edit-profile' %}" class="sidebar-items left-li">
+                            Edit Profile
+                        </a>
+                    </li>
+                </ul>
 
             </div>
-            <div class="item">
-                <label for="description">Description<span>*</span></label>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            </div>
-            <div class="item">
-                <label for="price">Price<span>*</span></label>
-                <input id="price" type="number" name="price" />
-            </div>
-            <div class="item">
-                <label for="age">Minimum Age<span>*</span></label>
-                <input id="age" type="number" name="number" />
-            </div>
-            <div class="item">
-                <label for="time">Course Period<span>*</span></label>
-                <input id="time" type="text" name="time" />
-            </div>
-            <div class="item">
-                <label for="image">Course picture<span>*</span></label>
-                <input id="image" type="file" name="age"/>
-            </div>
-            <div class="item">
-                <label for="image">Course presentation video</label>
-                <input id="video" class="file1" type="file" name="video">
-            </div>
+        </div>
 
 
-            <button type="submit">Next</button>
+        <div class="testbox col-9">
+            <form action="" id="courseForm">
+                <div class="item">
+                    <h2>Create Your Course</h2>
+                </div>
+                <div class="item">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Course
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Intertnship
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> Buisness task
+                        </label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="item col-6 form-it">
+                        <label for="name">Course Name<span>*</span></label>
+                        <input id="title" type="text" name="name" placeholder="" />
+
+                    </div>
+                    <div class="item col-6 form-it">
+                        <label for="description">Description<span>*</span></label>
+                        <textarea name="description" id="description" cols="30" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item col-6 form-it">
+                        <label for="price">Price<span>*</span></label>
+                        <input id="price" type="number" name="price" />
+                    </div>
+                    <div class="item col-6 form-it">
+                        <label for="age">Minimum Age<span>*</span></label>
+                        <input id="age" type="number" name="number" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item col-6 form-it">
+                        <label for="time">Course Period<span>*</span></label>
+                        <input id="time" type="text" name="time" />
+                    </div>
+                    <div class="item col-6 form-it">
+                        <label for="image">Course picture<span>*</span></label>
+                        <input id="image" type="file" name="age" />
+                    </div>
+                </div>
+
+                <div class="item col-6 form-it">
+                    <label for="image">Course presentation video</label>
+                    <input id="video" class="file1" type="file" name="video">
+                </div>
+
+                <div class="row d-flex justify-content-center">
+
+                    <button type="submit">Next</button>
+                </div>
 
 
-        </form>
+            </form>
+        </div>
     </div>
-
     <script src="{% static 'js/create-course.js' %}"></script>
     {% endblock %}
-
-
