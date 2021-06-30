@@ -14,140 +14,243 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="text-center mt-5">Create Question</h1>
 <!-- <div class="created text-center">
-
+    
     <div class="for-image">
         <i class="far fa-plus-square" style="font-size: 90px; color: grey;"></i>
     </div>
-
+    
 </div>  -->
 
-
-<form class='form_subject text-center question_form' action="/">
-
-
-    <div id="is_auto" class="item mt-3 ">
-        <label for="name">For automating checking answer press <b>Auto</b> for personaly press <b>Person</b><span></span></label>
-        <div class="name-item">
-            <span class="yes auto">Auto</span>
-            <span class="no auto">Person</span>
+<div class="row" style="margin: 0 !important;">
+    <div id="left-side-div-pro" class="left-side-pro col-3">
+        <div>
+            <p class="username-name">Username</p>
 
         </div>
-
+        <ul class="left-ul">
+            <li class="mt-4" style="padding: 20px; ">
+                <a href="" class="sidebar-items left-li">
+                    Created
+                </a>
+            </li>
+            <li class="mt-4" style="padding: 20px; ">
+                <a href="" class="sidebar-items left-li">
+                    Shared
+                </a>
+            </li>
+            <li class="mt-4" style="padding: 20px; ">
+                <a href="" class="sidebar-items left-li">
+                    Create Course
+                </a>
+            </li>
+            <li class="mt-4" style="padding: 20px; ">
+                <a href="{% url 'core:edit-profile' %}" class="sidebar-items left-li">
+                    Edit Profile
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="item mt-3">
-        <label for="name">Question Title<span>*</span></label>
-        <div class="name-item">
-            <input class="input p-2" id="title" type="text" name="title" placeholder="Title" />
-
+    <div id="left-side-div" class="left-side col-3">
+        <div class="left-ques d-flex mt-5 justify-content-between">
+            <h3 class="left-ques-h">Question</h3>   
+            <button class="left-ques-button">+</button>
         </div>
-    </div>
-
-    <div class="item mt-3">
-        <label for="name">Question<span>*</span></label>
-        <div class="name-item">
-            <textarea id="question" style="width: 450px;;" name="question" cols="30" rows="10"></textarea>
-
-        </div>
-
-    </div>
-
-    <div style="display: none;" class="item mt-3 correct_answer_div">
-        <label for="name">Correct answer<span></span></label>
-        <div class="name-item">
-            <input style="width: 30%;height:40px;" id="correct_answer" class="correct_answer" type="text" name="correct_answer">
-        </div>
-    </div>
-    <div class="options_div" style="display: none;">
-        <div class="item mt-3">
-            <label for="name">Option1<span>*</span></label>
-            <div class="name-item">
-                <input id='option1' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
-
+        <div class="left-tools">
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Text</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Audio</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5  class="left-ques-h">- Video</h5>
+                <button id="video1" class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Picture</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- File</h5>
+                <button class="left-ques-button">+</button>
             </div>
         </div>
-        <div class="item mt-3">
-            <label for="name">Option2<span>*</span></label>
-            <div class="name-item">
-                <input id='option2' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
 
-            </div>
+        <div class="left-ques d-flex mt-5 justify-content-between">
+            <h3 class="left-ques-h">Answer</h3>   
+            <button class="left-ques-button">+</button>
         </div>
-        <div class="item mt-3">
-            <label for="name">Option3<span>*</span></label>
-            <div class="name-item">
-                <input id='option3' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
-
+        <div class="left-tools">
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Text</h5>
+                <button class="left-ques-button">+</button>
             </div>
-        </div>
-        <div class="item mt-3">
-            <label for="name">Option4<span>*</span></label>
-            <div class="name-item">
-                <input id='option4' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
-
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Audio</h5>
+                <button class="left-ques-button">+</button>
             </div>
-        </div>
-        <div class="item mt-3">
-            <label for="name">Option5<span>*</span></label>
-            <div class="name-item">
-                <input id='option5' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
-
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Video</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Picture</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- File</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Choose one</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Fill</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Tick</h5>
+                <button class="left-ques-button">+</button>
+            </div>
+            <div class="left-ques d-flex justify-content-between">
+                <h5 class="left-ques-h">- Rate</h5>
+                <button class="left-ques-button">+</button>
             </div>
         </div>
     </div>
+    
+    <div id="right-side" class="col-9 right-side">
+        <h1 class="text-center mt-5">Create Question</h1>
 
-    <div style="display: none;" class="other mt-5">
-        <span class="mt-3 mb-3 click_buttons" id="video1">Upload video</span>
-        <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
+        <form class='form_subject text-center question_form' action="/">
+        
+        
+            <div id="is_auto" class="item mt-3 ">
+                <label for="name">For automating checking answer press <b>Auto</b> for personaly press <b>Person</b><span></span></label>
+                <div class="name-item">
+                    <span class="yes auto">Auto</span>
+                    <span class="no auto">Person</span>
+        
+                </div>
+        
+            </div>
+            <div class="item mt-3">
+                <label for="name">Question Title<span>*</span></label>
+                <div class="name-item">
+                    <input class="input p-2" id="title" type="text" name="title" placeholder="Title" />
+        
+                </div>
+            </div>
+        
+            <div class="item mt-3">
+                <label for="name">Question<span>*</span></label>
+                <div class="name-item">
+                    <textarea id="question" style="width: 450px;;" name="question" cols="30" rows="10"></textarea>
+        
+                </div>
+        
+            </div>
+        
+            <div style="display: none;" class="item mt-3 correct_answer_div">
+                <label for="name">Correct answer<span></span></label>
+                <div class="name-item">
+                    <input style="width: 30%;height:40px;" id="correct_answer" class="correct_answer" type="text" name="correct_answer">
+                </div>
+            </div>
+            <div class="options_div" style="display: none;">
+                <div class="item mt-3">
+                    <label for="name">Option1<span>*</span></label>
+                    <div class="name-item">
+                        <input id='option1' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
+        
+                    </div>
+                </div>
+                <div class="item mt-3">
+                    <label for="name">Option2<span>*</span></label>
+                    <div class="name-item">
+                        <input id='option2' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
+        
+                    </div>
+                </div>
+                <div class="item mt-3">
+                    <label for="name">Option3<span>*</span></label>
+                    <div class="name-item">
+                        <input id='option3' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
+        
+                    </div>
+                </div>
+                <div class="item mt-3">
+                    <label for="name">Option4<span>*</span></label>
+                    <div class="name-item">
+                        <input id='option4' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
+        
+                    </div>
+                </div>
+                <div class="item mt-3">
+                    <label for="name">Option5<span>*</span></label>
+                    <div class="name-item">
+                        <input id='option5' class="input option p-2" id="name" type="text" name="title" placeholder="Title" />
+        
+                    </div>
+                </div>
+            </div>
+        
+            <div style="display: none;" class="other mt-5">
+                <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
+                    
+                    <div id="video" style="display: none;" class="name-item mt-3">
+                        <p class="mt-3 mb-3 click_buttons">Upload video</p>
+                        <input   class="file1" type="file" name="video">
+                    </div>
+        
+                </div>
+                <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
+                    <span class=" mt-3 mb-3 click_buttons" id="image1">Upload Image</span>
+                    <div class="name-item mt-3">
+                        <input style="display: none;" id="image" class="file1" type="file" name="image">
+                    </div>
+        
+                </div>
+                <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
+                    <span class=" mt-3 mb-3 click_buttons" id="link1">Upload link</span>
+                    <div class="name-item mt-3">
+                        <input style="display: none;" id="link" class="file1" type="text" name="link">
+                    </div>
+        
+                </div>
+            </div>
+        
+        
+        
+        
+            <button class='save mt-5' type="submit">Save</button>
+        
+            <div class="next-div d-flex justify-content-center mt-5">
+                <button class="next">Next</button>
+            </div>
             
-            <div class="name-item mt-3">
-                <input style="display: none;" id="video" class="file1" type="file" name="video">
+            <div style="text-align: center;
+            ">
+                <a href="{% url 'core:course-list' %}">
+                    <button style="border: none;
+                    padding: 18px;
+                    border-radius: 10px;
+                    color: white;
+                    background-color: darkcyan;
+                    margin-bottom: 20px;">
+                        Done
+                    </button>
+                </a>
             </div>
-
-        </div>
-        <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
-            <span class=" mt-3 mb-3 click_buttons" id="image1">Upload Image</span>
-            <div class="name-item mt-3">
-                <input style="display: none;" id="image" class="file1" type="file" name="image">
-            </div>
-
-        </div>
-        <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
-            <span class=" mt-3 mb-3 click_buttons" id="link1">Upload link</span>
-            <div class="name-item mt-3">
-                <input style="display: none;" id="link" class="file1" type="text" name="link">
-            </div>
-
-        </div>
+        
+        </form>
     </div>
-
-
-
-
-    <button class='save mt-5' type="submit">Save</button>
-
-
-</form>
-
-<div class="next-div d-flex justify-content-center mt-5">
-    <button class="next">Next</button>
 </div>
 
-<div style="text-align: end;
-margin-right: 150px;
-">
-    <a href="{% url 'core:course-list' %}">
-        <button style="border: none;
-        padding: 18px;
-        border-radius: 10px;
-        color: white;
-        background-color: darkcyan;
-        margin-bottom: 20px;">
-            Done
-        </button>
-    </a>
-</div>
 
 
 
