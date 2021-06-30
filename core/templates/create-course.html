@@ -14,7 +14,6 @@
 
     body,
     div,
-    form,
     input,
     select,
     textarea,
@@ -49,7 +48,7 @@
         overflow-x: hidden;
         overflow-y: hidden;
     }
-    form {
+    .courseForm {
         width: 100%;
         padding: 20px;
         border-radius: 6px;
@@ -87,7 +86,7 @@
         border-radius: 3px;
     }
 
-    input {
+    .inp {
         width: 50%;
         padding: 5px;
         margin: 0 auto;
@@ -107,12 +106,11 @@
     .item:hover p,
     .item:hover i,
     .question:hover p,
-    .question label:hover,
-    input:hover::placeholder {
+    .question label:hover::placeholder {
         color: #cc7a00;
     }
 
-    .item input:hover,
+    
     .item select:hover,
     .item textarea:hover {
         border: 1px solid transparent;
@@ -332,7 +330,7 @@
                         </a>
                     </li>
                     <li class="mt-4" style="padding: 20px; ">
-                        <a href="" class="sidebar-items left-li">
+                        <a href="{% url 'core:create-course' %}" class="sidebar-items left-li">
                             Create Course
                         </a>
                     </li>
@@ -355,13 +353,13 @@
                 <div class="item">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
-                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Course
+                            <input class="inp" type="radio" name="options" id="option1" autocomplete="off" checked> Course
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" name="options" id="option2" autocomplete="off"> Intertnship
+                            <input class="inp" type="radio" name="options" id="option2" autocomplete="off"> Intertnship
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" name="options" id="option3" autocomplete="off"> Buisness task
+                            <input class="inp" type="radio" name="options" id="option3" autocomplete="off"> Buisness task
                         </label>
                     </div>
 
@@ -369,7 +367,7 @@
                 <div class="row">
                     <div class="item col-6 form-it">
                         <label for="name">Course Name<span>*</span></label>
-                        <input id="title" type="text" name="name" placeholder="" />
+                        <input class="inp" id="title" type="text" name="name" placeholder="" />
 
                     </div>
                     <div class="item col-6 form-it">
@@ -380,27 +378,27 @@
                 <div class="row">
                     <div class="item col-6 form-it">
                         <label for="price">Price<span>*</span></label>
-                        <input id="price" type="number" name="price" />
+                        <input class="inp" id="price" type="number" name="price" />
                     </div>
                     <div class="item col-6 form-it">
                         <label for="age">Minimum Age<span>*</span></label>
-                        <input id="age" type="number" name="number" />
+                        <input class="inp" id="age" type="number" name="number" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="item col-6 form-it">
                         <label for="time">Course Period<span>*</span></label>
-                        <input id="time" type="text" name="time" />
+                        <input class="inp" id="time" type="text" name="time" />
                     </div>
                     <div class="item col-6 form-it">
                         <label for="image">Course picture<span>*</span></label>
-                        <input id="image" type="file" name="age" />
+                        <input class="inp" id="image" type="file" name="age" />
                     </div>
                 </div>
 
                 <div class="item col-6 form-it">
                     <label for="image">Course presentation video</label>
-                    <input id="video" class="file1" type="file" name="video">
+                    <input class="inp" id="video" class="file1" type="file" name="video">
                 </div>
 
                 <div class="row d-flex justify-content-center">
