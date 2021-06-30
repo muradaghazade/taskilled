@@ -55,11 +55,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', 
 ]
 
 ROOT_URLCONF = 'taskilled.urls'
 
 AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.linkedin.LinkedinOAuth2',
     'django.contrib.auth.backends.ModelBackend', 
 )
@@ -80,6 +82,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends', # add this
                 'social_django.context_processors.login_redirect', # add this
+                'social_django.context_processors.backends',  
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -185,10 +189,14 @@ SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
 ]
 
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1075264965768-1pq5ujfv8r2j79sdco9cri25spcgi6qo.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'hSrbEkn8Y1OKCCE1Z3oaEeI9'
+
+
 # SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_URL = reverse_lazy('core:login')
 LOGIN_REDIRECT_URL = reverse_lazy('core:profile')
-LOGOUT_URL = reverse_lazy('core:profile')
-LOGOUT_REDIRECT_URL = reverse_lazy('core:profile')
+LOGOUT_URL = reverse_lazy('core:login')
+LOGOUT_REDIRECT_URL = reverse_lazy('core:login')

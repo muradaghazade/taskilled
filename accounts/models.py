@@ -9,7 +9,7 @@ class User(AbstractUser):
     password2 = models.CharField(('password2'), max_length=200)
     age = models.IntegerField('Age',blank=True,null=True)
     is_teacher = models.BooleanField('is Teacher',default=0)
-    is_student = models.BooleanField('is Student',default=0)
+    is_student = models.BooleanField('is Student',default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
