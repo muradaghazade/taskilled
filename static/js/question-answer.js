@@ -3,7 +3,7 @@ pk = document.getElementById("pk").innerText;
 userAnswerUrl = '/api/v1/core/user-answer/';
 userAnswerDataUrl = `/api/v1/core/question/${pk}/`;
 
-console.log(userAnswerDataUrl);
+// console.log(userAnswerDataUrl);
 
 const toBase64 = file => new Promise((resolve, reject) => {
   const reader = new FileReader();
@@ -16,9 +16,9 @@ let usable_ids = localStorage.getItem('id_list').split(',')
 
 let next_id = usable_ids.indexOf(pk) + 1
 
-console.log(usable_ids[next_id-1], 'ddddd');
+// console.log(usable_ids[next_id-1], 'ddddd');
 
-console.log(usable_ids[usable_ids.length - 1],'aaaa');
+// console.log(usable_ids[usable_ids.length - 1],'aaaa');
 
 if(usable_ids[next_id-1] == usable_ids[usable_ids.length - 1]){
   document.getElementById('next-a').href = `/`
@@ -37,7 +37,7 @@ getQuestionOptions = () => {
     .then((data) => {
       // console.log(data);
       data.forEach(element => {
-        console.log(element, 'amill');
+        // console.log(element, 'amill');
         if (element.question == pk) {
           document.querySelector(".radio-butto-container").innerHTML +=
             `<div class="rad-small col-lg-4 col-sm-4" val="${element.content}">
@@ -67,9 +67,10 @@ getQuestionData = () => {
   fetch(userAnswerDataUrl)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       getQuestionOptions()
       document.getElementById("question-title").innerHTML = data.title
+      document.getElementById("question-name").innerHTML = data.title
       document.getElementById("question-desc").innerHTML = data.description
       // document.getElementById("success-here").innerHTML = data.is_success
       if (data.is_auto === true){
@@ -88,7 +89,7 @@ getQuestionData = () => {
 
       }
 
-      console.log(data, "adadada");
+      // console.log(data, "adadada");
 
       if (data.is_auto == false) {
         document.getElementById("next").style.display = "none"
@@ -112,7 +113,7 @@ answerQuestion = (answer) => {
     })
     .then((resp) => resp.json())
     .then((user) => {
-      console.log(user);
+      // console.log(user);
       data = {
         answer: answer,
         question: pk,
@@ -129,7 +130,7 @@ answerQuestion = (answer) => {
         })
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
 
           fetch(`/api/v1/core/question/${data.question}`)
             .then((resp) => resp.json())
@@ -147,7 +148,7 @@ answerQuestion = (answer) => {
                   })
                   .then((resp) => resp.json())
                   .then((result) => {
-                    console.log(result);
+                    // console.log(result);
                     document.getElementById("success-here").innerHTML = "Question answered successfully"
                     document.getElementById('next').style.display = 'none'
                     document.getElementById('next-a').style.display = 'block'
@@ -186,7 +187,7 @@ async function answerOpenQuestion(video=null, image=null, text="") {
     })
     .then((resp) => resp.json())
     .then( async (user) => {
-      console.log(user);
+      // console.log(user);
       data = {
         // answer: text,
         question: pk,
@@ -225,7 +226,7 @@ console.log(image, video, text, "adaaaaaam");
         })
         .then((resp) => resp.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
 
           
 
@@ -248,7 +249,7 @@ document.getElementById("next").addEventListener('click', (e) => {
 // console.log(video,image);
   optionss.forEach(e => {
     if (e.checked) {
-      console.log(e.parentElement.getAttribute("val"),'salam'); 
+      // console.log(e.parentElement.getAttribute("val"),'salam'); 
       answerQuestion(e.parentElement.getAttribute("val"))
       
     }
@@ -265,6 +266,43 @@ document.getElementById("open-form").addEventListener('submit', (e) => {
   let ans_textt = document.getElementById("answer-textt").value
   let video = document.getElementById("video-input").files[0]
   let image = document.getElementById("image-input").files[0]
-  console.log(video, image);
+  // console.log(video, image);
   answerOpenQuestion(video, image, ans_textt)
 })
+
+
+
+getAllQuestions = () => {
+  fetch('/api/v1/core/all-questions/')
+  .then((resp) => resp.json())
+  .then((data) => {
+    data.forEach(e => {
+      if(e.subject == localStorage.getItem('subject_id')) {
+        // console.log(e);
+        document.getElementById('questions-ul').innerHTML += `
+        <a href="/question/${e.id}" style="color: white; text-decoration: none;">
+        <li class="row li-class">
+                <h4 class="col-10 title-class">${e.title}</h4>
+                <p class="ml-1 col-12 type-class">${e.description}</p>
+                </li>
+                </a>
+        `
+      }
+    })
+    
+  })
+}
+
+getAllQuestions()
+
+
+getCompletementLevel = () => {
+  let questions = localStorage.getItem('id_list').split(',')
+  let oneQuestionProcent = 100/questions.length
+  let pageNumber = questions.indexOf(pk) +1
+  console.log(pageNumber);
+  document.querySelector('.progress-bar').style.width = `${oneQuestionProcent*pageNumber}%`
+  document.getElementById('progress-here').innerHTML = oneQuestionProcent*pageNumber
+}
+
+getCompletementLevel()
