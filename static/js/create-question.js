@@ -48,24 +48,25 @@ no_btn.addEventListener('click', event => {
 
 
 video_spn.addEventListener('click', event => {
-    if(document.getElementById('video').style = 'display:none'){
-        document.getElementById('video').style = 'display:flex'
-        document.getElementById('video').style = 'justify-content:center'
+    if(document.getElementById('video-div').style = 'display:none'){
+        document.getElementById('video-div').style = 'display:flex'
+        document.getElementById('video-div').style = 'justify-content:center'
     }
-    else if(document.getElementById('video').style = 'display:block'){
+    else if(document.getElementById('video-div').style = 'display:block'){
         document.getElementById('video').style = 'display:none'
+        document.getElementById('video-div').style = 'display:none '
     }
     
 });
 
 image_spn.addEventListener('click', event => {
-    document.getElementById('image').style = 'display:flex'
-    document.getElementById('image').style = 'justify-content:center'
+    document.getElementById('image-div').style = 'display:flex'
+    document.getElementById('image-div').style = 'justify-content:center'
 });
 
 link_spn.addEventListener('click', event => {
-    document.getElementById('link').style = 'display:flex'
-    document.getElementById('link').style = 'justify-content:center'
+    document.getElementById('link-div').style = 'display:flex'
+    document.getElementById('link-div').style = 'justify-content:center'
 });
 
 
