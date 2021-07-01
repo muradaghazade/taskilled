@@ -3,26 +3,6 @@
     height: 100px;
 }
 
-#image1{
-    width: 60px;
-    height: 30px;
-    border: 2px solid;
-    padding: 10px 15px 10px 25px;
-    background: #cc7a00;
-    color: white;
-    border-radius: 3px;
-    border: 0px;
-}
-#link1{
-    width: 60px;
-    height: 30px;
-    border: 2px solid;
-    padding: 10px 30px 10px 30px;
-    background: #cc7a00;
-    color: white;
-    border-radius: 3px;
-    border: 0px;
-}
 
 .correct_answer1{
     display: flex;

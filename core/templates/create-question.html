@@ -71,11 +71,11 @@
             </div>
             <div class="left-ques d-flex justify-content-between">
                 <h5 class="left-ques-h">- Picture</h5>
-                <button class="left-ques-button">+</button>
+                <button id="image1" class="left-ques-button">+</button>
             </div>
             <div class="left-ques d-flex justify-content-between">
                 <h5 class="left-ques-h">- File</h5>
-                <button class="left-ques-button">+</button>
+                <button id="link1" class="left-ques-button">+</button>
             </div>
         </div>
 
@@ -200,25 +200,24 @@
             </div>
         
             <div style="display: none;" class="other mt-5">
-                <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
-                    
-                    <div id="video" style="display: none;" class="name-item mt-3">
-                        <p class="mt-3 mb-3 click_buttons">Upload video</p>
-                        <input   class="file1" type="file" name="video">
+                <div id="video-div" style="display: none;" class="item mt-3 mb-5 correct_answer1">
+                    <span class=" mt-3 mb-3 click_buttons" >Upload video</span>
+                    <div id="video"  class="name-item mt-3">
+                        <input  id="video" class="file1" type="file" name="video">
                     </div>
         
                 </div>
-                <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
-                    <span class=" mt-3 mb-3 click_buttons" id="image1">Upload Image</span>
+                <div id="image-div" style="display: none;" class="item mt-3 mb-5 correct_answer1">
+                    <span class=" mt-3 mb-3 click_buttons" >Upload Image</span>
                     <div class="name-item mt-3">
-                        <input style="display: none;" id="image" class="file1" type="file" name="image">
+                        <input  id="image" class="file1" type="file" name="image">
                     </div>
         
                 </div>
-                <div style="display: block;" class="item mt-3 mb-5 correct_answer1">
-                    <span class=" mt-3 mb-3 click_buttons" id="link1">Upload link</span>
+                <div id="link-div" style="display: none;" class="item mt-3 mb-5 correct_answer1">
+                    <span class=" mt-3 mb-3 click_buttons" >Upload link</span>
                     <div class="name-item mt-3">
-                        <input style="display: none;" id="link" class="file1" type="text" name="link">
+                        <input  id="link" class="file1" type="text" name="link">
                     </div>
         
                 </div>
