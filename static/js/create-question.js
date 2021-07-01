@@ -8,6 +8,9 @@ var options_div = document.querySelector('.options_div')
 var video_spn = document.querySelector('#video1')
 var image_spn = document.querySelector('#image1')
 var link_spn = document.querySelector('#link1')
+var leftSideDiv = document.getElementById("left-side-div")
+var leftSideDivPro = document.getElementById("left-side-div-pro")
+var rightSide = document.getElementById("right-side")
 
 var upl_video = document.querySelector('#video')
 var upl_image = document.querySelector('#image')
@@ -20,10 +23,14 @@ const toBase64 = file => new Promise((resolve, reject) => {
     reader.onerror = error => reject(error);
   });
 
+
+  
 yes_btn.addEventListener('click', event => {
     correct_ans.style = 'display:block'
     other.style = 'display:none'
     options_div.style = 'display:block'
+    leftSideDiv.style = 'display:none'
+    leftSideDivPro.style = 'display:block'
     is_auto = true
     console.log(is_auto);
 });
@@ -32,6 +39,8 @@ no_btn.addEventListener('click', event => {
     correct_ans.style = 'display:none'
     other.style = 'display:block'
     options_div.style = 'display:none'
+    leftSideDiv.style = 'display:block'
+    leftSideDivPro.style = 'display:none'
     is_auto = false
     console.log(is_auto);
 });
