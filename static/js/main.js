@@ -99,7 +99,7 @@ getBTaskList = () => {
 
   <div class="card-body">
   <h4 class="mt-3">${element.title}</h4>
-  <p>${element.description}</p>
+  <p style="height: 50px; overflow: scroll;">${element.description}</p>
   <h6 class="card-text">$${element.price}</h6>
   </div>
 </div>
@@ -148,3 +148,41 @@ getBTaskList = () => {
 getCourseList()
 getInternshipList()
 getBTaskList()
+
+
+
+
+searchCourse = (data) => {
+ 
+    
+  fetch('/api/v1/core/all-courses/', {
+    method: "POST",
+    headers: {
+        "Content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+  console.log(data, 'geldimee');
+  localStorage.setItem("search_result", JSON.stringify(data))
+  document.location.href = '/course-list'
+  console.log(document.getElementById("list-here"));
+  // console.log(JSON.parse(localStorage.getItem("search_result")));
+    })
+}
+
+
+
+document.querySelector(".nav2-search").addEventListener('submit', (e) => {
+e.preventDefault();
+
+let data = {
+  
+}
+title = document.querySelector('.nav2-input').value
+data.title = title
+localStorage.setItem('search_keyword', title)
+searchCourse(data)
+})
+

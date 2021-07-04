@@ -45,6 +45,9 @@ class Question(models.Model):
     image = models.ImageField('Image',upload_to='images/', null=True, blank=True)
     video = models.FileField('Video',upload_to='videos/', null=True, blank=True)
     edu_url = models.CharField('Url',max_length=200,null=True,default=False)
+    # answer_file = models.FileField('File',upload_to='files/', null=True, blank=True)
+    # audio_record = models.FileField('File',upload_to='files/', null=True, blank=True)
+    answer_type = models.ManyToManyField('AnswerType',  verbose_name=("Answer Type"), db_index=True, related_name="answer_type_question")
     
     
     is_auto = models.BooleanField('Is auto', default=1)
@@ -54,6 +57,16 @@ class Question(models.Model):
     class Meta():
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
+    def __str__(self):
+        return f"{self.title}" 
+
+class AnswerType(models.Model):
+    title = models.CharField('Title',max_length=50)
+
+    class Meta():
+        verbose_name = 'AnswerType'
+        verbose_name_plural = 'AnswerTypes'
+
     def __str__(self):
         return f"{self.title}" 
 

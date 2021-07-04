@@ -16,7 +16,6 @@
 
   body,
   div,
-  form,
   input,
   select,
   textarea,
@@ -59,7 +58,7 @@
     position: relative;
   }
 
-  form {
+  #regForm {
     width: 30%;
     padding: 20px;
     border-radius: 6px;
@@ -98,10 +97,10 @@
     border-radius: 3px;
   }
 
-  input {
-    width: 70%;
-    padding: 5px;
-  }
+  .inp {
+      width: 70%;
+      padding: 5px;
+      }
 
   input[type="date"] {
     padding: 4px 5px;
@@ -282,27 +281,27 @@
       </div>
       <div id="callbacks" style="color: red;"></div>
       <div class="item">
-        <input id="username" type="text" name="username" placeholder="Username" />
+        <input class="inp" id="username" type="text" name="username" placeholder="Username" />
       </div>
       <div class="item">
-        <input id="firstname" type="text" name="name" placeholder="First Name" />
+        <input class="inp" id="firstname" type="text" name="name" placeholder="First Name" />
       </div>
       <div class="item">
 
-        <input type="text" id="lastname" name="name" placeholder="Last Name" />
+        <input class="inp" type="text" id="lastname" name="name" placeholder="Last Name" />
       </div>
 
       <div class="item">
-        <input id="email" type="email" name="email" placeholder="Email" />
+        <input class="inp" id="email" type="email" name="email" placeholder="Email" />
       </div>
       <div class="item">
-        <input id="password1" type="password" name="password" placeholder="Password" />
+        <input class="inp" id="password1" type="password" name="password" placeholder="Password" />
       </div>
       <div class="item">
-        <input id="password2" type="password" name="password2" placeholder="Confirm password" />
+        <input class="inp" id="password2" type="password" name="password2" placeholder="Confirm password" />
       </div>
       <div class="item">
-        <input id="age" type="number" name="age" placeholder="Age" />
+        <input class="inp" id="age" type="number" name="age" placeholder="Age" />
       </div>
       
       <div class="item">

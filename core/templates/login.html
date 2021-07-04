@@ -9,7 +9,7 @@
       html, body {
       min-height: 100%;
       }
-      body, div, form, input, select, textarea, label { 
+      body, div, input, select, textarea, label { 
       padding: 0;
       margin: 0;
       outline: none;
@@ -41,7 +41,7 @@
     background-size: cover;
     position: relative;
   }
-  form {
+  .login-form {
     width: 30%;
     padding: 20px;
     border-radius: 6px;
@@ -78,7 +78,7 @@
         border: 1px solid #A5A5A5;
         border-radius: 4px;
       }
-      input {
+      .inp {
       width: 70%;
       padding: 5px;
       }
@@ -229,16 +229,16 @@
   </head>
   <body>
     <div class="testbox">
-      <form class="regForm" action="/" id="loginForm">
+      <form class="regForm login-form" action="/" id="loginForm">
         <div style="width: 100%;">
           <h3 class="create-acc">Sign in</h3>
         </div>
         <p id="callback" style="color: red;"></p>
         <div class="item">
-          <input id="username" type="text" name="username" placeholder="Username"/>
+          <input id="username" class="inp" type="text" name="username" placeholder="Username"/>
         </div>
         <div class="item">
-          <input id="password" type="password" name="password" placeholder="Password"/>
+          <input id="password" class="inp" type="password" name="password" placeholder="Password"/>
         </div>
         <div class="item">
           or
