@@ -91,6 +91,7 @@ document.getElementById("courseForm").addEventListener('submit', (e) => {
   createCourse(title,data.id, price,image, description,course_deadline,minimum_age, video)
   
       })
+  
 
   
   // localStorage.setItem()
