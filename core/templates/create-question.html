@@ -84,42 +84,12 @@
             <button class="left-ques-button">+</button>
         </div>
         <div class="left-tools">
+            {% for answer in answer_types %}
             <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Text</h5>
-                <button class="left-ques-button">+</button>
+                <h5 class="left-ques-h">- {{answer.title}}</h5>
+                <button id="{{answer.id}}" class="left-ques-button">+</button>
             </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Audio</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Video</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Picture</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- URL</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Choose one</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Fill</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Tick</h5>
-                <button class="left-ques-button">+</button>
-            </div>
-            <div class="left-ques d-flex justify-content-between">
-                <h5 class="left-ques-h">- Rate</h5>
-                <button class="left-ques-button">+</button>
-            </div>
+           {% endfor %}
         </div>
     </div>
     

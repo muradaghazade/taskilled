@@ -67,6 +67,10 @@ class CreateSubjectView(TemplateView):
 
 class CreateQuestionView(TemplateView):
     template_name = 'create-question.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['answer_types'] = AnswerType.objects.all()
+        return context
 
 
 class CreateOptionView(TemplateView):
