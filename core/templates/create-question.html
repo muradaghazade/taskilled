@@ -124,21 +124,24 @@
     </div>
     
     <div id="right-side" class="col-9 right-side">
-        <h1 class="text-center mt-5">Create Question</h1>
+        <h2 class="text-center mt-5" style="color: #666;">Create Question</h2>
 
         <form class='form_subject text-center question_form' action="/">
         
         
             <div id="is_auto" class="item mt-3 ">
-                <label for="name">For automating checking answer press <b>Auto</b> for personaly press <b>Person</b><span></span></label>
+                <label style="color: #666;" for="name">For automating checking answer press <b>Auto</b> for personaly press <b>Person</b><span></span></label>
                 <div class="name-item">
-                    <span class="yes auto">Auto</span>
-                    <span class="no auto">Person</span>
-        
+                    <button class="yes auto btn btn-secondary">
+                        Auto
+                    </button>
+                    <button class="no auto btn btn-secondary">
+                        Person
+                    </button>
                 </div>
         
             </div>
-            <div class="item mt-3">
+            <div id="question-title" style="display: none;" class="item mt-3">
                 <label for="name">Question Title<span>*</span></label>
                 <div class="name-item">
                     <input class="input p-2" id="title" type="text" name="title" placeholder="Title" />
@@ -146,7 +149,7 @@
                 </div>
             </div>
         
-            <div class="item mt-3">
+            <div id="question-text" style="display:none ;" class="item mt-3">
                 <label for="name">Question<span>*</span></label>
                 <div class="name-item">
                     <textarea id="question" style="width: 450px;;" name="question" cols="30" rows="10"></textarea>
@@ -202,7 +205,7 @@
             <div style="display: none;" class="other mt-5">
                 <div id="video-div" style="display: none;" class="item mt-3 mb-5 correct_answer1">
                     <span class=" mt-3 mb-3 click_buttons" >Upload video</span>
-                    <div id="video"  class="name-item mt-3">
+                    <div  class="name-item mt-3">
                         <input  id="video" class="file1" type="file" name="video">
                     </div>
         
@@ -226,13 +229,13 @@
         
         
         
-            <button class='save mt-5' type="submit">Save</button>
+            <button id="save-btn" style="display: none; margin: 0 auto;" class='save mt-5' type="submit">Save</button>
         
             <div class="next-div d-flex justify-content-center mt-5">
                 <button class="next">Next</button>
             </div>
             
-            <div style="text-align: center;
+            <div id="done-btn" style="text-align: center; display: none;
             ">
                 <a href="{% url 'core:course-list' %}">
                     <button style="border: none;

@@ -34,17 +34,17 @@
 label{
     font-size: 20px;
     margin-bottom: 2rem;
+    color: #666;
 }
 
-.auto {
-    width: 50px;
-    height: 50px;
-    background-color: #cc7a00;
+/* .auto {
+    width: 100px;
+    height: 100px;
+    background-color:rgb(245, 223, 76);
     border-radius: 2px;
-    padding: 7px 15px 5px 15px;
-    color: white;
+    color: black;
     cursor: pointer;
-}
+} */
 
 .next {
     width: 150px;
@@ -138,3 +138,5 @@ label{
     height: inherit;
     margin-top: 30px;
 }
+
+

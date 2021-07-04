@@ -1,20 +1,24 @@
 let is_auto;
 
-var yes_btn = document.querySelector('.yes')
-var no_btn = document.querySelector('.no')
+let yes_btn = document.querySelector('.yes')
+let no_btn = document.querySelector('.no')
 const correct_ans = document.querySelector('.correct_answer_div')
-var other = document.querySelector('.other')
-var options_div = document.querySelector('.options_div')
-var video_spn = document.querySelector('#video1')
-var image_spn = document.querySelector('#image1')
-var link_spn = document.querySelector('#link1')
-var leftSideDiv = document.getElementById("left-side-div")
-var leftSideDivPro = document.getElementById("left-side-div-pro")
-var rightSide = document.getElementById("right-side")
+let other = document.querySelector('.other')
+let options_div = document.querySelector('.options_div')
+let video_spn = document.querySelector('#video1')
+let image_spn = document.querySelector('#image1')
+let link_spn = document.querySelector('#link1')
+let leftSideDiv = document.getElementById("left-side-div")
+let leftSideDivPro = document.getElementById("left-side-div-pro")
+let rightSide = document.getElementById("right-side")
+let questionTitle = document.getElementById("question-title")
+let questionText = document.getElementById("question-text")
+let saveBtn = document.getElementById("save-btn")
+let doneBtn = document.getElementById("done-btn")
 
-var upl_video = document.querySelector('#video')
-var upl_image = document.querySelector('#image')
-var upl_link = document.querySelector('#link')
+let upl_video = document.querySelector('#video')
+let upl_image = document.querySelector('#image')
+let upl_link = document.querySelector('#link')
 
 const toBase64 = file => new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -31,6 +35,11 @@ yes_btn.addEventListener('click', event => {
     options_div.style = 'display:block'
     leftSideDiv.style = 'display:none'
     leftSideDivPro.style = 'display:block'
+    questionText.style= 'display:block'
+    questionTitle.style= 'display:block'
+    saveBtn.style = 'display:block; margin: 0 auto;'
+    doneBtn.style = 'display:block'
+
     is_auto = true
     console.log(is_auto);
 });
@@ -41,6 +50,10 @@ no_btn.addEventListener('click', event => {
     options_div.style = 'display:none'
     leftSideDiv.style = 'display:block'
     leftSideDivPro.style = 'display:none'
+    questionText.style= 'display:block'
+    questionTitle.style= 'display:block'
+    saveBtn.style = 'display:block; margin: 0 auto;'
+    doneBtn.style = 'display:block'
     is_auto = false
     console.log(is_auto);
 });
@@ -53,7 +66,7 @@ video_spn.addEventListener('click', event => {
         document.getElementById('video-div').style = 'justify-content:center'
     }
     else if(document.getElementById('video-div').style = 'display:block'){
-        document.getElementById('video').style = 'display:none'
+        document.getElementById('video-div').style = 'display:none'
         document.getElementById('video-div').style = 'display:none '
     }
     
