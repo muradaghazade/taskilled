@@ -47,6 +47,7 @@ class Question(models.Model):
     edu_url = models.CharField('Url',max_length=200,null=True,default=False)
     # answer_file = models.FileField('File',upload_to='files/', null=True, blank=True)
     # audio_record = models.FileField('File',upload_to='files/', null=True, blank=True)
+    answer_type = models.ManyToManyField('AnswerType',  verbose_name=("Answer Type"), db_index=True, related_name="answer_type_question")
     
     
     is_auto = models.BooleanField('Is auto', default=1)
