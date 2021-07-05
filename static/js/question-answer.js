@@ -96,6 +96,19 @@ getQuestionData = () => {
         document.getElementById("next-a").style.display = "block"
       }
 
+      // console.log(data.answer_type);
+
+      data.answer_type.forEach(e => {
+        fetch(`/api/v1/core/answer-type/${e}/`)
+    .then((resp) => resp.json())
+    .then((type) => {
+        console.log(type);
+        document.querySelector(`.${type.title}`).style.display = 'block'
+    })
+      })
+
+
+
     })
 }
 

@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import Course, Option, Subject, Question, Order,UserAnswer
+from core.models import Course, Option, Subject, Question, Order,UserAnswer, AnswerType
 from rest_framework import serializers
 from drf_extra_fields.fields import Base64ImageField, Base64FileField
 
@@ -67,7 +67,7 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('id', 'title', 'description', 'image', 'correct_answer','video','is_auto','is_success','subject' )
+        fields = ('id', 'title', 'description', 'image', 'correct_answer','video','is_auto','is_success','subject', 'answer_type' )
 
     # def create(self, validated_data):
     #     question = Question.objects.create(
@@ -120,6 +120,12 @@ class UserAnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserAnswer
         fields = ('id', 'user', 'feedback', 'question', 'answer', 'video', 'image')
+
+class AnswerTypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = AnswerType
+        fields = ('id', 'title')
     # def create(self, validated_data):
     #     useranswer = UserAnswer.objects.create(
     #         user=validated_data['user'],

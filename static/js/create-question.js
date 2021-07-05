@@ -5,6 +5,7 @@ let no_btn = document.querySelector('.no')
 const correct_ans = document.querySelector('.correct_answer_div')
 let other = document.querySelector('.other')
 let options_div = document.querySelector('.options_div')
+let text_spn = document.querySelector('#text1')
 let video_spn = document.querySelector('#video1')
 let image_spn = document.querySelector('#image1')
 let link_spn = document.querySelector('#link1')
@@ -50,7 +51,7 @@ no_btn.addEventListener('click', event => {
     options_div.style = 'display:none'
     leftSideDiv.style = 'display:block'
     leftSideDivPro.style = 'display:none'
-    questionText.style= 'display:block'
+    // questionText.style= 'display:block'
     questionTitle.style= 'display:block'
     saveBtn.style = 'display:block; margin: 0 auto;'
     doneBtn.style = 'display:block'
@@ -70,6 +71,11 @@ video_spn.addEventListener('click', event => {
         document.getElementById('video-div').style = 'display:none '
     }
     
+});
+
+text_spn.addEventListener('click', event => {
+    document.getElementById('question-text').style = 'display:flex'
+    document.getElementById('question-text').style = 'justify-content:center'
 });
 
 image_spn.addEventListener('click', event => {
@@ -119,16 +125,18 @@ questionCreate = (title, question,correct_answer,subject_id,options, is_auto) =>
         })
 }
 
-async function manualQuestionCreate(title, question,image = null, video = null, edu_url,subject_id, is_auto) {
-    console.log(image);
-    console.log(video);
+async function manualQuestionCreate(title, question,image = null, video = null, edu_url,subject_id, is_auto, answer_type) {
+    // console.log(image);
+    // console.log(video);
+    // console.log(answer_type);
     data = {
         title: title,
         description: question,
         edu_url:edu_url,
         is_auto:is_auto,
         is_success:0,
-        subject:subject_id
+        subject:subject_id,
+        answer_type: answer_type
         
     }
     if (image != null) {
@@ -144,6 +152,7 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
 
 
 
+
     
     fetch(questionUrl, {
         method: "POST",
@@ -156,10 +165,19 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
         .then((data) => {
            console.log(data);
         //    localStorage.setItem('question_id', data.id)
-           console.log('buradaaaaa');
+        //    console.log('buradaaaaa');
         //    document.location.href = '/'
         })
 }
+
+let answer_type_list = []
+
+document.querySelectorAll('.vur').forEach(e => {
+    e.addEventListener('click', () => {
+        // console.log();
+        answer_type_list.push(parseInt(e.parentElement.getAttribute('id')))
+    })
+})
 
 document.querySelector(".question_form").addEventListener('submit', (e) => {
     e.preventDefault()
@@ -195,7 +213,9 @@ document.querySelector(".question_form").addEventListener('submit', (e) => {
         // }
     }
     else if(other.style.display == 'block'){
-        manualQuestionCreate(title, question, image, video, link,subject_id, is_auto)
+        // console.log(answer_type_list);
+        // console.log('haaa');
+        manualQuestionCreate(title, question, image, video, link,subject_id, is_auto, answer_type_list)
     }
    
     

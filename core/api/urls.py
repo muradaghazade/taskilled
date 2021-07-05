@@ -22,7 +22,8 @@ urlpatterns = [
     path('user-answer/', UserAnswerCreateAPIView.as_view(), name='user-answer'),
     path('all-user-answers/', UserAnswerListAPIView.as_view(), name='all-user-answers'),
     path('user-answer/<int:id>/', UserAnswerDetailAPIView.as_view(), name='user-answer-detail'),
-    path('edit-user/<int:id>/', UserAnswerDetailAPIView.as_view(), name='user-answer-detail')
+    path('edit-user/<int:id>/', UserAnswerDetailAPIView.as_view(), name='user-answer-detail'),
+    path('answer-type/<int:id>/', AnswerTypeDetailAPIView.as_view(), name='answer-type-detail')
     
 ]
     

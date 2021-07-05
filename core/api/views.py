@@ -1,6 +1,6 @@
 from django.db.models import query
 from rest_framework.generics import CreateAPIView, ListAPIView
-from core.models import Course, Subject, Question , Option, Order, UserAnswer
+from core.models import Course, Subject, Question , Option, Order, UserAnswer, AnswerType
 from rest_framework.views import APIView
 from .serializers import (
     CourseSerializer, 
@@ -9,11 +9,18 @@ from .serializers import (
     OptionSerializer, 
     OrderSerializer,
     UserAnswerSerializer,
-    CreateCourseSerializer
+    CreateCourseSerializer,
+    AnswerTypeSerializer
 )
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+
+class AnswerTypeDetailAPIView(APIView):
+    def get(self, request, *args, **kwargs):
+        answer_type = get_object_or_404(AnswerType, pk=kwargs['id'])
+        serializer = AnswerTypeSerializer(answer_type)
+        return Response(serializer.data)
 
 class CourseAPIView(CreateAPIView):
     model = Course

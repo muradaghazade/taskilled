@@ -53,18 +53,19 @@
     </div>
     <div id="left-side-div" class="left-side col-3">
         <div class="left-ques d-flex mt-5 justify-content-between">
-            <h3 class="left-ques-h">Question</h3>   
-            <button class="left-ques-button">+</button>
+            <h3 class="left-ques-h">Question</h3> 
+            <a href="">
+            <button class="left-ques-button">+</button></a>  
         </div>
         <div class="left-tools">
             <div class="left-ques d-flex justify-content-between">
                 <h5 class="left-ques-h">- Text</h5>
-                <button class="left-ques-button">+</button>
+                <button class="left-ques-button" id="text1">+</button>
             </div>
-            <div class="left-ques d-flex justify-content-between">
+            <!-- <div class="left-ques d-flex justify-content-between">
                 <h5 class="left-ques-h">- Audio</h5>
                 <button class="left-ques-button">+</button>
-            </div>
+            </div> -->
             <div class="left-ques d-flex justify-content-between">
                 <h5  class="left-ques-h">- Video</h5>
                 <button id="video1" class="left-ques-button">+</button>
@@ -85,9 +86,9 @@
         </div>
         <div class="left-tools">
             {% for answer in answer_types %}
-            <div class="left-ques d-flex justify-content-between">
+            <div class="left-ques d-flex justify-content-between" id="{{answer.id}}">
                 <h5 class="left-ques-h">- {{answer.title}}</h5>
-                <button id="{{answer.id}}" class="left-ques-button">+</button>
+                <button class="left-ques-button vur">+</button>
             </div>
            {% endfor %}
         </div>
