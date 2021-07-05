@@ -39,3 +39,17 @@ background-color: rgb(245, 243, 243);
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+.course-header{
+    background-image: url('../img/georgie-cobbs-bKjHgo_Lbpo-unsplash.jpg');
+    background-size: cover;
+    background-position:center;
+    padding: 30px;
+}
+
+
+#list-here{
+    display: flex;
+    justify-content: space-around;
+}

@@ -6,15 +6,17 @@
 {% endblock %}
 
 {% block content %}
-        
-    <div class="container">
+    <div class="main-ddd">
+
+    
+    <div class="container ">
         <p class="d-none" id="page-pk">{{course.pk}}</p>
         <div class="row">
             <div class="col-8">
                 <div class="section__language">
                     <h3><b class="the-title"></b> </h3>
                     <p>The course by <span class="teacher-here"></span></p>
-                    <div class="mb-4" style="border: 3px solid rgba(0, 247, 255, 0.753);border-radius: 5px;">
+                    <div class="mb-4" style="border-radius: 5px; background-color: white;">
                         <div class="px-3 pt-3">
                             <h5> <span class="the-title"></span> - <span class="teacher-here"></span></h5>
                             <div style="color: gray;" class="d-flex">
@@ -85,7 +87,7 @@
             <div class="col-4">
                 <div class="section__955">
                     <div style="border-bottom: 1px solid lightgray;">
-                        <h4 class="px-3 pt-3"><b class="course-price"> </b><small style="color: gray;"> for 2 weeks</small></h4>
+                        <h4 class="px-3 pt-3"><b class="course-price"> </b><small style="color: white;"> for 2 weeks</small></h4>
                     </div>
                     <div class="p-3">
                         <div class="d-flex justify-content-between">
@@ -93,19 +95,19 @@
                             <h5 class="course-price"></h5>
                         </div>
                         <p class="the-title" style="font-size: 19px;
-                        color: gray;
+                        color: white;
                         margin-top: 5px;"></p>
                         
                         <div class="row mb-4">
                             <div class="col-6">
                                 <p style="font-size: 18px;
-                        color: gray;
+                        color: white;
                         margin-top: 5px;"><span class="teacher-here"></span></p>
                             </div>
                             <div class="col-6">
                                 
                                 <p style="font-size: 19px;
-                        color: gray;
+                        color: white;
                         margin-top: 5px;">for <span class="deadline"></span> weeks </p>
                             </div>
                         </div>
@@ -154,6 +156,7 @@
             </div>
         </div>
     </div>
+</div>
     <script src="{% static 'js/course-detail.js' %}"></script>
     {% endblock %}
 

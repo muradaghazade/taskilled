@@ -10,6 +10,11 @@
 
 }
 
+.input{
+    border: 1px solid #666;
+    border-radius: 2px;
+}
+
 .save {
     width: 150px;
     padding: 10px;
@@ -139,4 +144,9 @@ label{
     margin-top: 30px;
 }
 
+
+#list-here{
+    display: flex;
+    justify-content: center;
+}
 
