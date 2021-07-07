@@ -40,6 +40,7 @@ yes_btn.addEventListener('click', event => {
     questionTitle.style= 'display:block'
     saveBtn.style = 'display:block; margin: 0 auto;'
     doneBtn.style = 'display:block'
+    document.getElementById('answer-here').style.display = "none"
 
     is_auto = true
     console.log(is_auto);
@@ -51,10 +52,12 @@ no_btn.addEventListener('click', event => {
     options_div.style = 'display:none'
     leftSideDiv.style = 'display:block'
     leftSideDivPro.style = 'display:none'
+    questionText.style= 'display:none'
     // questionText.style= 'display:block'
     questionTitle.style= 'display:block'
     saveBtn.style = 'display:block; margin: 0 auto;'
     doneBtn.style = 'display:block'
+    document.getElementById('answer-here').style.display = "block"
     is_auto = false
     console.log(is_auto);
 });
@@ -173,9 +176,23 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
 let answer_type_list = []
 
 document.querySelectorAll('.vur').forEach(e => {
-    e.addEventListener('click', () => {
+    e.addEventListener('click', (el) => {
         // console.log();
         answer_type_list.push(parseInt(e.parentElement.getAttribute('id')))
+        // el.target.innerHTML = '-'
+        if(el.target.previousElementSibling.innerText == '- Text'){
+        document.getElementById('answer-here').innerHTML += `<textarea class="mb-3" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;"></textarea>`
+
+        }
+        else if (el.target.previousElementSibling.innerText == '- Picture') {
+            document.getElementById('answer-here').innerHTML += `<div class="mb-3" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;">Image here</div>`
+        }
+        else if (el.target.previousElementSibling.innerText == '- Video') {
+            document.getElementById('answer-here').innerHTML += `<div class="mb-3" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;">Video here</div>`
+        }
+        else if (el.target.previousElementSibling.innerText == '- URL') {
+            document.getElementById('answer-here').innerHTML += `<input class="mb-3" style="border: 1px solid black; padding: 10px; border-radius: 5px; width:250px; margin: 0 auto;" placeholder="URL here">`
+        }
     })
 })
 

@@ -36,6 +36,7 @@ getCourseDetail = () => {
   </video>`
         
       }
+      // document.querySelector('.main-ddd').style.backgroundImage = `url(${data.image})`
     })
 }
 
@@ -51,7 +52,7 @@ renderSubjects = () => {
           data.forEach(e => {
             if(e.course == pk) {
               document.querySelector(".subjects-here").innerHTML += 
-              `<div style="border: 1px solid lightgray; border-radius: 5px;" class="px-3 pt-3 mb-3">
+              `<div style="border-radius: 5px;" class="px-3 pt-3 mb-3">
   <h5>${e.title}</h5>
   <div style="color: gray;" class="d-flex">
       <div class="d-flex">
