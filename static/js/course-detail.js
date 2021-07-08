@@ -180,7 +180,13 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
             })
           })
         })
-
+        
+        if(localStorage.getItem("token")){
+          document.getElementById("book-place").style = 'display:block'
+        }else{
+          document.getElementById("book-place").style = 'display:none'
+          
+        }
 
 
 

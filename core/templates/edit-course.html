@@ -28,31 +28,16 @@
         line-height: 22px;
     }
 
-    h1 {
-        position: absolute;
-        margin: 0;
-        line-height: 40px;
-        font-size: 40px;
-        color: #fff;
-        z-index: 2;
-        line-height: 83px;
-    }
-
+    
     .testbox {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 70%;
+        margin-left: auto;
         height: inherit;
         padding: 20px;
+        
     }
 
-    form {
-        width: 100%;
-        padding: 20px;
-        border-radius: 6px;
-        background: #fff;
-        box-shadow: 0 0 8px #cc7a00;
-    }
+
 
     .banner {
         position: relative;
@@ -240,6 +225,53 @@
             padding-bottom: 5px;
         }
     }
+    .main{
+        height: 100VH;
+        width: 100%;
+    }
+    .left-side {
+        width: 100%;
+        background-color: #343a40 !important;
+        height: 100%;
+        padding: 0px;
+    }
+    .username-name {
+        width: 50%;
+        height: 100% !important;
+        background-color: transparent;
+        color: white;
+        font-size: 40px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+    .left-list {
+        height: inherit;
+        margin-top: 30px;
+    }
+
+    .left-ul {
+        width: 100%;
+        color: white;
+        font-size: 25px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .left-li {
+        color: white;
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: left;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .left-li:hover{
+        color: wheat;
+        border: none;
+        outline: none;
+        text-decoration: none;
+    }
 </style>
 {% endblock %}
 
@@ -248,41 +280,58 @@
 </head>
 
 <body>
+    <div class="main row">
+        <div class="col-3 left-side">
+            <div>
+                <p class="username-name">Username</p>
+
+            </div>
+            <div class="left-list">
+                <ul class="left-ul">
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="" class="sidebar-items left-li">
+                            Created
+                        </a>
+                    </li>
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="" class="sidebar-items left-li">
+                            Shared
+                        </a>
+                    </li>
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="{% url 'core:create-course' %}" class="sidebar-items left-li">
+                            Create Course
+                        </a>
+                    </li>
+                    <li class="mt-4" style="padding: 20px; ">
+                        <a href="{% url 'core:edit-profile' %}" class="sidebar-items left-li">
+                            Edit Profile
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
     <div class="d-none" id="pk">{{course.id}}</div>
     <div class="testbox">
+        <div><h1>Edit Your course</h1></div>
         <form action="" id="courseForm">
-            <div class="banner">
-                <h1>TASKILLED</h1>
+            <div class="d-flex">
+                <div class="item">
+                    <label for="name">Course Name<span>*</span></label>
+                        <input id="title" type="text" name="name" placeholder="" />
+    
+                </div>
+                <div class="item">
+                    <label for="description">Description<span>*</span></label>
+                    <textarea name="description" id="description" cols="30" rows="1"></textarea>
+                </div>
+                <div class="item">
+                    <label for="price">Price<span>*</span></label>
+                    <input id="price" type="number" name="price" />
+                </div>
             </div>
-            <!-- <div class="item">
-                <label style="font-size: 16px;" for="">What you want to create?</label>
-                <br>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary active">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Course
-                    </label>
-                    <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> Intertnship
-                    </label>
-                    <label class="btn btn-secondary">
-                      <input type="radio" name="options" id="option3" autocomplete="off"> Buisness task
-                    </label>
-                  </div>
-
-            </div> -->
-            <div class="item">
-                <label for="name">Course Name<span>*</span></label>
-                    <input id="title" type="text" name="name" placeholder="" />
-
-            </div>
-            <div class="item">
-                <label for="description">Description<span>*</span></label>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
-            </div>
-            <div class="item">
-                <label for="price">Price<span>*</span></label>
-                <input id="price" type="number" name="price" />
-            </div>
+            
             <div class="item">
                 <label for="age">Minimum Age<span>*</span></label>
                 <input id="age" type="number" name="number" />
@@ -314,6 +363,7 @@
 
 
         </form>
+    </div>
     </div>
 
     <script src="{% static 'js/edit-course.js' %}"></script>
