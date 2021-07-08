@@ -88,7 +88,7 @@
             {% for answer in answer_types %}
             <div class="left-ques d-flex justify-content-between" id="{{answer.id}}">
                 <h5 class="left-ques-h">- {{answer.title}}</h5>
-                <button class="left-ques-button vur">+</button>
+                <button id="asnwer{{answer.id}}" class="left-ques-button vur">+</button>
             </div>
            {% endfor %}
         </div>

@@ -65,30 +65,51 @@ no_btn.addEventListener('click', event => {
 
 
 video_spn.addEventListener('click', event => {
-    if(document.getElementById('video-div').style = 'display:none'){
+    if(video_spn.innerText=='+'){
         document.getElementById('video-div').style = 'display:flex'
         document.getElementById('video-div').style = 'justify-content:center'
-    }
-    else if(document.getElementById('video-div').style = 'display:block'){
+        video_spn.innerText = '-'
+    }else if(video_spn.innerText == '-'){
         document.getElementById('video-div').style = 'display:none'
-        document.getElementById('video-div').style = 'display:none '
+        video_spn.innerText = '+'
+
     }
-    
 });
 
 text_spn.addEventListener('click', event => {
-    document.getElementById('question-text').style = 'display:flex'
-    document.getElementById('question-text').style = 'justify-content:center'
+    if(text_spn.innerText=='+'){
+        document.getElementById('question-text').style = 'display:flex'
+        document.getElementById('question-text').style = 'justify-content:center'
+        text_spn.innerText = '-'
+    }else if(text_spn.innerText == '-'){
+        document.getElementById('question-text').style = 'display:none'
+        text_spn.innerText = '+'
+
+    }
 });
 
 image_spn.addEventListener('click', event => {
-    document.getElementById('image-div').style = 'display:flex'
-    document.getElementById('image-div').style = 'justify-content:center'
+    if(image_spn.innerText=='+'){
+        document.getElementById('image-div').style = 'display:flex'
+        document.getElementById('image-div').style = 'justify-content:center'
+        image_spn.innerText = '-'
+    }else if(image_spn.innerText == '-'){
+        document.getElementById('image-div').style = 'display:none'
+        image_spn.innerText = '+'
+
+    }
 });
 
 link_spn.addEventListener('click', event => {
-    document.getElementById('link-div').style = 'display:flex'
-    document.getElementById('link-div').style = 'justify-content:center'
+    if(link_spn.innerText=='+'){
+        document.getElementById('link-div').style = 'display:flex'
+        document.getElementById('link-div').style = 'justify-content:center'
+        link_spn.innerText = '-'
+    }else if(link_spn.innerText == '-'){
+        document.getElementById('link-div').style = 'display:none'
+        link_spn.innerText = '+'
+
+    }
 });
 
 
@@ -177,22 +198,45 @@ let answer_type_list = []
 
 document.querySelectorAll('.vur').forEach(e => {
     e.addEventListener('click', (el) => {
-        // console.log();
         answer_type_list.push(parseInt(e.parentElement.getAttribute('id')))
-        // el.target.innerHTML = '-'
-        if(el.target.previousElementSibling.innerText == '- Text'){
-        document.getElementById('answer-here').innerHTML += `<textarea class="mb-3" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;"></textarea>`
+        if(el.target.innerText=='+'){
+            if(el.target.previousElementSibling.innerText == '- Text'){
+            document.getElementById('answer-here').innerHTML += `<textarea class="mb-3" id="text-id" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;"></textarea>`
+            el.target.innerText = '-'
+            }
+            else if (el.target.previousElementSibling.innerText == '- Picture') {
+                document.getElementById('answer-here').innerHTML += `<div class="mb-3" id="picture-id" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;">Image here</div>`
+                el.target.innerText = '-'
+            }
+            else if (el.target.previousElementSibling.innerText == '- Video') {
+                document.getElementById('answer-here').innerHTML += `<div class="mb-3" id="video-id" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;">Video here</div>`
+                el.target.innerText = '-'
+            }
+            else if (el.target.previousElementSibling.innerText == '- URL') {
+                document.getElementById('answer-here').innerHTML += `<input class="mb-3" id="url-id" style="border: 1px solid black; padding: 10px; border-radius: 5px; width:250px; margin: 0 auto;" placeholder="URL here">`
+                el.target.innerText = '-'
+            }
+            console.log("musbete girdi")
+        }else if(el.target.innerText=='-'){
+            if(el.target.previousElementSibling.innerText == '- Text'){
+                document.getElementById("text-id").remove()
+                el.target.innerText = '+'
+                }
+                else if (el.target.previousElementSibling.innerText == '- Picture') {
+                    document.getElementById("picture-id").remove()
+                    el.target.innerText = '+'
+                }
+                else if (el.target.previousElementSibling.innerText == '- Video') {
+                    document.getElementById("video-id").remove()
+                    el.target.innerText = '+'
+                }
+                else if (el.target.previousElementSibling.innerText == '- URL') {
+                    document.getElementById("url-id").remove()
+                    el.target.innerText = '+'
+                }
+                console.log("menfie girdi")
+        }
 
-        }
-        else if (el.target.previousElementSibling.innerText == '- Picture') {
-            document.getElementById('answer-here').innerHTML += `<div class="mb-3" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;">Image here</div>`
-        }
-        else if (el.target.previousElementSibling.innerText == '- Video') {
-            document.getElementById('answer-here').innerHTML += `<div class="mb-3" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;">Video here</div>`
-        }
-        else if (el.target.previousElementSibling.innerText == '- URL') {
-            document.getElementById('answer-here').innerHTML += `<input class="mb-3" style="border: 1px solid black; padding: 10px; border-radius: 5px; width:250px; margin: 0 auto;" placeholder="URL here">`
-        }
     })
 })
 
