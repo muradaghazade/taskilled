@@ -103,12 +103,12 @@
             <div id="is_auto" class="item mt-3 ">
                 <label style="color: #666;" for="name">For automating checking answer press <b>Auto</b> for personaly press <b>Person</b><span></span></label>
                 <div class="name-item">
-                    <button class="yes auto btn btn-secondary">
+                    <div class="yes auto btn btn-secondary">
                         Auto
-                    </button>
-                    <button class="no auto btn btn-secondary">
+                    </div>
+                    <div class="no auto btn btn-secondary">
                         Person
-                    </button>
+                    </div>
                 </div>
         
             </div>
@@ -214,7 +214,7 @@
                 <button class="next">Next</button>
             </div>
             
-            <div id="done-btn" style="text-align: center; display: none;
+            <!-- <div id="done-btn" style="text-align: center; display: none;
             ">
                 <a href="{% url 'core:course-list' %}">
                     <button style="border: none;
@@ -226,10 +226,21 @@
                         Done
                     </button>
                 </a>
-            </div>
-        
+            </div> -->
+            
+       
         </form>
+        <div style="display: flex; justify-content: center;">
+        <a href="{% url 'core:profile' %}"> <button id="done" style="
+            display: none;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            color: white;
+            background-color: darkcyan;
+            margin-bottom: 20px;">Done</button></a>
     </div>
+</div>
 </div>
 
 

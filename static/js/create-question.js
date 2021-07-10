@@ -39,7 +39,7 @@ yes_btn.addEventListener('click', event => {
     questionText.style= 'display:block'
     questionTitle.style= 'display:block'
     saveBtn.style = 'display:block; margin: 0 auto;'
-    doneBtn.style = 'display:block'
+    document.getElementById('done').style.display = 'block'
     document.getElementById('answer-here').style.display = "none"
 
     is_auto = true
@@ -56,7 +56,7 @@ no_btn.addEventListener('click', event => {
     // questionText.style= 'display:block'
     questionTitle.style= 'display:block'
     saveBtn.style = 'display:block; margin: 0 auto;'
-    doneBtn.style = 'display:block'
+    document.getElementById('done').style.display = 'block'
     document.getElementById('answer-here').style.display = "block"
     is_auto = false
     console.log(is_auto);
@@ -216,8 +216,9 @@ document.querySelectorAll('.vur').forEach(e => {
                 document.getElementById('answer-here').innerHTML += `<input class="mb-3" id="url-id" style="border: 1px solid black; padding: 10px; border-radius: 5px; width:250px; margin: 0 auto;" placeholder="URL here">`
                 el.target.innerText = '-'
             }
-            console.log("musbete girdi")
+            // console.log("musbete girdi")
         }else if(el.target.innerText=='-'){
+            answer_type_list.splice(parseInt(e.parentElement.getAttribute('id')), 1)
             if(el.target.previousElementSibling.innerText == '- Text'){
                 document.getElementById("text-id").remove()
                 el.target.innerText = '+'
@@ -234,7 +235,7 @@ document.querySelectorAll('.vur').forEach(e => {
                     document.getElementById("url-id").remove()
                     el.target.innerText = '+'
                 }
-                console.log("menfie girdi")
+                // console.log("menfie girdi")
         }
 
     })

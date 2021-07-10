@@ -40,14 +40,14 @@ class Category(models.Model):
 class Question(models.Model):
     
     title = models.CharField('Title',max_length=50)
-    description = models.TextField('Description')
+    description = models.TextField('Description', null=True, blank=True)
     correct_answer = models.CharField('Correct answer',max_length=125,null=True,blank=True)
     image = models.ImageField('Image',upload_to='images/', null=True, blank=True)
     video = models.FileField('Video',upload_to='videos/', null=True, blank=True)
     edu_url = models.CharField('Url',max_length=200,null=True,default=False)
     # answer_file = models.FileField('File',upload_to='files/', null=True, blank=True)
     # audio_record = models.FileField('File',upload_to='files/', null=True, blank=True)
-    answer_type = models.ManyToManyField('AnswerType',  verbose_name=("Answer Type"), db_index=True, related_name="answer_type_question")
+    answer_type = models.ManyToManyField('AnswerType',  verbose_name=("Answer Type"), db_index=True, related_name="answer_type_question", null=True, blank=True)
     
     
     is_auto = models.BooleanField('Is auto', default=1)
