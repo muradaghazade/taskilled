@@ -198,8 +198,10 @@ let answer_type_list = []
 
 document.querySelectorAll('.vur').forEach(e => {
     e.addEventListener('click', (el) => {
-        answer_type_list.push(parseInt(e.parentElement.getAttribute('id')))
+        
         if(el.target.innerText=='+'){
+            answer_type_list.push(parseInt(e.parentElement.getAttribute('id')))
+            console.log(answer_type_list);
             if(el.target.previousElementSibling.innerText == '- Text'){
             document.getElementById('answer-here').innerHTML += `<textarea class="mb-3" id="text-id" style="border: 1px solid black; padding: 20px; border-radius: 5px; width:250px; margin: 0 auto;"></textarea>`
             el.target.innerText = '-'
@@ -218,7 +220,8 @@ document.querySelectorAll('.vur').forEach(e => {
             }
             // console.log("musbete girdi")
         }else if(el.target.innerText=='-'){
-            answer_type_list.splice(parseInt(e.parentElement.getAttribute('id')), 1)
+            answer_type_list.splice(answer_type_list.indexOf(parseInt(e.parentElement.getAttribute('id'))), 1)
+            console.log(answer_type_list);
             if(el.target.previousElementSibling.innerText == '- Text'){
                 document.getElementById("text-id").remove()
                 el.target.innerText = '+'

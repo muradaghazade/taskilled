@@ -77,15 +77,20 @@ getQuestionData = () => {
         document.getElementById("video").style.display = "none";
       }else{
         document.getElementById("open-form").style.display = "block";
-        document.getElementById("video").innerHTML =`<video width="500" height="300" controls>
+        if (data.video != null) {
+          document.getElementById("video").innerHTML =`<video width="500" height="300" controls>
         <source src="${data.video}" type="video/mp4">
         <source src="${data.video}" type="video/ogg">
         Your browser does not support the video tag.
       </video>` 
-
-      document.getElementById('q-image').innerHTML = `
+        }
+        
+        if (data.image != null) {
+          document.getElementById('q-image').innerHTML = `
       <img style="width: 200px;" src="${data.image}" />
       `
+        }
+      
 
       }
 
