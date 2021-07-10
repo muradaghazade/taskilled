@@ -28,10 +28,37 @@ async function getCourseList() {
         
         // console.log(element.teacher, "dfdfdhfd");
         if (user.id == element.teacher) {
+          // console.log(element.is_shared);
+          if (element.is_shared == true) {
+            document.getElementById("course-here").innerHTML += `
           
-          document.getElementById("course-here").innerHTML += `
+          <div style="width: 200px;" class="col-1 created" id="${element.id}">
+                        <div class="card">
+                            <div class="for-image">
+                                <img src="${element.image}" class="card-img-top" alt="...">
+                            </div>
+                            <div class="card-body p-0">
+                              <h5 class="card-title text-center mt-2">${element.title}</h5>
+                            </div>
+                            <div class="d-flex" style="justify-content: space-around;">
+                            <div>
+                            <a href="/edit-course/${element.id}">Edit</a>
+                            </div>
+                            <div class="button-here">
+                            <p style="color: green;">Published <i style="color: green;" class="fas fa-check"></i></p>
+                            </div>
+                            <div class="button-here">
+                            <button id="delete" style="border:none; background: none;">del</button>
+                            </div>
+                            </div>
+                          </div>
+                    </div>
+                    `
+          }
+          else {
+            document.getElementById("course-here").innerHTML += `
           
-          <div class="col-3 created" id="${element.id}">
+          <div style="width: 200px;" class="col-1 created" id="${element.id}">
                         <div class="card">
                             <div class="for-image">
                                 <img src="${element.image}" class="card-img-top" alt="...">
@@ -53,6 +80,15 @@ async function getCourseList() {
                           </div>
                     </div>
                     `
+          }
+          
+                    // if (element.is_shared != true) {
+                    //   document.getElementById('publish').parentElement.innerHTML = `<button id="publish" style="border:none; background: none;">Publish</button>`
+                    // }
+                    // else {
+                    //   document.getElementById('publish').parentElement.innerHTML = `<p style="color: green;">Published <i style="color: green;" class="fas fa-check"></i></p>`
+
+                    // }
                   // addButtonToCard()
                  
         }
@@ -109,6 +145,7 @@ document.addEventListener('click', (e) => {
     .then((resp) => resp.json())
     .then((data) => {
       console.log(data, 'published');
+      e.target.parentElement.innerHTML = `<p style="color: green;">Published <i style="color: green;" class="fas fa-check"></i></p>`
     })
  }
  else if (e.target.getAttribute('id') == 'delete') {
@@ -162,7 +199,7 @@ async function getSharedCourseList() {
           
           document.getElementById("shared-course-here").innerHTML += `
           
-          <div class="col-3 created" id="${element.id}">
+          <div style="width: 200px;" class="col-1 created" id="${element.id}">
                         <div class="card">
                             <div class="for-image">
                                 <img src="${element.image}" class="card-img-top" alt="...">

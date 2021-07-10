@@ -47,7 +47,7 @@
             <div class="col-8 mt-5">
                 <h2>Created</h2>
                 <div class="row created-section">
-<div class="d-flex">
+<div class="d-flex" style="overflow: scroll; width: 860px;">
 
     <div id="course-here" class="d-flex"></div>
     <a href="{% url 'core:create-course' %}">
@@ -80,8 +80,11 @@
                     
                     <div>
     <h2 class="mt-5" style="padding: 10px;">Shared</h2>
-    <div id="shared-course-here" class="d-flex">
+    <div class="d-flex" style="overflow: scroll; width: 860px;">
+        <div id="shared-course-here" class="d-flex" >
+        </div>
     </div>
+   
 </div>
                     
                 </div>

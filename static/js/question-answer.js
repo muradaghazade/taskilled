@@ -87,7 +87,7 @@ getQuestionData = () => {
         
         if (data.image != null) {
           document.getElementById('q-image').innerHTML = `
-      <img style="width: 200px;" src="${data.image}" />
+      <img style="width: 400px; margin-right: 150px;" src="${data.image}" />
       `
         }
       
