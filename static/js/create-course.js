@@ -1,5 +1,5 @@
 createCourseUrl = "/api/v1/core/course/";
-
+subjectURL = '/api/v1/core/create-subject/';
 localStorage.setItem("course-category", 1)
 
 document.getElementById('option1').addEventListener('click', () => {
@@ -20,6 +20,31 @@ const toBase64 = file => new Promise((resolve, reject) => {
   reader.onload = () => resolve(reader.result);
   reader.onerror = error => reject(error);
 });
+
+subject = (subject_name, deadline,course_id) => {
+    
+  data = {
+      title: subject_name,
+      deadline: deadline,
+      course:course_id
+      
+  }
+  fetch(subjectURL, {
+      method: "POST",
+      headers: {
+          "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        
+        
+        localStorage.setItem('subject_id',data.id)
+
+      })
+}
 
 async function createCourse (title, teacher, price, image, description, course_deadline, minimum_age, video=null) {
     // formdata = new FormData();
@@ -59,7 +84,8 @@ async function createCourse (title, teacher, price, image, description, course_d
         .then((data) => {
           console.log(data);
           localStorage.setItem('course_id',data.id)
-          document.location.href = 'create-subject'
+          subject("Start Course", '1', data.id)
+          document.location.href = 'create-question'
         })
 }
 
