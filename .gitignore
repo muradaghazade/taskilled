@@ -8,3 +8,6 @@ __pycache__/
 *.sql
 postgresdb/
 redisdb/
+media/
+/media
+media
