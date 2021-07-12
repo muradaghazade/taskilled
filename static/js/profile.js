@@ -32,7 +32,7 @@ async function getCourseList() {
           if (element.is_shared == true) {
             document.getElementById("course-here").innerHTML += `
           
-          <div style="width: 1000px;" class="col-1 created" id="${element.id}">
+          <div style="width: 1300px;" class="col-1 created" id="${element.id}">
                         <div class="card">
                             <div class="for-image">
                                 <img src="${element.image}" class="card-img-top" alt="...">
@@ -58,7 +58,7 @@ async function getCourseList() {
           else {
             document.getElementById("course-here").innerHTML += `
           
-          <div style="width: 200px;" class="col-1 created" id="${element.id}">
+          <div style="width: 1300px;" class="col-1 created" id="${element.id}">
                         <div class="card">
                             <div class="for-image">
                                 <img src="${element.image}" class="card-img-top" alt="...">
@@ -199,7 +199,7 @@ async function getSharedCourseList() {
           
           document.getElementById("shared-course-here").innerHTML += `
           
-          <div style="width: 2000px;" class="col-1 created" id="${element.id}">
+          <div style="width: 1300px;" class="col-1 created" id="${element.id}">
                         <div class="card">
                             <div class="for-image">
                                 <img src="${element.image}" class="card-img-top" alt="...">
