@@ -26,7 +26,7 @@ getCourseList = () => {
   <div class="card-body">
   <h4 class="mt-3">${element.title}</h4>
   <p>${element.description}</p>
-  <h6 class="card-text">$${element.price}</h6>
+  <h6 class="card-text">${element.price}AZN</h6>
   </div>
 </div>
           </div>
@@ -63,7 +63,7 @@ getInternshipList = () => {
         
         <div class="col-md-3 col-12" style="padding: 50px 30px;">
         <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 350px; padding: 20px; padding-top: 250px; border-radius: 3px;">
-          <h3 style="color: white; font-weight: 200;">Price ${element.price}$</h3>
+          <h3 style="color: white; font-weight: 200;">Price ${element.price}AZN</h3>
           <span style="color: white;">${element.title}</span>
           </div>
         </div>
@@ -100,7 +100,7 @@ getBTaskList = () => {
   <div class="card-body">
   <h4 class="mt-3">${element.title}</h4>
   <p style="height: 50px; overflow: scroll;">${element.description}</p>
-  <h6 class="card-text">$${element.price}</h6>
+  <h6 class="card-text">AZN${element.price}</h6>
   </div>
 </div>
           </div>

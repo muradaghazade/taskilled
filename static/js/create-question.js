@@ -146,6 +146,7 @@ questionCreate = (title, question,correct_answer,subject_id,options, is_auto) =>
                 optionCreate(i, data.id)
             }
         }
+        document.getElementById("question-success").innerHTML = `<p style="color: green;">Question created successfuly!</p>`
         })
 }
 
@@ -188,6 +189,7 @@ async function manualQuestionCreate(title, question,image = null, video = null, 
         .then((resp) => resp.json())
         .then((data) => {
            console.log(data);
+           document.getElementById("question-success").innerHTML = `<p style="color: green;">Question created successfuly!</p>`
         //    localStorage.setItem('question_id', data.id)
         //    console.log('buradaaaaa');
         //    document.location.href = '/'

@@ -15,7 +15,7 @@ getCourseDetail = () => {
           element.innerHTML = data.title
       });
       document.querySelectorAll(".course-price").forEach(element => {
-        element.innerHTML = `${data.price}$`
+        element.innerHTML = `${data.price} AZN`
     });
     document.querySelectorAll(".deadline").forEach(element => {
       element.innerHTML = `${data.course_deadline}`
