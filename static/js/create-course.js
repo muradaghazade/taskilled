@@ -88,7 +88,6 @@ async function createCourse (title, teacher, price, image, description, course_d
           document.location.href = 'create-question'
         })
 }
-
 document.getElementById("courseForm").addEventListener('submit', (e) => {
   e.preventDefault()
 
