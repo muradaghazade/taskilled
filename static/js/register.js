@@ -2,7 +2,7 @@ registerURL = '/api/v1/register/';
 
 
 
-register = (username, firstname, lastname, email, password1, password2, age) => {
+register = (username, firstname, lastname, email, password1, password2, age, number) => {
     // formdata = new FormData();
     // formdata.append("firstname", firstname);
     // formdata.append("lastname", lastname);
@@ -23,6 +23,7 @@ register = (username, firstname, lastname, email, password1, password2, age) => 
         password: password1,
         password2: password2,
         age: age,
+        number: number,
         is_teacher: true,
         is_student: false
     }
@@ -63,6 +64,7 @@ document.getElementById("regForm").addEventListener('submit', (e) => {
     let password1 = document.getElementById('password1').value;
     let password2 = document.getElementById('password2').value;
     let age = document.getElementById('age').value;
+    let number = document.getElementById('number').value;
     console.log(firstname);
-    register(username, firstname, lastname, email, password1, password2, age)
+    register(username, firstname, lastname, email, password1, password2, age, number)
 })

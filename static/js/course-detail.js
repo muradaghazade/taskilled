@@ -72,11 +72,11 @@ renderSubjects = () => {
   fetch(`/api/v1/core/all-questions/`)
         .then((resp) => resp.json())
         .then((quest) => {
-          console.log(quest);
+          // console.log(quest);
           quest.forEach(el => {
-            console.log(el.subject, e.id, "caaa");
+            // console.log(el.subject, e.id, "caaa");
             if(el.subject == e.id) {
-              console.log(el.id);
+              // console.log(el.id);
               id_list.push(el.id)
 
             }

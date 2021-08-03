@@ -2,6 +2,7 @@ pk = document.getElementById("pk").innerText;
 
 userAnswerUrl = '/api/v1/core/user-answer/';
 userAnswerDataUrl = `/api/v1/core/question/${pk}/`;
+let theGreatSubjectId
 
 // console.log(userAnswerDataUrl);
 
@@ -37,7 +38,6 @@ getQuestionOptions = () => {
     .then((data) => {
       // console.log(data);
       data.forEach(element => {
-        // console.log(element, 'amill');
         if (element.question == pk) {
           document.querySelector(".radio-butto-container").innerHTML +=
             `<div class="rad-small col-lg-4 col-sm-4" val="${element.content}">
@@ -68,6 +68,8 @@ getQuestionData = () => {
     .then((resp) => resp.json())
     .then((data) => {
       // console.log(data);
+      theGreatSubjectId = data.subject
+      console.log(theGreatSubjectId);
       getQuestionOptions()
       document.getElementById("question-title").innerHTML = data.title
       document.getElementById("question-name").innerHTML = data.title
@@ -294,8 +296,10 @@ getAllQuestions = () => {
   fetch('/api/v1/core/all-questions/')
   .then((resp) => resp.json())
   .then((data) => {
+    console.log(theGreatSubjectId);
+
     data.forEach(e => {
-      if(e.subject == localStorage.getItem('subject_id')) {
+      if(e.subject == theGreatSubjectId) {
         // console.log(e);
         document.getElementById('questions-ul').innerHTML += `
         <a href="/question/${e.id}" style="color: white; text-decoration: none;">

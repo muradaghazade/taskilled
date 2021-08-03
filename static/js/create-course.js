@@ -42,6 +42,8 @@ subject = (subject_name, deadline,course_id) => {
         
         
         localStorage.setItem('subject_id',data.id)
+        document.location.href = 'create-question'
+
 
       })
 }
@@ -85,7 +87,6 @@ async function createCourse (title, teacher, price, image, description, course_d
           console.log(data);
           localStorage.setItem('course_id',data.id)
           subject("Start Course", '1', data.id)
-          document.location.href = 'create-question'
         })
 }
 document.getElementById("courseForm").addEventListener('submit', (e) => {

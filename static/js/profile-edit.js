@@ -9,13 +9,14 @@ getUserData = () => {
   fetch(getUsersUrl)
   .then((resp) => resp.json())
   .then((data) => {
-    console.log(data,'knxsakoxasjkxasjkxnsajixnajxsjkckjxankxa');
+    console.log(data.number);
 
     document.getElementById('username').value = data.username
     document.getElementById('firstname').value = data.first_name
     document.getElementById('email').value = data.email
     document.getElementById('lastname').value = data.last_name
     document.getElementById('age').value = data.age    
+    document.getElementById('number').value = data.number    
   })
 }
 
