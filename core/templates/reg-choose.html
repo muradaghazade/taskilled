@@ -27,19 +27,34 @@
       z-index: 2;
       line-height: 83px;
       }
-      .testbox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: inherit;
-      padding: 20px;
+      body{
+        background-image: url("../../static/img/scott-graham-5fNmWej4tAA-unsplash.jpg");
+        background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
       }
+      .testbox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: inherit;
+    padding: 20px;
+    /* background-image: url("../../static/img/scott-graham-5fNmWej4tAA-unsplash.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
       .choose-form {
-      width: 40%;
-      padding: 20px;
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 0 8px  #cc7a00; 
+        width: 30%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    border: 1px solid #999999;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px 13px rgba(155, 155, 155, 0.27);
+    border-radius: 8px;
+    margin: 50px;
       }
       .banner {
       position: relative;
@@ -198,11 +213,11 @@
           
           <h3>Register as</h3>
             
-              <div class="mb-3" style="background-color: #ff9800;  padding: 5px; border-radius: 2px;">
+              <div class="mb-3" style="background-color: rgb(245, 223, 76);  padding: 5px; border-radius: 3px;">
                   <a href="{% url 'core:register' %}" style="text-decoration: none; color: #666;"><h6 class="pt-2">Instructor / Business</h6></a>
                   
               </div>
-              <div style="background-color: #ff9800;  padding: 5px; border-radius: 2px;">
+              <div style="background-color: rgb(245, 223, 76);  padding: 5px; border-radius: 3px;">
                  <a href="{% url 'core:register-student' %}" style="text-decoration: none; color: #666;"><h6 class="pt-2">User</h6> </a>
               </div>
         </div>
