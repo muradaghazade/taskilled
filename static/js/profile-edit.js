@@ -17,6 +17,7 @@ getUserData = () => {
     document.getElementById('lastname').value = data.last_name
     document.getElementById('age').value = data.age    
     document.getElementById('number').value = data.number    
+    document.getElementById('occupation').value = data.occupation    
   })
 }
 
@@ -28,6 +29,8 @@ edtUserData = () => {
   first_name = document.getElementById('firstname').value 
   email = document.getElementById('email').value 
   last_name = document.getElementById('lastname').value 
+  number = document.getElementById('number').value 
+  occupation = document.getElementById('occupation').value 
   age = document.getElementById('age').value 
   let jwt = `Bearer ${localStorage.getItem("token")}`
   console.log('EDITUSERFUNC');
@@ -37,7 +40,9 @@ edtUserData = () => {
     first_name:first_name,
     email:email,
     last_name:last_name,
-    age:age
+    age:age,
+    occupation:occupation,
+    number:number
   }
 
 fetch(getUsersUrl, {
