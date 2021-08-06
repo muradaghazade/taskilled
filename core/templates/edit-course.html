@@ -346,7 +346,7 @@
                 <input id="image" type="file" name="age"/>
             </div> -->
             <div class="item mb-5">
-                <a href="{% url 'core:create-question' %}" style="width: 150px;
+                <a href="{% url 'core:course-questions' course.pk%}" style="width: 150px;
                 padding: 15px;
                 border: none;
                 border-radius: 5px;
@@ -355,10 +355,8 @@
                 color: #fff;
                 cursor: pointer;
                 text-decoration: none;">
-                Add Questions
+                Questions
             </a>
-            <a href="{% url 'core:course-questions' course.pk%}">Questions</a>
-            </div>
 
 
             <button type="submit">Next</button>
