@@ -1,6 +1,7 @@
 let pk = document.getElementById("pk").innerText
-
+let subPk = document.getElementById('sub-pk').innerText
 localStorage.setItem('course_id', pk)
+localStorage.setItem('subject_id', subPk)
 
 // console.log(pk);
 

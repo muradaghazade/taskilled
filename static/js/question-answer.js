@@ -300,7 +300,7 @@ getAllQuestions = () => {
 
     data.forEach(e => {
       if(e.subject == theGreatSubjectId) {
-        // console.log(e);
+        console.log(e);
         document.getElementById('questions-ul').innerHTML += `
         <a href="/question/${e.id}" style="color: white; text-decoration: none;">
         <li class="row li-class">

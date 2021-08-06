@@ -92,5 +92,29 @@ class EditCourseView(DetailView):
     model = Course
     context_object_name = "course"
     template_name = 'edit-course.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        course = self.get_object()
+        context['subject'] = Subject.objects.filter(course=course.id).first
+        return context
+
+class CourseQuestionView(DetailView):
+    model = Course
+    context_object_name = "question"
+    template_name = 'course-questions.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        course = self.get_object()
+        context['subject'] = Subject.objects.filter(course=course.id).first
+        return context
+
+class EditQuestionView(DetailView):
+    model = Question
+    context_object_name = "question"
+    template_name = 'edit-question.html'
+
+
 class EditProfile(TemplateView):
     template_name = 'edit-profile.html'

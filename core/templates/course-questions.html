@@ -280,6 +280,7 @@
 </head>
 
 <body>
+    <h1 id="pk" class="d-none">{{ question }}</h1>
     <h1 id="sub-pk" class="d-none">{{subject.id}}</h1>
     <div class="main row">
         <div class="col-3 left-side">
@@ -315,60 +316,18 @@
         </div>
     <div class="d-none" id="pk">{{course.id}}</div>
     <div class="testbox">
-        <div><h1>Edit Your course</h1></div>
-        <form action="" id="courseForm">
-            <div class="d-flex">
-                <div class="item">
-                    <label for="name">Course Name<span>*</span></label>
-                        <input id="title" type="text" name="name" placeholder="" />
-    
-                </div>
-                <div class="item">
-                    <label for="description">Description<span>*</span></label>
-                    <textarea name="description" id="description" cols="30" rows="1"></textarea>
-                </div>
-                <div class="item">
-                    <label for="price">Price<span>*</span></label>
-                    <input id="price" type="number" name="price" />
-                </div>
-            </div>
-            
-            <div class="item">
-                <label for="age">Minimum Age<span>*</span></label>
-                <input id="age" type="number" name="number" />
-            </div>
-            <div class="item">
-                <label for="time">Course Period<span>*</span></label>
-                <input id="time" type="text" name="time" />
-            </div>
-            <!-- <div class="item">
-                <label for="image">Course picture<span>*</span></label>
-                <input id="image" type="file" name="age"/>
-            </div> -->
-            <div class="item mb-5">
-                <a href="{% url 'core:create-question' %}" style="width: 150px;
-                padding: 15px;
-                border: none;
-                border-radius: 5px;
-                background: #cc7a00;
-                font-size: 16px;
-                color: #fff;
-                cursor: pointer;
-                text-decoration: none;">
-                Add Questions
-            </a>
-            <a href="{% url 'core:course-questions' course.pk%}">Questions</a>
-            </div>
-
-
-            <button type="submit">Next</button>
-
-
-        </form>
+        <div style="display: flex; justify-content: space-between;">
+            <h2 class="mb-4 mt-1">Questions</h2>
+            <a href="{% url 'core:create-question' %}" class="btn btn-secondary" style="height: 35px;background: rgb(245, 223, 76);
+            border: 1px solid rgb(245, 223, 76);
+            color: black;">Add question +</a>
+        </div>
+        <div class="questions-here">
+        </div>
     </div>
     </div>
 
-    <script src="{% static 'js/edit-course.js' %}"></script>
+    <script src="{% static 'js/course-questions.js' %}"></script>
     {% endblock %}
 
 
