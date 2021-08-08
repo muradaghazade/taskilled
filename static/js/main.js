@@ -60,14 +60,15 @@ getInternshipList = () => {
     console.log(document.querySelector("#fleximg2"));
     courses.slice(0,4).forEach(element => {
         document.querySelector("#fleximg2").innerHTML += `
-        
         <div class="col-md-3 col-12" style="padding: 50px 30px;">
+        <a style="text-decoration: none;" href="course/${element.id}">
+
         <div style="background: url(${element.image}); background-size: cover; background-repeat: no-repeat; height: 350px; padding: 20px; padding-top: 250px; border-radius: 3px;">
           <h3 style="color: white; font-weight: 200;">Price ${element.price}AZN</h3>
           <span style="color: white;">${element.title}</span>
           </div>
+          </a>
         </div>
-      
       
         `
     });
