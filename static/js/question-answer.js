@@ -320,7 +320,7 @@ getAllQuestions()
 
 getCompletementLevel = () => {
   let questions = localStorage.getItem('id_list').split(',')
-  let oneQuestionProcent = 100/questions.length
+  let oneQuestionProcent = Math.round(100/questions.length)
   let pageNumber = questions.indexOf(pk)
   console.log(pageNumber);
   document.querySelector('.progress-bar').style.width = `${oneQuestionProcent*pageNumber}%`
