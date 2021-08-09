@@ -86,6 +86,16 @@
      flex-direction: column;
    }
  }
+
+ .internship-div{
+   width: 90%;
+   height: 300px;
+   background-image: url("../../static/img/clay-banks-b5S4FrJb7yQ-unsplash.jpg");
+   background-size: cover;
+   background-position: center;
+   padding: 10rem 0;
+   border-radius: 33px;
+ }
   </style>
 {% endblock %}
 
@@ -137,39 +147,38 @@
     <hr style="margin: 0;" />
    
 
-    <section style="margin-bottom: 20px;">
-      <h2 style="font-weight: 300;
-      margin-top: 30px;
-      margin-left: 50px;
-      margin-bottom: -20px;
-      color: darkblue;    display: flex;
-      justify-content: space-between;">
-        APPLY FOR INTERNSHIP PROGRAMS FROM AROUND THE WORLD
-        <a style="margin-right: 50px; font-size: 17px; font-weight: normal;" href="{% url 'core:internship-list'%}">View all</a>
-      </h2>
-      
-      <div class="container-fluid">
-        
-        <div class="row flexxx" id="fleximg2">
-          
+    <section style="margin-bottom: 20px;display: flex;justify-content: center;">
+      <a style="margin-right: 50px; font-size: 17px; font-weight: normal;" href="{% url 'core:internship-list'%}"></a>
+      <div class="container-fluid internship-div row">
+          <div class="col-7" style="height: 100%;"></div>
+          <div class="col-5" style="height: 100%;margin-top: -50px;">
+            <h1 style="color: white;">INTERNSHIP</h1>
+            <h2 style="color: white;">Find from around the world</h2>
+            <button style="background: #FFDB64;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 4px; border: none; padding: 10px;"><a style="width: 100% ;margin-right: 50px; font-size: 17px; font-weight: normal; color: black;" href="{% url 'core:internship-list'%}">   Programs<i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a></button>
+          </div>
         </div>
-      </div>
     </section>
     <hr style="margin: 0;" />
-    <section class="exam" style="padding-top: 25px">
-      <div class="exam__container">
-        <div class="exam__title">
-          <h2 class="form" style="margin-bottom: 30px !important;"
-            >EARN MONEY OR BE HIRED BY SOLVING TASKS FOR BUSINESS
-        </h2>
-          <div class="all" style="border: 1px solid black; padding: 7px 13px; border-radius: 3px; color: black;">
-            <a href="{% url 'core:btask-list' %}" class="view-all" style="color: black; text-decoration: none;">View All</a>
+    <section class="exam d-flex" style="padding-top: 25px;justify-content: center;">
+      <div class="row container">
+        <div class="col-6">
+          <h3>Business Tasks</h3>
+          <h1 style="font-weight: bold;">Earn money or be hired</h1>
+          <br><br><br>
+         <a href="{% url 'core:btask-list' %}" class="view-all" style="background: #FFDB64;
+          border-radius: 10px;border: none; outline: none;color: black; text-decoration: none; padding: 30px;">View All</a>
+          <br><br><br>
+          <div class="d-flex" style="flex-direction: column; margin-top: 30px;">
+            <hr style="width: 100%;">
+            <hr style="width: 75%;">
+            <hr style="width:50%;">
+
           </div>
         </div>
-        <div class="">
-          <div class="row" id="fleximg3">
-            
-          </div>
+        <div class="col-6">
+          <img src="../../static/img/Yusif.png" alt="">
         </div>
       </div>
     </section>
