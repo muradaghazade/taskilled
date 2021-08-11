@@ -75,43 +75,43 @@ getInternshipList = () => {
   })
 }
 
-getBTaskList = () => {
-  fetch(url)
-  .then((resp) => resp.json())
-  .then((data) => {
-    let courses = []
-    data.forEach(e => {
-      console.log(e.category);
-      if (e.category == 3 && e.is_shared == true) {
-        courses.push(e)
-      }
-    })
-    console.log(courses);
-    console.log(courses.slice(0,4));
-    console.log(document.querySelector("#fleximg3"));
-    courses.slice(0,4).forEach(element => {
-        document.querySelector("#fleximg3").innerHTML += `
+// getBTaskList = () => {
+//   fetch(url)
+//   .then((resp) => resp.json())
+//   .then((data) => {
+//     let courses = []
+//     data.forEach(e => {
+//       console.log(e.category);
+//       if (e.category == 3 && e.is_shared == true) {
+//         courses.push(e)
+//       }
+//     })
+//     console.log(courses);
+//     console.log(courses.slice(0,4));
+//     console.log(document.querySelector("#fleximg3"));
+//     courses.slice(0,4).forEach(element => {
+//         document.querySelector("#fleximg3").innerHTML += `
 
-        <div class="col-md-3 mb-3 col-12">
-          <div class="card" style=" height: 350px;">
-          <a href="/course/${element.id}" style="color: black; text-decoration: none;">
-  <div class="card-img-top" style="background: url(${element.image}); height: 170px; background-size: cover;"></div>
-</a>
+//         <div class="col-md-3 mb-3 col-12">
+//           <div class="card" style=" height: 350px;">
+//           <a href="/course/${element.id}" style="color: black; text-decoration: none;">
+//   <div class="card-img-top" style="background: url(${element.image}); height: 170px; background-size: cover;"></div>
+// </a>
 
-  <div class="card-body">
-  <h4 class="mt-3">${element.title}</h4>
-  <p style="height: 50px; overflow: scroll;">${element.description}</p>
-  <h6 class="card-text">AZN${element.price}</h6>
-  </div>
-</div>
-          </div>
+//   <div class="card-body">
+//   <h4 class="mt-3">${element.title}</h4>
+//   <p style="height: 50px; overflow: scroll;">${element.description}</p>
+//   <h6 class="card-text">AZN${element.price}</h6>
+//   </div>
+// </div>
+//           </div>
         
         
       
-        `
-    });
-  })
-}
+//         `
+//     });
+//   })
+// }
 
 // url_users = "http://localhost:8000/api/v1/show-users/";
 
