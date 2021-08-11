@@ -2,6 +2,7 @@ from django.db import models
 from accounts.models import User
 from datetime import datetime
 from accounts.models import User
+from django.core.mail import send_mail
 
 # Create your models here.
 class Course(models.Model):
@@ -105,6 +106,16 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
+
+    def save(self, *args, **kwargs):
+        super(Order, self).save(*args, **kwargs)
+        # print(self.course.category.title)
+        
+        if self.course.category.title == "Internship":
+            print('You are buying an Internship!')
+            print(self.course.teacher.email)
+            print(self.user)
+            send_mail('Someone applied to your Internship!', f'{self.user.first_name} {self.user.last_name} applied to your Internship!\nHere is information of user:\nEmail: {self.user.email}\nPhone number: {self.user.number}', 'husubayli@gmail.com', [self.course.teacher.email,])
 
 class Option(models.Model):
     content = models.CharField('Title',max_length=255)

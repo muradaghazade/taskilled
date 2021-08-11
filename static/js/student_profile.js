@@ -41,7 +41,7 @@ fetch(`/api/v1/user-data/`, {
                               <h3 class="card-title" style="font-weight:bold; font-size: 17px;">${course.title}</h3>
                               <p class="card-text">for ${course.course_deadline} weeks</p>
                           </div>
-                              <h5 class="card-title col-4" style="width:80%;display: flex;justify-content: center;align-items: center;background-color: rgb(245, 223, 76); border-radius: 5px;font-size:16px;color:white;padding: 10px 0px;">${course.price} AZN</h5>
+                              <h5 class="card-title col-4" style="width:80%;display: flex;justify-content: center;align-items: center;background-color: rgb(245, 223, 76); border-radius: 5px;font-size:13px;color:white;padding: 10px 0px;">${course.price} AZN</h5>
                           </div>
                         <p class="card-text">${course.description}</p>
                         <a href="/course/${course.id}" class="btn btn-dark" style="color:rgb(245, 223, 76);">Choose a course</a>

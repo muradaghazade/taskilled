@@ -173,9 +173,13 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
             console.log(orders);
             orders.forEach(e => {
              if (e.course == pk && e.user == data.id) {
-              document.getElementById("congrats-div").innerHTML = `<p style="color: green;">You successfuly bought this course!</p>`
+              document.getElementById("congrats-div").innerHTML = `<p style="color: green;">You have bought this course!</p>`
               // document.location.href = '/core/login'
-              document.getElementById("start-course").style.display = 'block'
+              document.getElementById("start-course").style.display = 'block';
+              document.querySelectorAll('.hide-me').forEach(e => {
+                e.classList.add('d-none')
+                e.classList.remove('d-flex')
+              })
              }
             })
           })
