@@ -11,3 +11,7 @@ redisdb/
 media/
 /media
 media
+taskilled.crt
+taskilled.csr
+merchant_name.key
+nopassword.key

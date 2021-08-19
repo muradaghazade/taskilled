@@ -212,9 +212,9 @@ class OrderCreateAPIView(CreateAPIView):
                                 <Amount>{price*100}</Amount>
                                 <Currency>944</Currency>
                                 <Description>xxxxxxxx</Description>
-                                <ApproveURL>/testshopPageReturn.jsp</ApproveURL>
-                                <CancelURL>/testshopPageReturn.jsp</CancelURL>
-                                <DeclineURL>/testshopPageReturn.jsp</DeclineURL>
+                                <ApproveURL>https://taskilled.com/course/{course.id}/</ApproveURL>
+                                <CancelURL>https://taskilled.com/course/{course.id}/</CancelURL>
+                                <DeclineURL>>https://taskilled.com/course/{course.id}/</DeclineURL>
                         </Order>
                 </Request>
             </TKKPG>"""
