@@ -3,6 +3,27 @@ from accounts.models import User
 from datetime import datetime
 from accounts.models import User
 from django.core.mail import send_mail
+import requests
+import os
+import xmltodict
+
+BASE_URL = 'https://e-commerce.kapitalbank.az'
+PORT='5443'
+
+def postPay(data):
+      headers = {'Content-Type': 'application/xml'} 
+      r = requests.post(
+            f'{BASE_URL}:{PORT}/Exec',
+            data=data,
+            verify=False,
+            headers=headers,
+            cert=(CERT_FILE, KEY_FILE)
+        )
+      print(r.text)
+      return r.text
+
+CERT_FILE = os.getenv("KAPITAL_CERT_FILE", "./taskilled.crt")
+KEY_FILE = os.getenv("KAPITAL_KEY_FILE", "./merchant_name.key")
 
 # Create your models here.
 class Course(models.Model):
@@ -116,6 +137,9 @@ class Order(models.Model):
             print(self.course.teacher.email)
             print(self.user)
             send_mail('Someone applied to your Internship!', f'{self.user.first_name} {self.user.last_name} applied to your Internship!\nHere is information of user:\nEmail: {self.user.email}\nPhone number: {self.user.number}', 'husubayli@gmail.com', [self.course.teacher.email,])
+        
+       
+
 
 class Option(models.Model):
     content = models.CharField('Title',max_length=255)

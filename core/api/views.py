@@ -1,4 +1,5 @@
 from django.db.models import query
+import requests
 from rest_framework.generics import CreateAPIView, ListAPIView
 from core.models import Course, Subject, Question , Option, Order, UserAnswer, AnswerType
 from rest_framework.views import APIView
@@ -15,6 +16,26 @@ from .serializers import (
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+import os
+import xmltodict
+
+BASE_URL = 'https://e-commerce.kapitalbank.az'
+PORT='5443'
+
+def postPay(data):
+      headers = {'Content-Type': 'application/xml'} 
+      r = requests.post(
+            f'{BASE_URL}:{PORT}/Exec',
+            data=data,
+            verify=False,
+            headers=headers,
+            cert=(CERT_FILE, KEY_FILE)
+        )
+      print(r.text)
+      return r.text
+
+CERT_FILE = os.getenv("KAPITAL_CERT_FILE", "./taskilled.crt")
+KEY_FILE = os.getenv("KAPITAL_KEY_FILE", "./merchant_name.key")
 
 class AnswerTypeDetailAPIView(APIView):
     def get(self, request, *args, **kwargs):
@@ -162,6 +183,60 @@ class OrderCreateAPIView(CreateAPIView):
     model = Order
     serializer_class = OrderSerializer
 
+    # def get(self, request, *args, **kwargs):
+    #     order = get_object_or_404(Order, pk=kwargs['id'])
+    #     serializer = OrderSerializer(order)
+    #     return Response(serializer.data)
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['answer_types'] = AnswerType.objects.all()
+    #     return context
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        # order = get_object_or_404(Course, pk=request.data['user'])
+        course = Course.objects.get(pk=int(request.data['course']))
+        price = course.price
+        data = f"""<?xml version="1.0" encoding="UTF-8"?>
+            <TKKPG>
+                <Request>
+                        <Operation>CreateOrder</Operation>
+                        <Language>RU</Language>
+                        <Order>
+                                <OrderType>Purchase</OrderType>
+                                <Merchant>E1180054</Merchant>
+                                <Amount>{price*100}</Amount>
+                                <Currency>944</Currency>
+                                <Description>xxxxxxxx</Description>
+                                <ApproveURL>/testshopPageReturn.jsp</ApproveURL>
+                                <CancelURL>/testshopPageReturn.jsp</CancelURL>
+                                <DeclineURL>/testshopPageReturn.jsp</DeclineURL>
+                        </Order>
+                </Request>
+            </TKKPG>"""
+        response = postPay(data)
+        dict_resp = xmltodict.parse(response)
+        url_resp = dict_resp['TKKPG']['Response']['Order']['URL']
+        order_id = dict_resp['TKKPG']['Response']['Order']['OrderID']
+        session_id = dict_resp['TKKPG']['Response']['Order']['SessionID']
+        print(order_id, 'burdayam braat')
+        final_resp = {
+            'url': url_resp,
+            'order_id': order_id,
+            'session_id': session_id
+        }
+        return Response(final_resp, status=status.HTTP_201_CREATED, headers=headers)
+
+    # def post(self, request, *args, **kwargs):
+    #     order = self.create(request, *args, **kwargs)
+    #     # print(order, "hey")
+    #     # serializer = OrderSerializer(order)
+    #     return Response("hey",order)
+        
 
 class OrderListAPIView(ListAPIView):
     serializer_class = OrderSerializer

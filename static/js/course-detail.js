@@ -137,8 +137,9 @@ let jwt = `Bearer ${localStorage.getItem("token")}`
     .then((data) => {
       console.log(data, 'yeaaaa');
       document.getElementById("congrats-div").innerHTML = `<p style="color: green;">You successfuly bought this course!</p>`
-      // document.location.href = '/core/login'
       document.getElementById("start-course").style.display = 'block'
+      // https://e-commerce.kapitalbank.az/index.jsp?ORDERID=10253&SESSIONID=1661DD2BD23BC67D6CBF84FE847B369F
+      document.location.href = `${data.url}?ORDERID=${data.order_id}&SESSIONID=${data.session_id}`
     })
 
         })
