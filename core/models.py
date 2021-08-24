@@ -120,6 +120,7 @@ class UserAnswer(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True, related_name='order')
     course = models.ForeignKey("Course", on_delete=models.CASCADE, db_index=True, related_name='the_order')
+    successfuly_paid = models.BooleanField('Successfuly Paid',default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

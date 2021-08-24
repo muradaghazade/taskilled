@@ -183,24 +183,24 @@ class OrderCreateAPIView(CreateAPIView):
     model = Order
     serializer_class = OrderSerializer
 
-    # def get(self, request, *args, **kwargs):
-    #     order = get_object_or_404(Order, pk=kwargs['id'])
-    #     serializer = OrderSerializer(order)
-    #     return Response(serializer.data)
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['answer_types'] = AnswerType.objects.all()
-    #     return context
+    def perform_create(self, serializer):
+        obj = serializer.save()
+        return obj.id
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        # print(serializer, 'SERIALIZER')
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
+        id = self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        # self.object = self.get_object()
+        print(id)
         # order = get_object_or_404(Course, pk=request.data['user'])
         course = Course.objects.get(pk=int(request.data['course']))
         price = course.price
+        # 3136323935333336313333323230303030303030
+        # 3136323935333431303935373030303030303030
         data = f"""<?xml version="1.0" encoding="UTF-8"?>
             <TKKPG>
                 <Request>
@@ -211,10 +211,10 @@ class OrderCreateAPIView(CreateAPIView):
                                 <Merchant>E1180054</Merchant>
                                 <Amount>{price*100}</Amount>
                                 <Currency>944</Currency>
-                                <Description>xxxxxxxx</Description>
-                                <ApproveURL>https://taskilled.com/course/{course.id}/</ApproveURL>
-                                <CancelURL>https://taskilled.com/course/{course.id}/</CancelURL>
-                                <DeclineURL>>https://taskilled.com/course/{course.id}/</DeclineURL>
+                                <Description>{id}</Description>
+                                <ApproveURL>http://127.0.0.1:8000/course/{course.id}/</ApproveURL>
+                                <CancelURL>http://127.0.0.1:8000/course/{course.id}/</CancelURL>
+                                <DeclineURL>http://127.0.0.1:8000/course/{course.id}/</DeclineURL>
                         </Order>
                 </Request>
             </TKKPG>"""
@@ -223,7 +223,7 @@ class OrderCreateAPIView(CreateAPIView):
         url_resp = dict_resp['TKKPG']['Response']['Order']['URL']
         order_id = dict_resp['TKKPG']['Response']['Order']['OrderID']
         session_id = dict_resp['TKKPG']['Response']['Order']['SessionID']
-        print(order_id, 'burdayam braat')
+        # print(order_id, 'burdayam braat')
         final_resp = {
             'url': url_resp,
             'order_id': order_id,

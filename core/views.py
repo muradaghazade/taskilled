@@ -5,7 +5,10 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView , DetailView , View, CreateView
 from core.models import *
 # from django.core.paginator import Paginator
-
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.core.exceptions import PermissionDenied
+# import xmltodict
 
 class MainPageView(TemplateView):
     template_name = 'main-page.html'
@@ -23,21 +26,47 @@ class BTaskListView(ListView):
     model = Course
     template_name = 'b_task.html'
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = "course"
     template_name = 'course_detail.html'
 
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        print(request.POST)
+        response = request.POST['xmlmsg']
+        dict_resp = xmltodict.parse(response)
+        print(dict_resp['Message']['OrderStatus'])
+        order_id = int(dict_resp['Message']['OrderDescription'])
+        if dict_resp['Message']['OrderStatus'] == "APPROVED":
+            Order.objects.filter(pk=order_id).update(successfuly_paid=1)
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
 class ProfileView(TemplateView):
     model = Course
     template_name = 'profile.html'
 
-
+@method_decorator(csrf_exempt, name='dispatch')
 class QuestionView(DetailView):
     model = Question
     context_object_name = "question"
     template_name = 'question.html'
+
+    # def post(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+    #     print(request.POST, 'post burda')
+    #     context = self.get_context_data(object=self.object)
+    #     # print(request.POST, 'yeah')
+    #     return self.render_to_response(context)
+    
+    # def dispatch(self, request, *args, **kwargs):
+    #     # if self.request.user.username != self.get_object().username:
+    #     print(self.request.user)
+    #     raise PermissionDenied
+    #     return super(ProfileView, self).dispatch(request, *args, **kwargs)
+
 
 class CreateTaskView(TemplateView):
     model = Course
