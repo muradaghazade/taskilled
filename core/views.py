@@ -8,7 +8,10 @@ from core.models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.core.exceptions import PermissionDenied
-# import xmltodict
+import json
+from types import SimpleNamespace
+import jwt
+from django.conf import settings
 
 class MainPageView(TemplateView):
     template_name = 'main-page.html'
@@ -39,7 +42,7 @@ class CourseDetailView(DetailView):
         dict_resp = xmltodict.parse(response)
         print(dict_resp['Message']['OrderStatus'])
         order_id = int(dict_resp['Message']['OrderDescription'])
-        if dict_resp['Message']['OrderStatus'] == "APPROVED":
+        if dict_resp['Message']['OrderStatus'] == "DECLINED":
             Order.objects.filter(pk=order_id).update(successfuly_paid=1)
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
@@ -54,18 +57,43 @@ class QuestionView(DetailView):
     context_object_name = "question"
     template_name = 'question.html'
 
-    # def post(self, request, *args, **kwargs):
-    #     self.object = self.get_object()
-    #     print(request.POST, 'post burda')
-    #     context = self.get_context_data(object=self.object)
-    #     # print(request.POST, 'yeah')
-    #     return self.render_to_response(context)
+    def get(self, request, *args, **kwargs):
+        token = request.COOKIES['token']
+        decoded = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+        print(decoded)
+        order = Order.objects.filter(user=decoded['user_id']).filter(course=self.get_object().subject.course.id)
+        print(order.first().successfuly_paid)
+        if order.first() == None:
+            raise PermissionDenied
+        elif order.first().successfuly_paid != True:
+            raise PermissionDenied
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
     
     # def dispatch(self, request, *args, **kwargs):
-    #     # if self.request.user.username != self.get_object().username:
-    #     print(self.request.user)
-    #     raise PermissionDenied
-    #     return super(ProfileView, self).dispatch(request, *args, **kwargs)
+    #     print(request.headers.get('The-Token'), 'qwerty')
+    #     # token = request.headers.get('The-Token')
+    #     # print(type(token), 'murad')
+    #     # token = bytes(token, 'utf-8')
+    #     # decoded = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+    #     # print(decoded)
+    #     headers = {'Content-Type': 'application/json', 'Authorization': f'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMyNDgwNDQ1LCJqdGkiOiI3YWVlZDA2MjE2Y2M0YjE4OGM1ZDkzZmUxMWQ0NWE1NSIsInVzZXJfaWQiOjI4LCJ1c2VybmFtZSI6InJpYWxydXN0YW1vdiIsImVtYWlsIjoicmlhbEBnbWFpbC5jb20ifQ.MwuDC0SFuEY9r-P971aJ1JxjZUzxkbYpiuK4CgpgObc'}
+    #     r = requests.post(
+    #         f'http://127.0.0.1:8000/api/v1/user-data/',
+    #         headers=headers,
+    #     )
+    #     resp = r.text
+    #     response = json.loads(resp, object_hook=lambda d: SimpleNamespace(**d))
+    #     print(response)
+    #     order = Order.objects.filter(user=response.id).filter(course=self.get_object().subject.course.id)
+    #     print(order.first().successfuly_paid)
+    #     if order.first() == None:
+    #         raise PermissionDenied
+    #     elif order.first().successfuly_paid != True:
+    #         raise PermissionDenied
+        
+    #     return super(QuestionView, self).dispatch(request, *args, **kwargs)
 
 
 class CreateTaskView(TemplateView):

@@ -102,16 +102,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('id', 'user', 'course')
+        fields = ('id', 'user', 'course', 'successfuly_paid')
 
-    def create(self, validated_data):
-        order = Order.objects.create(
-            user=validated_data['user'],
-            course=validated_data['course']
-            
-        )
-        order.save()
-        return order
 
 class UserAnswerSerializer(serializers.ModelSerializer):
     image = Base64ImageField(required=False)

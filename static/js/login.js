@@ -27,7 +27,11 @@ login = (username,password) => {
         .then((resp) => resp.json())
         .then((data) => {
           console.log(data.detail);
+          var d = new Date();
+          d.setMonth(d.getMonth() + 1);
+          console.log(d)
           localStorage.setItem("token", data.access);
+          document.cookie = `token=${data.access}; expires=${d} UTC; path=/`
           if (data.detail != "No active account found with the given credentials") {
             document.location.href = '/'
             
